@@ -2,6 +2,9 @@
 
 Course website for **STATS 401: Data Acquisition and Visualization**.
 
+**Student:** Shilin Ou  
+**NetID:** so192
+
 ## Live Lab 1
 
 **[Open the published Student Score Distribution](https://owen-1234.github.io/stats401-labs/lab1/)**
