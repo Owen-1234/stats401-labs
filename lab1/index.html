@@ -7,8 +7,8 @@
     <title>Lab 1: Student Scores | STATS 401</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Libre+Franklin:wght@500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -18,7 +18,7 @@
             <span class="course-number">401</span>
             <span class="course-name">Data Acquisition<br>&amp; Visualization</span>
         </a>
-        <span class="term-label">Course Lab Portfolio</span>
+        <span class="term-label">Owen &middot; Research Portfolio</span>
     </header>
 
     <nav class="lab-nav" aria-label="Lab navigation">
@@ -36,11 +36,16 @@
 
     <main id="main-content" class="lab-shell">
         <section class="lab-heading">
-            <div class="lab-number" aria-hidden="true">01</div>
+            <div class="lab-number" aria-hidden="true"><span>Research note</span>01</div>
             <div class="lab-title-wrap">
                 <p class="section-kicker">Lab 1 &middot; Getting started with D3.js</p>
-                <h1>Student Score<br>Distribution</h1>
-                <p class="lab-deck">A first data-driven study of eight student scores, created from an external CSV dataset with D3 and SVG.</p>
+                <h1>Student Score Distribution</h1>
+                <p class="lab-deck">A concise descriptive study of eight student scores, created from an external CSV dataset through reproducible D3 data binding.</p>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>STATS 401</span>
+                    <span>Fall 2026</span>
+                    <span>D3.js v7</span>
+                </div>
             </div>
         </section>
 
@@ -57,13 +62,18 @@
                 <span class="meta-label">Highest score</span>
                 <span class="meta-value" id="highest-score">Loading&hellip;</span>
             </div>
+            <div class="meta-item">
+                <span class="meta-label">Median score</span>
+                <span class="meta-value" id="median-score">Loading&hellip;</span>
+            </div>
         </section>
 
         <section class="chart-panel" aria-labelledby="chart-title">
             <div class="chart-header">
                 <div>
+                    <p class="figure-label">Figure 1</p>
                     <h2 id="chart-title">Scores by student</h2>
-                    <p>Bar height encodes score on a consistent 0&ndash;100 scale.</p>
+                    <p>Bar height encodes score on a consistent 0&ndash;100 point scale.</p>
                 </div>
                 <div class="legend" aria-label="Chart legend">
                     <span class="legend-item"><span class="legend-swatch" aria-hidden="true"></span>Score</span>
@@ -74,6 +84,26 @@
                 <p class="chart-status">Loading student score data&hellip;</p>
             </div>
             <div class="chart-tooltip" id="chart-tooltip" role="status" aria-live="polite"></div>
+            <p class="figure-caption"><span>Figure 1.</span> Individual scores for eight students. The dashed rule marks the sample mean; the ochre column identifies the observed maximum.</p>
+        </section>
+
+        <section class="findings" aria-labelledby="findings-title">
+            <div class="findings-heading">
+                <p class="section-kicker">Descriptive reading</p>
+                <h2 id="findings-title">What the distribution shows</h2>
+            </div>
+            <div class="finding-grid">
+                <article>
+                    <span class="finding-index">A</span>
+                    <h3>Concentration</h3>
+                    <p><strong id="above-mean">Loading&hellip;</strong> scored above the sample mean, indicating that most observations cluster in the upper portion of the scale.</p>
+                </article>
+                <article>
+                    <span class="finding-index">B</span>
+                    <h3>Observed range</h3>
+                    <p>The difference between the maximum and minimum is <strong id="score-range">Loading&hellip;</strong>, offering a compact view of score dispersion.</p>
+                </article>
+            </div>
         </section>
 
         <section class="method-note" aria-labelledby="method-title">
@@ -82,7 +112,7 @@
                 <h2 id="method-title">From table to visual evidence.</h2>
             </div>
             <div>
-                <p>The source data are loaded from <code>students.csv</code>. During row conversion, every score is converted from text to a number. D3 then binds one record to one SVG rectangle, so the graphic remains directly connected to the dataset rather than being drawn manually.</p>
+                <p>The source data are loaded from <code>lab1/data/students.csv</code>. During row conversion, every score is converted from text to a number. D3 then binds one record to one SVG rectangle, so the graphic remains directly connected to the dataset rather than being drawn manually.</p>
                 <p class="source-note"><strong>Source:</strong> Course-provided illustrative student score dataset. Scores range from 0 to 100.</p>
             </div>
         </section>
@@ -94,6 +124,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="chart.js"></script>
+    <script src="js/chart.js"></script>
 </body>
 </html>

@@ -1,23 +1,48 @@
 const chartContainer = d3.select("#chart");
 const tooltip = d3.select("#chart-tooltip");
+const publishedDataUrl = "https://owen-1234.github.io/stats401-labs/lab1/data/students.csv";
 
-async function drawChart() {
+const parseStudent = d => ({
+    name: d.name,
+    score: +d.score
+});
+
+async function loadStudentData() {
+    if (window.location.protocol === "file:") {
+        return d3.csv(publishedDataUrl, parseStudent);
+    }
+
     try {
-        const data = await d3.csv("../data/students.csv", d => ({
+        return await d3.csv("data/students.csv", d => ({
             name: d.name,
             score: +d.score
         }));
+    } catch (error) {
+        console.warn("Relative CSV unavailable; using the published copy.", error);
+        return d3.csv(publishedDataUrl, parseStudent);
+    }
+}
+
+async function drawChart() {
+    try {
+        const data = await loadStudentData();
 
         if (!data.length || data.some(d => !d.name || !Number.isFinite(d.score))) {
             throw new Error("The CSV does not contain valid student score records.");
         }
 
         const mean = d3.mean(data, d => d.score);
+        const median = d3.median(data, d => d.score);
         const highest = d3.greatest(data, d => d.score);
+        const lowest = d3.least(data, d => d.score);
+        const aboveMean = data.filter(d => d.score > mean).length;
 
         d3.select("#sample-size").text(`${data.length} students`);
         d3.select("#mean-score").text(d3.format(".1f")(mean));
         d3.select("#highest-score").text(`${highest.name} · ${highest.score}`);
+        d3.select("#median-score").text(d3.format(".1f")(median));
+        d3.select("#above-mean").text(`${aboveMean} of ${data.length} students`);
+        d3.select("#score-range").text(`${highest.score - lowest.score} points`);
 
         chartContainer.selectAll("*").remove();
 
@@ -77,9 +102,21 @@ async function drawChart() {
             .attr("dy", "0.32em")
             .attr("text-anchor", "end")
             .attr("fill", "#6a7583")
-            .attr("font-family", "DM Sans, Arial, sans-serif")
+            .attr("font-family", "IBM Plex Sans, Arial, sans-serif")
             .attr("font-size", 12)
             .text(d => d);
+
+        plot.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -innerHeight / 2)
+            .attr("y", -43)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#66706f")
+            .attr("font-family", "IBM Plex Sans, Arial, sans-serif")
+            .attr("font-size", 11)
+            .attr("font-weight", 600)
+            .attr("letter-spacing", "0.12em")
+            .text("SCORE · POINTS");
 
         const meanGroup = plot.append("g")
             .attr("aria-hidden", "true");
@@ -89,7 +126,7 @@ async function drawChart() {
             .attr("x2", innerWidth)
             .attr("y1", y(mean))
             .attr("y2", y(mean))
-            .attr("stroke", "#b68a3b")
+            .attr("stroke", "#a56c35")
             .attr("stroke-width", 2)
             .attr("stroke-dasharray", "8 6");
 
@@ -97,8 +134,8 @@ async function drawChart() {
             .attr("x", innerWidth)
             .attr("y", y(mean) - 9)
             .attr("text-anchor", "end")
-            .attr("fill", "#8a6527")
-            .attr("font-family", "DM Sans, Arial, sans-serif")
+            .attr("fill", "#875327")
+            .attr("font-family", "IBM Plex Sans, Arial, sans-serif")
             .attr("font-size", 12)
             .attr("font-weight", 700)
             .text(`MEAN ${d3.format(".1f")(mean)}`);
@@ -111,8 +148,8 @@ async function drawChart() {
             .attr("y", d => y(d.score))
             .attr("width", x.bandwidth())
             .attr("height", d => innerHeight - y(d.score))
-            .attr("fill", d => d === highest ? "#b68a3b" : "#234f7d")
-            .attr("rx", 2)
+            .attr("fill", d => d === highest ? "#a56c35" : "#264d59")
+            .attr("rx", 1)
             .attr("tabindex", 0)
             .attr("role", "graphics-symbol")
             .attr("aria-label", d => `${d.name}, score ${d.score} out of 100`);
@@ -125,8 +162,8 @@ async function drawChart() {
             .attr("x2", d => x(d.name) + x.bandwidth())
             .attr("y1", d => y(d.score))
             .attr("y2", d => y(d.score))
-            .attr("stroke", d => d === highest ? "#79581f" : "#173959")
-            .attr("stroke-width", 4)
+            .attr("stroke", d => d === highest ? "#70431e" : "#17383f")
+            .attr("stroke-width", 3)
             .attr("pointer-events", "none");
 
         const labels = plot.selectAll("g.student-label")
@@ -139,7 +176,7 @@ async function drawChart() {
         labels.append("text")
             .attr("text-anchor", "middle")
             .attr("fill", "#17263c")
-            .attr("font-family", "DM Sans, Arial, sans-serif")
+            .attr("font-family", "IBM Plex Sans, Arial, sans-serif")
             .attr("font-size", 14)
             .attr("font-weight", 700)
             .text(d => d.name);
@@ -148,7 +185,7 @@ async function drawChart() {
             .attr("y", 25)
             .attr("text-anchor", "middle")
             .attr("fill", "#4d5b6d")
-            .attr("font-family", "DM Sans, Arial, sans-serif")
+            .attr("font-family", "IBM Plex Sans, Arial, sans-serif")
             .attr("font-size", 13)
             .text(d => `${d.score} points`);
 
@@ -157,7 +194,7 @@ async function drawChart() {
             .attr("x2", 12)
             .attr("y1", 39)
             .attr("y2", 39)
-            .attr("stroke", d => d === highest ? "#b68a3b" : "#d8d6cd")
+            .attr("stroke", d => d === highest ? "#a56c35" : "#d3d0c6")
             .attr("stroke-width", 2);
 
         function showTooltip(event, d) {
@@ -182,9 +219,9 @@ async function drawChart() {
     } catch (error) {
         console.error("Unable to render the student score chart:", error);
         chartContainer.html(
-            `<p class="chart-error"><strong>The chart could not be loaded.</strong><br>Please run this project through a local web server and confirm that <code>data/students.csv</code> is available.</p>`
+            `<p class="chart-error"><strong>The chart could not be loaded.</strong><br>Check your internet connection, then open the published Lab 1 page again.</p>`
         );
-        d3.selectAll("#sample-size, #mean-score, #highest-score").text("Unavailable");
+        d3.selectAll("#sample-size, #mean-score, #highest-score, #median-score, #above-mean, #score-range").text("Unavailable");
     }
 }
 
