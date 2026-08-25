@@ -1,7 +1,6 @@
 # Lab 1 — Student Score Distribution
 
-**Student:** Shilin Ou  
-**NetID:** so192
+**Student:** Shilin Ou &middot; **NetID:** so192
 
 [![Student Score Distribution: an academic-style D3 bar chart showing eight student scores, their mean, and the highest observation.](assets/student-scores-preview.png)](https://owen-1234.github.io/stats401-labs/lab1/)
 

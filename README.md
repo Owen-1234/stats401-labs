@@ -2,8 +2,7 @@
 
 Course website for **STATS 401: Data Acquisition and Visualization**.
 
-**Student:** Shilin Ou  
-**NetID:** so192
+**Student:** Shilin Ou &middot; **NetID:** so192
 
 ## Live Lab 1
 
