@@ -34,15 +34,11 @@ async function drawChart() {
         const mean = d3.mean(data, d => d.score);
         const median = d3.median(data, d => d.score);
         const highest = d3.greatest(data, d => d.score);
-        const lowest = d3.least(data, d => d.score);
-        const aboveMean = data.filter(d => d.score > mean).length;
 
         d3.select("#sample-size").text(`${data.length} students`);
         d3.select("#mean-score").text(d3.format(".1f")(mean));
         d3.select("#highest-score").text(`${highest.name} · ${highest.score}`);
         d3.select("#median-score").text(d3.format(".1f")(median));
-        d3.select("#above-mean").text(`${aboveMean} of ${data.length} students`);
-        d3.select("#score-range").text(`${highest.score - lowest.score} points`);
 
         chartContainer.selectAll("*").remove();
 
@@ -221,7 +217,7 @@ async function drawChart() {
         chartContainer.html(
             `<p class="chart-error"><strong>The chart could not be loaded.</strong><br>Check your internet connection, then open the published Lab 1 page again.</p>`
         );
-        d3.selectAll("#sample-size, #mean-score, #highest-score, #median-score, #above-mean, #score-range").text("Unavailable");
+        d3.selectAll("#sample-size, #mean-score, #highest-score, #median-score").text("Unavailable");
     }
 }
 
