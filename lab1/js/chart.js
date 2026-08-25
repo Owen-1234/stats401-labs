@@ -185,18 +185,10 @@ async function drawChart() {
             .attr("font-size", 13)
             .text(d => `${d.score} points`);
 
-        labels.append("line")
-            .attr("x1", -12)
-            .attr("x2", 12)
-            .attr("y1", 39)
-            .attr("y2", 39)
-            .attr("stroke", d => d === highest ? "#a56c35" : "#d3d0c6")
-            .attr("stroke-width", 2);
-
         function showTooltip(event, d) {
             const target = event.currentTarget.getBoundingClientRect();
             tooltip
-                .html(`<strong>${d.name}</strong><span>${d.score} points · ${d.score >= mean ? "Above" : "Below"} mean</span>`)
+                .html(`<strong>${d.name}</strong><span>${d.score} points</span>`)
                 .style("left", `${target.left + target.width / 2}px`)
                 .style("top", `${target.top}px`)
                 .classed("visible", true);
