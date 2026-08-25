@@ -464,6 +464,34 @@ footer {
     letter-spacing: -0.04em;
 }
 
+.lab-source-prominent {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    align-items: center;
+    max-width: 100%;
+    margin: 10px 0 4px;
+    padding: 10px 14px;
+    color: var(--surface);
+    background: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.lab-source-prominent > span:first-child {
+    color: var(--gold-soft);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.lab-source-prominent:hover,
+.lab-source-prominent:focus-visible {
+    background: var(--blue);
+}
+
 .lab-deck {
     max-width: 690px;
     margin: 0;

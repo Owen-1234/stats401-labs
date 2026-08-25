@@ -6,7 +6,7 @@ Course website for **STATS 401: Data Acquisition and Visualization**.
 
 ## Live Lab 1
 
-**[Open the published Student Score Distribution](https://owen-1234.github.io/stats401-labs/lab1/)**
+**[Open the published Student Score](https://owen-1234.github.io/stats401-labs/lab1/)**
 
 Lab 1 is organized as a self-contained study:
 
