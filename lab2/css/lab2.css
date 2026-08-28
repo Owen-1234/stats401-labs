@@ -219,10 +219,6 @@
     margin-top: 1em;
 }
 
-.lab2-method {
-    border-left-color: var(--region-north);
-}
-
 @media (max-width: 900px) {
     .city-chart-header {
         display: block;
