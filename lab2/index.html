@@ -1,1 +1,139 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 2 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a aria-current="page" href="index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">02</div><p class="section-kicker">Upcoming study</p><h1>Lab 2</h1><p>Lab 2 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab2">View Lab 2 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A D3 multivariate study of population, temperature, development level, and region across twelve cities.">
+    <title>Lab 2: Urban Profiles | STATS 401</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../lab1/css/style.css">
+    <link rel="stylesheet" href="css/lab2.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="course-mark" href="../index.html" aria-label="STATS 401 home">
+            <span class="course-number">401</span>
+            <span class="course-name">Data Acquisition<br>&amp; Visualization</span>
+        </a>
+        <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+    </header>
+
+    <nav class="lab-nav" aria-label="Lab navigation">
+        <a href="../lab1/index.html">Lab 1</a>
+        <a href="index.html" aria-current="page">Lab 2</a>
+        <a href="../lab3/index.html">Lab 3</a>
+        <a href="../lab4/index.html">Lab 4</a>
+        <a href="../lab5/index.html">Lab 5</a>
+        <a href="../lab6/index.html">Lab 6</a>
+        <a href="../lab7/index.html">Lab 7</a>
+        <a href="../lab8/index.html">Lab 8</a>
+        <a href="../lab9/index.html">Lab 9</a>
+        <a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main id="main-content" class="lab-shell">
+        <section class="lab-heading lab2-heading">
+            <div class="lab-number" aria-hidden="true"><span>Research note</span>02</div>
+            <div class="lab-title-wrap">
+                <p class="section-kicker">Lab 2 &middot; Multivariate visualization with D3</p>
+                <h1>Urban Profiles</h1>
+                <p class="lab-deck">A comparative view of population, climate, development, and geography across twelve cities.</p>
+                <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab2"><span>GitHub code</span> github.com/Owen-1234/stats401-labs/tree/main/lab2 <span aria-hidden="true">&#8599;</span></a>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>Shilin Ou</span>
+                    <span>NetID: so192</span>
+                    <span>STATS 401</span>
+                    <span>Fall 2026</span>
+                    <span>D3.js v7</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-meta" aria-label="Dataset summary">
+            <div class="meta-item">
+                <span class="meta-label">Observations</span>
+                <span class="meta-value" id="city-count">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Median population</span>
+                <span class="meta-value" id="median-population">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Temperature span</span>
+                <span class="meta-value" id="temperature-span">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Regional coverage</span>
+                <span class="meta-value" id="region-count">Loading&hellip;</span>
+            </div>
+        </section>
+
+        <section class="chart-panel city-chart-panel" aria-labelledby="chart-title">
+            <div class="chart-header city-chart-header">
+                <div>
+                    <p class="figure-label">Figure 1 &middot; Aligned multivariate profile</p>
+                    <h2 id="chart-title">Population and climate by city</h2>
+                    <p>Cities are grouped by development level and ordered by population within each group.</p>
+                </div>
+                <div class="chart-key" aria-label="Visual encoding legend">
+                    <div class="region-legend" aria-label="Region colors">
+                        <span class="legend-title">Region / color</span>
+                        <span class="region-key"><i class="swatch north" aria-hidden="true"></i>North</span>
+                        <span class="region-key"><i class="swatch south" aria-hidden="true"></i>South</span>
+                        <span class="region-key"><i class="swatch east" aria-hidden="true"></i>East</span>
+                        <span class="region-key"><i class="swatch west" aria-hidden="true"></i>West</span>
+                    </div>
+                    <div class="development-legend" aria-label="Development level sizes">
+                        <span class="legend-title">Development / size</span>
+                        <span class="size-key"><i class="level-dot low" aria-hidden="true"></i>Low</span>
+                        <span class="size-key"><i class="level-dot medium" aria-hidden="true"></i>Medium</span>
+                        <span class="size-key"><i class="level-dot high" aria-hidden="true"></i>High</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-scroll" tabindex="0" aria-label="Scrollable chart area on narrow screens">
+                <div id="chart">
+                    <p class="chart-status">Loading city data&hellip;</p>
+                </div>
+            </div>
+            <div class="chart-tooltip city-tooltip" id="chart-tooltip" role="status" aria-live="polite"></div>
+            <p class="figure-caption"><span>Figure 1.</span> Population is encoded by bar length, average temperature by horizontal dot position, region by color, and development level by dot size. Hover over or focus a city row for exact values.</p>
+        </section>
+
+        <section class="design-justification" aria-labelledby="design-title">
+            <div class="justification-heading">
+                <p class="section-kicker">Design record &middot; 170 words</p>
+                <h2 id="design-title">Design Justification</h2>
+            </div>
+            <div class="justification-copy">
+                <p>Population is mapped to horizontal bar length because it is a ratio variable with a meaningful zero, making proportional differences easy to compare. Average temperature is placed on a separate aligned horizontal axis: position supports precise comparison while avoiding the misleading implication that zero degrees means an absence of temperature. Region, a nominal variable, is represented with four distinct colors that do not imply rank. Development level is ordinal, so Low, Medium, and High are encoded with progressively larger circles and reinforced by grouped row labels.</p>
+                <p>The two aligned views share city rows, allowing the reader to compare population and climate without forcing measurements with different units onto one scale. Cities are grouped by development level and then ordered by population to reveal patterns within and across levels. Region color is repeated in both the population bars and temperature markers, while tooltips provide exact values and city identity. I hope viewers can quickly notice geographic clusters, population contrasts, and whether warmer or cooler cities appear concentrated within particular development levels.</p>
+            </div>
+        </section>
+
+        <section class="method-note lab2-method" aria-labelledby="method-title">
+            <div>
+                <p class="section-kicker">Data &amp; method</p>
+                <h2 id="method-title">Four measurements, one coordinated reading.</h2>
+            </div>
+            <div>
+                <p>The supplied dataset contains twelve observations. Numeric fields are parsed during CSV loading; ordinal and nominal fields are validated against the documented categories before rendering.</p>
+                <p class="source-note">Source: course-provided <a href="../data/cities_multivariate.csv">cities_multivariate.csv</a>. Built with D3.js v7.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>STATS 401 &middot; Lab 2</p>
+        <p class="footer-links"><a href="../index.html">Back to course portfolio</a><a href="https://github.com/Owen-1234/stats401-labs/tree/main/lab2">View Lab 2 code on GitHub</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="lab2.js"></script>
+</body>
+</html>

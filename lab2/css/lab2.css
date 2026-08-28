@@ -1,0 +1,255 @@
+:root {
+    --region-north: #356e87;
+    --region-south: #9b4f47;
+    --region-east: #4f7a65;
+    --region-west: #b07932;
+}
+
+.lab2-heading {
+    position: relative;
+}
+
+.lab2-heading::after {
+    content: "R · I · O · N";
+    position: absolute;
+    top: 2px;
+    right: 0;
+    color: var(--line-dark);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    writing-mode: vertical-rl;
+}
+
+.city-chart-panel {
+    overflow: hidden;
+}
+
+.city-chart-panel::before {
+    content: "02 / MULTIVARIATE FIELD NOTE";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 7px 12px;
+    color: var(--ink-soft);
+    border-left: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(241, 238, 229, 0.72);
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.city-chart-header {
+    padding-right: 90px;
+}
+
+.chart-key {
+    display: grid;
+    flex: 0 0 330px;
+    gap: 12px;
+    padding-top: 7px;
+}
+
+.region-legend,
+.development-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px 13px;
+    align-items: center;
+}
+
+.legend-title {
+    width: 100%;
+    color: var(--ink-soft);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.region-key,
+.size-key {
+    display: inline-flex;
+    min-height: 20px;
+    align-items: center;
+    gap: 6px;
+    color: var(--ink-soft);
+    font-size: 0.68rem;
+}
+
+.swatch {
+    width: 14px;
+    height: 7px;
+}
+
+.swatch.north { background: var(--region-north); }
+.swatch.south { background: var(--region-south); }
+.swatch.east { background: var(--region-east); }
+.swatch.west { background: var(--region-west); }
+
+.level-dot {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: transparent;
+}
+
+.level-dot.low {
+    width: 7px;
+    height: 7px;
+}
+
+.level-dot.medium {
+    width: 11px;
+    height: 11px;
+}
+
+.level-dot.high {
+    width: 15px;
+    height: 15px;
+}
+
+.chart-scroll {
+    width: 100%;
+    overflow-x: auto;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    scrollbar-color: var(--line-dark) transparent;
+}
+
+.chart-scroll:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.city-chart-panel #chart {
+    min-width: 780px;
+    min-height: 720px;
+    overflow: visible;
+}
+
+.city-chart-panel #chart svg {
+    min-width: 780px;
+}
+
+.city-row .row-band {
+    fill: transparent;
+    transition: fill 120ms ease;
+}
+
+.city-row.active .row-band {
+    fill: rgba(165, 108, 53, 0.1);
+}
+
+.city-row .population-bar,
+.city-row .temperature-dot {
+    transition: opacity 120ms ease;
+}
+
+.city-row.active .population-bar,
+.city-row.active .temperature-dot {
+    opacity: 1;
+}
+
+.city-row-hit:focus {
+    outline: none;
+}
+
+.city-tooltip {
+    min-width: 190px;
+    transform: none;
+}
+
+.city-tooltip .tooltip-city {
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    color: var(--gold-soft);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 1rem;
+}
+
+.city-tooltip .tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 2px;
+}
+
+.city-tooltip .tooltip-row b {
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.design-justification {
+    display: grid;
+    grid-template-columns: 0.62fr 1.38fr;
+    gap: clamp(36px, 7vw, 88px);
+    margin-top: 58px;
+    padding: 50px 0;
+    border-top: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
+}
+
+.design-justification h2 {
+    max-width: 360px;
+    margin: 0;
+    font: 600 clamp(1.9rem, 4vw, 3.2rem)/1.06 "Source Serif 4", Georgia, serif;
+    letter-spacing: -0.025em;
+}
+
+.justification-copy {
+    columns: 2;
+    column-gap: 38px;
+    column-rule: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 0.97rem;
+    line-height: 1.72;
+}
+
+.justification-copy p {
+    margin: 0;
+    break-inside: avoid;
+}
+
+.justification-copy p + p {
+    margin-top: 1em;
+}
+
+.lab2-method {
+    border-left-color: var(--region-north);
+}
+
+@media (max-width: 900px) {
+    .city-chart-header {
+        display: block;
+        padding-right: 0;
+    }
+
+    .chart-key {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 760px) {
+    .lab2-heading::after,
+    .city-chart-panel::before {
+        display: none;
+    }
+
+    .chart-key {
+        width: 100%;
+    }
+
+    .design-justification {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .justification-copy {
+        columns: 1;
+    }
+}
