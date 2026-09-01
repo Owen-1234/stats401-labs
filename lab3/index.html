@@ -1,1 +1,178 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 3 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a aria-current="page" href="index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">03</div><p class="section-kicker">Upcoming study</p><h1>Lab 3</h1><p>Lab 3 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab3">View Lab 3 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Python and D3 study of daily U.S. public debt from 2015 to the present using the U.S. Treasury Fiscal Data API.">
+    <title>Lab 3: Daily U.S. Public Debt | STATS 401</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../lab1/css/style.css">
+    <link rel="stylesheet" href="css/lab3.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="course-mark" href="../index.html" aria-label="STATS 401 home">
+            <span class="course-number">401</span>
+            <span class="course-name">Data Acquisition<br>&amp; Visualization</span>
+        </a>
+        <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+    </header>
+
+    <nav class="lab-nav" aria-label="Lab navigation">
+        <a href="../lab1/index.html">Lab 1</a>
+        <a href="../lab2/index.html">Lab 2</a>
+        <a href="index.html" aria-current="page">Lab 3</a>
+        <a href="../lab4/index.html">Lab 4</a>
+        <a href="../lab5/index.html">Lab 5</a>
+        <a href="../lab6/index.html">Lab 6</a>
+        <a href="../lab7/index.html">Lab 7</a>
+        <a href="../lab8/index.html">Lab 8</a>
+        <a href="../lab9/index.html">Lab 9</a>
+        <a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main id="main-content" class="lab-shell">
+        <section class="lab-heading lab3-heading">
+            <div class="lab-number" aria-hidden="true"><span>Data acquisition study</span>03</div>
+            <div class="lab-title-wrap">
+                <p class="section-kicker">Lab 3 &middot; Python API acquisition + D3</p>
+                <h1>Daily U.S. Public Debt</h1>
+                <p class="lab-deck">A daily record of how federal debt and its public and intragovernmental components have changed since 2015.</p>
+                <div class="heading-links">
+                    <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab3"><span>GitHub code</span> View acquisition script and dataset <span aria-hidden="true">&#8599;</span></a>
+                    <a class="treasury-link" href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/">U.S. Treasury source <span aria-hidden="true">&#8599;</span></a>
+                </div>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>Shilin Ou</span>
+                    <span>NetID: so192</span>
+                    <span>STATS 401</span>
+                    <span>Fall 2026</span>
+                    <span>Python + REST API + D3.js</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="dataset-intro" aria-labelledby="dataset-title">
+            <p class="section-kicker">Dataset description</p>
+            <h2 id="dataset-title">Debt to the Penny, acquired programmatically</h2>
+            <p>Each row is one reporting date from the U.S. Treasury&rsquo;s official <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/">Debt to the Penny</a> dataset. A Python script queried the REST API as JSON, followed all pages automatically, paused one second between requests, validated the returned records, and saved the result as CSV. Dollar values are nominal and reported by the source.</p>
+            <dl class="dataset-facts">
+                <div><dt>Source</dt><dd>U.S. Department of the Treasury</dd></div>
+                <div><dt>Method</dt><dd>REST API with Python <code>requests</code></dd></div>
+                <div><dt>Coverage</dt><dd id="coverage-fact">January 2015–present</dd></div>
+                <div><dt>Acquired records</dt><dd id="records-fact">Loading&hellip;</dd></div>
+            </dl>
+        </section>
+
+        <section class="study-meta" aria-label="Dataset summary">
+            <div class="meta-item">
+                <span class="meta-label">Observations</span>
+                <span class="meta-value" id="record-count">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Date range</span>
+                <span class="meta-value" id="date-range">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Latest total debt</span>
+                <span class="meta-value" id="latest-total">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Change since 2015</span>
+                <span class="meta-value" id="period-change">Loading&hellip;</span>
+            </div>
+        </section>
+
+        <section class="chart-panel debt-chart-panel" aria-labelledby="chart-title">
+            <div class="chart-header debt-chart-header">
+                <div>
+                    <p class="figure-label">Figure 1 &middot; Daily debt composition</p>
+                    <h2 id="chart-title">Public debt has risen across both components</h2>
+                    <p>Move across the chart to inspect the nearest reporting date. Values are shown in trillions of U.S. dollars.</p>
+                </div>
+                <div class="debt-legend" aria-label="Series legend">
+                    <span><i class="legend-stroke total" aria-hidden="true"></i>Total public debt</span>
+                    <span><i class="legend-stroke public" aria-hidden="true"></i>Held by the public</span>
+                    <span><i class="legend-stroke intra" aria-hidden="true"></i>Intragovernmental</span>
+                </div>
+            </div>
+            <div class="chart-scroll" tabindex="0" aria-label="Scrollable debt trend chart on narrow screens">
+                <div id="debt-chart">
+                    <p class="chart-status">Loading Treasury data&hellip;</p>
+                </div>
+            </div>
+            <div class="chart-tooltip debt-tooltip" id="debt-tooltip" role="status" aria-live="polite"></div>
+            <p class="figure-caption"><span>Figure 1.</span> Total public debt equals debt held by the public plus intragovernmental holdings. The source contains one composition discrepancy on August 4, 2025; the published values are preserved and flagged in the downloadable data.</p>
+        </section>
+
+        <section class="table-panel" aria-labelledby="table-title">
+            <div class="table-heading">
+                <div>
+                    <p class="section-kicker">Acquired data &middot; Sortable table</p>
+                    <h2 id="table-title">Daily Treasury records</h2>
+                    <p>Click any column heading to sort ascending; click it again to sort descending. Currency columns use numeric—not alphabetical—sorting.</p>
+                </div>
+                <a class="download-link" href="data/us_public_debt_2015_present.csv" download>Download CSV <span aria-hidden="true">&#8595;</span></a>
+            </div>
+
+            <div class="table-controls">
+                <label class="search-control" for="table-search">
+                    <span>Filter by date, ID, year, or quarter</span>
+                    <input id="table-search" type="search" placeholder="Try 2025 or DTP-20250804" autocomplete="off">
+                </label>
+                <label class="page-size-control" for="page-size">
+                    <span>Rows per page</span>
+                    <select id="page-size">
+                        <option value="25">25</option>
+                        <option value="50" selected>50</option>
+                        <option value="100">100</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="table-scroll" tabindex="0" aria-label="Scrollable public debt data table">
+                <table id="debt-table">
+                    <caption>Daily U.S. public debt records from 2015 to the latest available date</caption>
+                    <thead><tr id="table-header"></tr></thead>
+                    <tbody id="table-body">
+                        <tr><td class="table-loading">Loading acquired records&hellip;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <p id="table-status" role="status" aria-live="polite">Loading records&hellip;</p>
+                <div class="pagination" aria-label="Table pagination">
+                    <button id="previous-page" type="button">Previous</button>
+                    <span id="page-indicator">Page &ndash;</span>
+                    <button id="next-page" type="button">Next</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="method-note lab3-method" aria-labelledby="method-title">
+            <div>
+                <p class="section-kicker">Acquisition record</p>
+                <h2 id="method-title">Reproducible and responsible collection</h2>
+            </div>
+            <div>
+                <p>The script requests 100 records per page from January 1, 2015 onward. It uses an informative user agent, a 30-second timeout, automatic retry with exponential backoff, HTTP status validation, JSON structure checks, and a one-second delay between pages. The final record count is compared with the API&rsquo;s reported total before the CSV is written.</p>
+                <p>Dates are unique identifiers. Currency fields are converted to numeric values, and two derived attributes support analysis: daily change in total debt and the public share of total debt. The first daily-change value is intentionally blank because no earlier observation is included for comparison.</p>
+                <p class="source-note"><strong>Data quality note:</strong> On August 4, 2025, the two component values exceed the reported total by $10 billion. The script does not silently alter an official value; it records the difference in <code>component_difference_usd</code>. Source: <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/">U.S. Treasury Fiscal Data</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>STATS 401 &middot; Lab 3</p>
+        <p class="footer-links"><a href="../index.html">Back to course portfolio</a><a href="https://github.com/Owen-1234/stats401-labs/tree/main/lab3">View Lab 3 code on GitHub</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="lab3.js"></script>
+</body>
+</html>
