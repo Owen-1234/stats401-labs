@@ -30,4 +30,4 @@ The page loads the course-provided CSV with D3 v7, converts scores to numbers du
 
 Lab 2 uses the course-provided city dataset to coordinate four dimensions in an aligned population bar chart and temperature dot plot. Region is encoded by color, development level by marker size, and every city row exposes exact values through an accessible tooltip.
 
-Lab 3 acquires 2,928 daily U.S. public-debt observations from the Treasury Fiscal Data REST API with a reproducible Python script. The published study combines a responsive D3 time-series chart with a searchable, paginated, type-aware sortable table and documents acquisition, validation, rate limiting, error handling, provenance, and a source-data reconciliation exception.
+Lab 3 acquires 2,928 daily U.S. public-debt observations from the Treasury Fiscal Data REST API with a reproducible Python script. The published study combines a responsive D3 time-series chart with a searchable, paginated, type-aware sortable table; the script and Lab 3 README document acquisition, validation, rate limiting, error handling, provenance, and a source-data reconciliation exception.

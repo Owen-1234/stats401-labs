@@ -42,11 +42,6 @@
     background: rgba(251, 250, 245, 0.72);
 }
 
-.dataset-intro .section-kicker {
-    grid-column: 1;
-    align-self: start;
-}
-
 .dataset-intro h2 {
     grid-column: 1;
     margin: 0;
@@ -63,8 +58,7 @@
     font-size: 1rem;
 }
 
-.dataset-intro a,
-.method-note a {
+.dataset-intro a {
     text-decoration-color: var(--gold);
     text-underline-offset: 3px;
 }
@@ -397,7 +391,6 @@
     opacity: 0.4;
 }
 
-.lab3-method { margin-top: 46px; }
 code { font-size: 0.9em; }
 
 @media (max-width: 800px) {
@@ -405,7 +398,6 @@ code { font-size: 0.9em; }
 
     .dataset-intro { grid-template-columns: 1fr; }
 
-    .dataset-intro .section-kicker,
     .dataset-intro h2,
     .dataset-intro > p:not(.section-kicker),
     .dataset-facts {

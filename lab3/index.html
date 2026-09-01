@@ -57,9 +57,8 @@
         </section>
 
         <section class="dataset-intro" aria-labelledby="dataset-title">
-            <p class="section-kicker">Dataset description</p>
-            <h2 id="dataset-title">Debt to the Penny, acquired programmatically</h2>
-            <p>Each row is one reporting date from the U.S. Treasury&rsquo;s official <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/">Debt to the Penny</a> dataset. A Python script queried the REST API as JSON, followed all pages automatically, paused one second between requests, validated the returned records, and saved the result as CSV. Dollar values are nominal and reported by the source.</p>
+            <h2 id="dataset-title">About the data</h2>
+            <p>Each row is one daily observation of debt held by the public, intragovernmental holdings, and total public debt from the U.S. Treasury&rsquo;s <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/">Debt to the Penny</a> dataset. Python acquired the JSON records through the official REST API, handled pagination automatically, and saved the result as CSV.</p>
             <dl class="dataset-facts">
                 <div><dt>Source</dt><dd>U.S. Department of the Treasury</dd></div>
                 <div><dt>Method</dt><dd>REST API with Python <code>requests</code></dd></div>
@@ -112,9 +111,8 @@
         <section class="table-panel" aria-labelledby="table-title">
             <div class="table-heading">
                 <div>
-                    <p class="section-kicker">Acquired data &middot; Sortable table</p>
                     <h2 id="table-title">Daily Treasury records</h2>
-                    <p>Click any column heading to sort ascending; click it again to sort descending. Currency columns use numeric—not alphabetical—sorting.</p>
+                    <p>Click a column heading to sort ascending; click it again to sort descending.</p>
                 </div>
                 <a class="download-link" href="data/us_public_debt_2015_present.csv" download>Download CSV <span aria-hidden="true">&#8595;</span></a>
             </div>
@@ -154,17 +152,6 @@
             </div>
         </section>
 
-        <section class="method-note lab3-method" aria-labelledby="method-title">
-            <div>
-                <p class="section-kicker">Acquisition record</p>
-                <h2 id="method-title">Reproducible and responsible collection</h2>
-            </div>
-            <div>
-                <p>The script requests 100 records per page from January 1, 2015 onward. It uses an informative user agent, a 30-second timeout, automatic retry with exponential backoff, HTTP status validation, JSON structure checks, and a one-second delay between pages. The final record count is compared with the API&rsquo;s reported total before the CSV is written.</p>
-                <p>Dates are unique identifiers. Currency fields are converted to numeric values, and two derived attributes support analysis: daily change in total debt and the public share of total debt. The first daily-change value is intentionally blank because no earlier observation is included for comparison.</p>
-                <p class="source-note"><strong>Data quality note:</strong> On August 4, 2025, the two component values exceed the reported total by $10 billion. The script does not silently alter an official value; it records the difference in <code>component_difference_usd</code>. Source: <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/">U.S. Treasury Fiscal Data</a>.</p>
-            </div>
-        </section>
     </main>
 
     <footer>
