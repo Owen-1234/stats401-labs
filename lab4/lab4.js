@@ -61,17 +61,6 @@ function summarize(data) {
     return { total: data.length, topics: topicRows, cells: topicRows.flatMap(d => d.sentiments) };
 }
 
-function updateSummary(summary) {
-    const negative = summary.cells.filter(d => d.sentiment === "Negative").sort((a, b) => d3.descending(a.share, b.share))[0];
-    const positive = summary.cells.filter(d => d.sentiment === "Positive").sort((a, b) => d3.descending(a.share, b.share))[0];
-    const interaction = [...summary.cells].sort((a, b) => d3.descending(a.interactionRate, b.interactionRate))[0];
-    d3.select("#record-count").text(formatCount(summary.total));
-    d3.select("#records-fact").text(`${formatCount(summary.total)} tweets`);
-    d3.select("#most-negative").text(`${negative.topic} · ${formatPercent(negative.share)}`);
-    d3.select("#most-positive").text(`${positive.topic} · ${formatPercent(positive.share)}`);
-    d3.select("#highest-interaction").text(`${interaction.topic}, ${interaction.sentiment} · ${formatPercent(interaction.interactionRate)}`);
-}
-
 function positionTooltip(event, target) {
     const tooltip = d3.select("#chart-tooltip");
     const bounds = tooltip.node().getBoundingClientRect();
@@ -190,7 +179,6 @@ function showError(error) {
 loadCleanData().then(data => {
     if (!validateData(data)) throw new Error("Cleaned tweet data failed validation.");
     const summary = summarize(data);
-    updateSummary(summary);
     renderSentimentChart(summary);
     renderInteractionChart(summary);
 }).catch(showError);

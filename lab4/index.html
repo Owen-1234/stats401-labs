@@ -39,9 +39,9 @@
         <section class="lab-heading lab4-heading">
             <div class="lab-number" aria-hidden="true"><span>Text analysis study</span>04</div>
             <div class="lab-title-wrap">
-                <p class="section-kicker">Lab 4 &middot; Data cleaning + RoBERTa + D3</p>
-                <h1>Where ChatGPT Promises&mdash;and Worries</h1>
-                <p class="lab-deck">Sentiment and public interaction across Coding, Education, Work, and Reliability conversations during an early wave of ChatGPT adoption.</p>
+                <p class="section-kicker">Lab 4: Cleaning Web Data for Visualization</p>
+                <h1>ChatGPT Sentiment and Interaction Across Four Topics</h1>
+                <p class="lab-deck">How Coding, Education, Work, and Reliability discussions differed in model-estimated sentiment and recorded public interaction.</p>
                 <div class="heading-links">
                     <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab4"><span>GitHub code</span> View the reproducible pipeline <span aria-hidden="true">&#8599;</span></a>
                     <a class="dataset-link" href="https://www.kaggle.com/datasets/tariqsays/chatgpt-twitter-dataset">Original dataset <span aria-hidden="true">&#8599;</span></a>
@@ -56,44 +56,11 @@
             </div>
         </section>
 
-        <section class="dataset-intro" aria-labelledby="dataset-title">
-            <div>
-                <p class="section-kicker">Research question</p>
-                <h2 id="dataset-title">Does the tone of ChatGPT discourse change with the problem people discuss?</h2>
-            </div>
-            <p>The source contains 50,001 public tweets collected January 22&ndash;24, 2023. A reproducible Python pipeline retained English, non-repeated tweets that matched exactly one documented topic dictionary, then estimated sentiment from the original wording. Interaction means at least one like, reply, retweet, or quote.</p>
-            <dl class="dataset-facts">
-                <div><dt>Raw records</dt><dd>50,001 tweets</dd></div>
-                <div><dt>Analyzed records</dt><dd id="records-fact">Loading&hellip;</dd></div>
-                <div><dt>Topics</dt><dd>4 exclusive groups</dd></div>
-                <div><dt>Sentiment model</dt><dd>Twitter-RoBERTa</dd></div>
-            </dl>
-        </section>
-
-        <section class="study-meta" aria-label="Key findings">
-            <div class="meta-item">
-                <span class="meta-label">Tweets analyzed</span>
-                <span class="meta-value" id="record-count">Loading&hellip;</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Most negative topic</span>
-                <span class="meta-value" id="most-negative">Loading&hellip;</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Most positive topic</span>
-                <span class="meta-value" id="most-positive">Loading&hellip;</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Highest interaction rate</span>
-                <span class="meta-value" id="highest-interaction">Loading&hellip;</span>
-            </div>
-        </section>
-
         <section class="chart-panel sentiment-panel" aria-labelledby="chart-title">
             <div class="chart-header sentiment-chart-header">
                 <div>
                     <p class="figure-label">Figure 1 &middot; Sentiment composition and interaction</p>
-                    <h2 id="chart-title">Reliability talk is markedly more negative</h2>
+                    <h2 id="chart-title">Reliability discussions are substantially more negative</h2>
                     <p>Panel A compares the model-predicted sentiment mix within each topic. Panel B shows the share receiving at least one public interaction. Hover or focus a mark for exact values.</p>
                 </div>
                 <div class="sentiment-legend" aria-label="Sentiment legend">
@@ -127,52 +94,17 @@
             <p class="figure-caption"><span>Figure 1.</span> Percentages use 7,076 English, de-duplicated tweets assigned to exactly one keyword-defined topic. Sentiment is the highest-probability RoBERTa class. Interaction measures whether a tweet received any recorded response, not the size or cause of that response.</p>
         </section>
 
-        <section class="method-section" aria-labelledby="method-title">
-            <div class="method-copy">
-                <p class="section-kicker">From messy to tidy</p>
-                <h2 id="method-title">One auditable pipeline, two text paths</h2>
-                <p>Structured fields were cleaned first. TF-IDF uses aggressively normalized and lemmatized text, while sentiment uses lightly normalized original text so punctuation, emoji, capitalization, and negation remain available to the model.</p>
-                <div class="download-row" aria-label="Data downloads">
-                    <a href="data/lab4_clean_tweets.csv" download>Clean tweet data <span aria-hidden="true">&#8595;</span></a>
-                    <a href="data/sentiment_by_topic.csv" download>Chart aggregate <span aria-hidden="true">&#8595;</span></a>
-                    <a href="data/tfidf_terms_by_topic.csv" download>TF-IDF terms <span aria-hidden="true">&#8595;</span></a>
-                    <a href="data/cleaning_report.json" download>Cleaning report <span aria-hidden="true">&#8595;</span></a>
-                </div>
-            </div>
-            <ol class="pipeline" aria-label="Cleaning pipeline">
-                <li><b>50,001</b><span>raw public tweets</span></li>
-                <li><b>32,076</b><span>English tweets</span></li>
-                <li><b>31,852</b><span>unique normalized texts</span></li>
-                <li><b>7,076</b><span>exclusive topic matches</span></li>
-            </ol>
-        </section>
-
-        <section class="topic-method" aria-labelledby="topics-title">
-            <div class="topic-method-heading">
-                <p class="section-kicker">Operational definitions</p>
-                <h2 id="topics-title">How the four groups were defined</h2>
-                <p>These groups are reproducible keyword-based categories, not ground-truth topic annotations. Tweets matching no group or more than one group were excluded.</p>
-            </div>
-            <div class="topic-grid">
-                <article><h3>Coding</h3><p>code, programming, developer, software, GitHub, API, Python, JavaScript, debugging</p><strong>1,348 tweets</strong></article>
-                <article><h3>Education</h3><p>student, teacher, school, university, homework, essay, classroom, learning, tutoring</p><strong>2,618 tweets</strong></article>
-                <article><h3>Work</h3><p>job, workplace, worker, career, employee, hiring, résumé, productivity, office</p><strong>1,702 tweets</strong></article>
-                <article><h3>Reliability</h3><p>wrong, error, hallucination, bias, risk, misinformation, privacy, accuracy, trust, safety</p><strong>1,408 tweets</strong></article>
-            </div>
-        </section>
-
         <section class="analysis-section" aria-labelledby="analysis-title">
             <div>
-                <p class="section-kicker">Short analysis &middot; 154 words</p>
-                <h2 id="analysis-title">What the model and chart suggest</h2>
+                <p class="section-kicker">Short analysis &middot; 163 words</p>
+                <h2 id="analysis-title">Data, method, and findings</h2>
             </div>
-            <p>This study uses 50,001 public #ChatGPT tweets collected from January 22&ndash;24, 2023. I parsed timestamps and engagement fields, retained English posts, removed 224 repeated texts, and kept tweets matching exactly one transparent keyword group: Coding, Education, Work, or Reliability. The final tidy dataset contains 7,076 tweets. Sentiment was estimated from lightly normalized text with <code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>; sentiment score equals P(positive) minus P(negative). The left panel encodes each topic&rsquo;s model-predicted negative, neutral, and positive shares. The right panel shows, for every topic&ndash;sentiment combination, the percentage of tweets receiving at least one like, reply, retweet, or quote. Reliability stands apart: 45.4% of its tweets are classified negative and only 15.3% positive. Coding is most positive, at 35.0%, while 69.3% of positive Coding tweets received an interaction. These associations are descriptive, not causal. Keyword groups can miss context, engagement is highly skewed, and RoBERTa predictions are estimates rather than ground-truth judgments.</p>
+            <div class="analysis-copy">
+                <p><strong>Data and cleaning.</strong> This study uses 50,001 public #ChatGPT tweets collected from January 22&ndash;24, 2023. I parsed timestamps and engagement counts, retained English posts, removed 224 repeated texts, and excluded tweets that matched either none or multiple topic dictionaries. The resulting tidy dataset contains 7,076 tweets assigned uniquely to Coding, Education, Work, or Reliability.</p>
+                <p><strong>Sentiment and encoding.</strong> I lightly normalized usernames and URLs, then applied <code>cardiffnlp/twitter-roberta-base-sentiment-latest</code> to every retained tweet. The sentiment score is P(positive) minus P(negative). Panel A shows each topic&rsquo;s negative, neutral, and positive composition. Panel B shows the percentage of each topic&ndash;sentiment group receiving at least one like, reply, retweet, or quote.</p>
+                <p><strong>Findings.</strong> Reliability is the clearest outlier: 45.4% of its tweets are classified negative and 15.3% positive. Coding has the largest positive share (35.0%), and 69.3% of positive Coding tweets received an interaction. These patterns are descriptive, not causal: keyword matching can miss context, recorded engagement is highly skewed, and RoBERTa outputs are model estimates rather than ground-truth labels.</p>
+            </div>
         </section>
-
-        <aside class="limitations" aria-labelledby="limits-title">
-            <h2 id="limits-title">Interpret with care</h2>
-            <p>RoBERTa can misread sarcasm, slang, mixed sentiment, and domain-specific language. Keyword matching can also confuse a word&rsquo;s topic or omit relevant posts. Results describe this short, hashtag-based collection and should not be generalized to all ChatGPT users.</p>
-        </aside>
     </main>
 
     <footer>
