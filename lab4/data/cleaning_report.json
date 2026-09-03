@@ -1,0 +1,68 @@
+{
+  "source": "https://www.kaggle.com/datasets/tariqsays/chatgpt-twitter-dataset",
+  "license": "CC0: Public Domain",
+  "raw_file": "lab4_raw_tweets.csv",
+  "raw_sha256": "76bb101b501840966a90a632a3c5d7aa14018d2eff454224cdfeb7fd6c15b2d9",
+  "output_file": "lab4_clean_tweets.csv",
+  "sentiment_model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+  "sentiment_model_revision": "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
+  "sentiment_device_for_this_run": "reused",
+  "sentiment_score_definition": "P(positive) - P(negative)",
+  "topic_assignment": "Retain English tweets matching exactly one documented keyword group.",
+  "topic_keywords": {
+    "Coding": "\\b(code|coding|programming|programmer|programmers|developer|developers|software|github|stack\\s*overflow|debug|debugging|api|python|javascript)\\b",
+    "Education": "\\b(student|students|teacher|teachers|school|schools|education|educational|university|universities|college|colleges|homework|essay|essays|classroom|learning|learn|tutor|tutoring|teaching)\\b",
+    "Work": "\\b(job|jobs|work|workplace|worker|workers|career|careers|employee|employees|employment|hire|hiring|resume|résumé|productivity|office)\\b",
+    "Reliability": "\\b(hallucination|hallucinations|hallucinate|wrong|incorrect|error|errors|fail|fails|failed|failure|bias|biased|unsafe|risk|risks|risky|misinformation|disinformation|fake|privacy|security|inaccurate|accuracy|reliable|reliability|trust|trustworthy|truth|factual|fact|facts|credible|bug|bugs|issue|issues|concern|concerns|concerned|harmful|safety)\\b"
+  },
+  "tfidf": {
+    "min_df": 5,
+    "max_df": 0.9,
+    "vocabulary_size": 2599
+  },
+  "counts": {
+    "raw_rows": 50001,
+    "raw_missing_text": 0,
+    "raw_duplicate_tweet_ids": 0,
+    "raw_exact_duplicate_rows": 0,
+    "removed_missing_critical_fields": 0,
+    "removed_duplicate_tweet_ids": 0,
+    "removed_non_english": 17925,
+    "removed_duplicate_text": 224,
+    "removed_unclassified_or_ambiguous_topic": 24776,
+    "clean_rows_before_sentiment": 7076
+  },
+  "final_topic_counts": {
+    "Coding": 1348,
+    "Education": 2618,
+    "Reliability": 1408,
+    "Work": 1702
+  },
+  "final_sentiment_counts": {
+    "Negative": 1665,
+    "Neutral": 3433,
+    "Positive": 1978
+  },
+  "missing_values_in_output": {
+    "tweet_id": 0,
+    "created_at": 0,
+    "date": 0,
+    "username": 0,
+    "language": 0,
+    "source": 0,
+    "topic": 0,
+    "tweet_text_raw": 0,
+    "text_clean": 0,
+    "reply_count": 0,
+    "retweet_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "engagement_total": 0,
+    "sentiment_negative": 0,
+    "sentiment_neutral": 0,
+    "sentiment_positive": 0,
+    "model_confidence": 0,
+    "sentiment_score": 0,
+    "sentiment": 0
+  }
+}

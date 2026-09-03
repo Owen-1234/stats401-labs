@@ -1,2 +1,8 @@
 # Personal course notes kept outside the published assignment
 STATS401_SYLLABUS_MEMORY.md
+
+# Local Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.nltk_data/

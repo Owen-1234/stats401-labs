@@ -1,0 +1,6 @@
+pandas==2.3.3
+nltk==3.10.3
+scikit-learn==1.9.0
+transformers==5.16.1
+torch==2.14.0
+safetensors==0.8.0

@@ -1,1 +1,186 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 4 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a aria-current="page" href="index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">04</div><p class="section-kicker">Upcoming study</p><h1>Lab 4</h1><p>Lab 4 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab4">View Lab 4 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A reproducible Python and D3 study of sentiment and interaction across Coding, Education, Work, and Reliability conversations about ChatGPT.">
+    <title>Lab 4: ChatGPT Conversations | STATS 401</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../lab1/css/style.css">
+    <link rel="stylesheet" href="css/lab4.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="course-mark" href="../index.html" aria-label="STATS 401 home">
+            <span class="course-number">401</span>
+            <span class="course-name">Data Acquisition<br>&amp; Visualization</span>
+        </a>
+        <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+    </header>
+
+    <nav class="lab-nav" aria-label="Lab navigation">
+        <a href="../lab1/index.html">Lab 1</a>
+        <a href="../lab2/index.html">Lab 2</a>
+        <a href="../lab3/index.html">Lab 3</a>
+        <a href="index.html" aria-current="page">Lab 4</a>
+        <a href="../lab5/index.html">Lab 5</a>
+        <a href="../lab6/index.html">Lab 6</a>
+        <a href="../lab7/index.html">Lab 7</a>
+        <a href="../lab8/index.html">Lab 8</a>
+        <a href="../lab9/index.html">Lab 9</a>
+        <a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main id="main-content" class="lab-shell">
+        <section class="lab-heading lab4-heading">
+            <div class="lab-number" aria-hidden="true"><span>Text analysis study</span>04</div>
+            <div class="lab-title-wrap">
+                <p class="section-kicker">Lab 4 &middot; Data cleaning + RoBERTa + D3</p>
+                <h1>Where ChatGPT Promises&mdash;and Worries</h1>
+                <p class="lab-deck">Sentiment and public interaction across Coding, Education, Work, and Reliability conversations during an early wave of ChatGPT adoption.</p>
+                <div class="heading-links">
+                    <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab4"><span>GitHub code</span> View the reproducible pipeline <span aria-hidden="true">&#8599;</span></a>
+                    <a class="dataset-link" href="https://www.kaggle.com/datasets/tariqsays/chatgpt-twitter-dataset">Original dataset <span aria-hidden="true">&#8599;</span></a>
+                </div>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>Shilin Ou</span>
+                    <span>NetID: so192</span>
+                    <span>STATS 401</span>
+                    <span>Fall 2026</span>
+                    <span>Python + Transformers + D3.js</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="dataset-intro" aria-labelledby="dataset-title">
+            <div>
+                <p class="section-kicker">Research question</p>
+                <h2 id="dataset-title">Does the tone of ChatGPT discourse change with the problem people discuss?</h2>
+            </div>
+            <p>The source contains 50,001 public tweets collected January 22&ndash;24, 2023. A reproducible Python pipeline retained English, non-repeated tweets that matched exactly one documented topic dictionary, then estimated sentiment from the original wording. Interaction means at least one like, reply, retweet, or quote.</p>
+            <dl class="dataset-facts">
+                <div><dt>Raw records</dt><dd>50,001 tweets</dd></div>
+                <div><dt>Analyzed records</dt><dd id="records-fact">Loading&hellip;</dd></div>
+                <div><dt>Topics</dt><dd>4 exclusive groups</dd></div>
+                <div><dt>Sentiment model</dt><dd>Twitter-RoBERTa</dd></div>
+            </dl>
+        </section>
+
+        <section class="study-meta" aria-label="Key findings">
+            <div class="meta-item">
+                <span class="meta-label">Tweets analyzed</span>
+                <span class="meta-value" id="record-count">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Most negative topic</span>
+                <span class="meta-value" id="most-negative">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Most positive topic</span>
+                <span class="meta-value" id="most-positive">Loading&hellip;</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Highest interaction rate</span>
+                <span class="meta-value" id="highest-interaction">Loading&hellip;</span>
+            </div>
+        </section>
+
+        <section class="chart-panel sentiment-panel" aria-labelledby="chart-title">
+            <div class="chart-header sentiment-chart-header">
+                <div>
+                    <p class="figure-label">Figure 1 &middot; Sentiment composition and interaction</p>
+                    <h2 id="chart-title">Reliability talk is markedly more negative</h2>
+                    <p>Panel A compares the model-predicted sentiment mix within each topic. Panel B shows the share receiving at least one public interaction. Hover or focus a mark for exact values.</p>
+                </div>
+                <div class="sentiment-legend" aria-label="Sentiment legend">
+                    <span><i class="legend-swatch negative" aria-hidden="true"></i>Negative</span>
+                    <span><i class="legend-swatch neutral" aria-hidden="true"></i>Neutral</span>
+                    <span><i class="legend-swatch positive" aria-hidden="true"></i>Positive</span>
+                </div>
+            </div>
+
+            <div class="paired-charts">
+                <article class="subchart" aria-labelledby="mix-title">
+                    <div class="subchart-heading">
+                        <span class="panel-letter">A</span>
+                        <div><h3 id="mix-title">Sentiment mix</h3><p>Share of tweets within each topic</p></div>
+                    </div>
+                    <div class="chart-scroll" tabindex="0" aria-label="Scrollable sentiment distribution chart on narrow screens">
+                        <div id="sentiment-chart"><p class="chart-status">Loading cleaned tweets&hellip;</p></div>
+                    </div>
+                </article>
+                <article class="subchart" aria-labelledby="interaction-title">
+                    <div class="subchart-heading">
+                        <span class="panel-letter">B</span>
+                        <div><h3 id="interaction-title">Received interaction</h3><p>Share with one or more likes, replies, reposts, or quotes</p></div>
+                    </div>
+                    <div class="chart-scroll" tabindex="0" aria-label="Scrollable interaction rate chart on narrow screens">
+                        <div id="interaction-chart"><p class="chart-status">Loading cleaned tweets&hellip;</p></div>
+                    </div>
+                </article>
+            </div>
+            <div class="chart-tooltip sentiment-tooltip" id="chart-tooltip" role="status" aria-live="polite"></div>
+            <p class="figure-caption"><span>Figure 1.</span> Percentages use 7,076 English, de-duplicated tweets assigned to exactly one keyword-defined topic. Sentiment is the highest-probability RoBERTa class. Interaction measures whether a tweet received any recorded response, not the size or cause of that response.</p>
+        </section>
+
+        <section class="method-section" aria-labelledby="method-title">
+            <div class="method-copy">
+                <p class="section-kicker">From messy to tidy</p>
+                <h2 id="method-title">One auditable pipeline, two text paths</h2>
+                <p>Structured fields were cleaned first. TF-IDF uses aggressively normalized and lemmatized text, while sentiment uses lightly normalized original text so punctuation, emoji, capitalization, and negation remain available to the model.</p>
+                <div class="download-row" aria-label="Data downloads">
+                    <a href="data/lab4_clean_tweets.csv" download>Clean tweet data <span aria-hidden="true">&#8595;</span></a>
+                    <a href="data/sentiment_by_topic.csv" download>Chart aggregate <span aria-hidden="true">&#8595;</span></a>
+                    <a href="data/tfidf_terms_by_topic.csv" download>TF-IDF terms <span aria-hidden="true">&#8595;</span></a>
+                    <a href="data/cleaning_report.json" download>Cleaning report <span aria-hidden="true">&#8595;</span></a>
+                </div>
+            </div>
+            <ol class="pipeline" aria-label="Cleaning pipeline">
+                <li><b>50,001</b><span>raw public tweets</span></li>
+                <li><b>32,076</b><span>English tweets</span></li>
+                <li><b>31,852</b><span>unique normalized texts</span></li>
+                <li><b>7,076</b><span>exclusive topic matches</span></li>
+            </ol>
+        </section>
+
+        <section class="topic-method" aria-labelledby="topics-title">
+            <div class="topic-method-heading">
+                <p class="section-kicker">Operational definitions</p>
+                <h2 id="topics-title">How the four groups were defined</h2>
+                <p>These groups are reproducible keyword-based categories, not ground-truth topic annotations. Tweets matching no group or more than one group were excluded.</p>
+            </div>
+            <div class="topic-grid">
+                <article><h3>Coding</h3><p>code, programming, developer, software, GitHub, API, Python, JavaScript, debugging</p><strong>1,348 tweets</strong></article>
+                <article><h3>Education</h3><p>student, teacher, school, university, homework, essay, classroom, learning, tutoring</p><strong>2,618 tweets</strong></article>
+                <article><h3>Work</h3><p>job, workplace, worker, career, employee, hiring, résumé, productivity, office</p><strong>1,702 tweets</strong></article>
+                <article><h3>Reliability</h3><p>wrong, error, hallucination, bias, risk, misinformation, privacy, accuracy, trust, safety</p><strong>1,408 tweets</strong></article>
+            </div>
+        </section>
+
+        <section class="analysis-section" aria-labelledby="analysis-title">
+            <div>
+                <p class="section-kicker">Short analysis &middot; 154 words</p>
+                <h2 id="analysis-title">What the model and chart suggest</h2>
+            </div>
+            <p>This study uses 50,001 public #ChatGPT tweets collected from January 22&ndash;24, 2023. I parsed timestamps and engagement fields, retained English posts, removed 224 repeated texts, and kept tweets matching exactly one transparent keyword group: Coding, Education, Work, or Reliability. The final tidy dataset contains 7,076 tweets. Sentiment was estimated from lightly normalized text with <code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>; sentiment score equals P(positive) minus P(negative). The left panel encodes each topic&rsquo;s model-predicted negative, neutral, and positive shares. The right panel shows, for every topic&ndash;sentiment combination, the percentage of tweets receiving at least one like, reply, retweet, or quote. Reliability stands apart: 45.4% of its tweets are classified negative and only 15.3% positive. Coding is most positive, at 35.0%, while 69.3% of positive Coding tweets received an interaction. These associations are descriptive, not causal. Keyword groups can miss context, engagement is highly skewed, and RoBERTa predictions are estimates rather than ground-truth judgments.</p>
+        </section>
+
+        <aside class="limitations" aria-labelledby="limits-title">
+            <h2 id="limits-title">Interpret with care</h2>
+            <p>RoBERTa can misread sarcasm, slang, mixed sentiment, and domain-specific language. Keyword matching can also confuse a word&rsquo;s topic or omit relevant posts. Results describe this short, hashtag-based collection and should not be generalized to all ChatGPT users.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>STATS 401 &middot; Lab 4</p>
+        <p class="footer-links"><a href="../index.html">Back to course portfolio</a><a href="https://github.com/Owen-1234/stats401-labs/tree/main/lab4">View Lab 4 code on GitHub</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="lab4.js"></script>
+</body>
+</html>
