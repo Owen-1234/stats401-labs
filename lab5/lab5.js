@@ -72,6 +72,33 @@ function prepareNetwork(stations, routes) {
     return adjacency;
 }
 
+function componentSizes(stations, adjacency) {
+    const unseen = new Set(stations.map(d => d.id));
+    const sizes = [];
+    while (unseen.size) {
+        const stack = [unseen.values().next().value];
+        unseen.delete(stack[0]);
+        let size = 0;
+        while (stack.length) {
+            const current = stack.pop();
+            size += 1;
+            adjacency.get(current).forEach(next => {
+                if (unseen.delete(next)) stack.push(next);
+            });
+        }
+        sizes.push(size);
+    }
+    return sizes.sort((a, b) => b - a);
+}
+
+function updateSummary(stations, routes, adjacency) {
+    const components = componentSizes(stations, adjacency);
+    d3.select("#station-count").text(stations.length);
+    d3.select("#route-count").text(routes.length);
+    d3.select("#district-count").text(new Set(stations.map(d => d.district)).size);
+    d3.select("#component-count").text(`${components[0]} + ${components.length - 1}`);
+}
+
 function tooltipPosition(event, target) {
     const node = tooltip.node();
     const bounds = node.getBoundingClientRect();
@@ -329,6 +356,7 @@ Promise.all([
 ]).then(([stations, routes]) => {
     validateData(stations, routes);
     const adjacency = prepareNetwork(stations, routes);
+    updateSummary(stations, routes, adjacency);
     renderNetwork(stations, routes, adjacency);
     renderMatrix(stations, routes);
 }).catch(showError);

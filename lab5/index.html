@@ -25,16 +25,30 @@
         <section class="lab-heading lab5-heading">
             <div class="lab-number" aria-hidden="true"><span>Network study</span>05</div>
             <div class="lab-title-wrap">
-                <p class="section-kicker">Lab 5 &middot; Interactive Network Visualization</p>
+                <p class="section-kicker">Lab 5: Interactive Network Visualization</p>
                 <h1>Urban Transit Network</h1>
                 <p class="lab-deck">A node-link diagram and an adjacency matrix represent the same transit network. Together, the views support analysis of station connectivity, district structure, passenger volume, travel time, and route type.</p>
+                <div class="heading-links">
+                    <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab5"><span>GitHub code</span> View the implementation <span aria-hidden="true">&#8599;</span></a>
+                    <a class="dataset-link" href="https://github.com/hiilab/stats-401/blob/main/Lab5.md">Assignment and data <span aria-hidden="true">&#8599;</span></a>
+                </div>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>Shilin Ou</span>
+                    <span>NetID: so192</span>
+                    <span>STATS 401</span>
+                    <span>Fall 2026</span>
+                    <span>D3.js v7</span>
+                </div>
             </div>
         </section>
 
-        <section class="dataset-brief" aria-labelledby="dataset-title">
-            <div><p class="section-kicker">Dataset</p><h2 id="dataset-title">50 stations and 50 direct routes</h2></div>
-            <p>The course-provided files describe a synthetic, undirected transit network across five districts. Station records contain district, daily passenger volume, and station type. Route records contain travel time and service type. Because the data contain no geographic coordinates, both views represent network structure rather than physical location.</p>
+        <section class="network-summary" aria-label="Dataset summary">
+            <div><strong id="station-count">50</strong><span>stations</span></div>
+            <div><strong id="route-count">50</strong><span>direct routes</span></div>
+            <div><strong id="district-count">5</strong><span>districts</span></div>
+            <div><strong id="component-count">45 + 5</strong><span>main component + isolates</span></div>
         </section>
+        <p class="dataset-context">The course-provided files describe a synthetic, undirected network. Because the data contain no geographic coordinates, both views represent network structure rather than physical location.</p>
 
         <section class="visual-section dark-figure" aria-labelledby="network-title">
             <div class="figure-heading">
@@ -55,7 +69,7 @@
 
         <section class="design-note" aria-labelledby="node-design-title">
             <p class="section-kicker">Design rationale</p><h2 id="node-design-title">Node-link design</h2>
-            <p>District uses categorical color, passenger volume controls symbol area, and station type uses shape. Route hue distinguishes Metro, Express, and Shuttle. Width increases with travel time so long direct trips remain visible. Dragging reduces overlap. Highlighting isolates a station&rsquo;s immediate neighborhood, and tooltips report exact attributes.</p>
+            <p>Color encodes district, symbol area shows passenger volume, and shape identifies station type. Route hue distinguishes service type. Width increases with travel time so long trips remain visible. Dragging reduces overlap. Highlighting isolates immediate neighbors, while tooltips report exact values.</p>
         </section>
 
         <section class="visual-section matrix-figure" aria-labelledby="matrix-title">
@@ -69,24 +83,19 @@
 
         <section class="design-note matrix-note" aria-labelledby="matrix-design-title">
             <p class="section-kicker">Design rationale</p><h2 id="matrix-design-title">Matrix design</h2>
-            <p>Rows and columns follow the same station order. A filled cell denotes a direct route, hue shows route type, and opacity increases with travel time. Ordering by district and then station type creates comparison blocks. District-colored labels preserve membership. Passenger volume remains in label tooltips because another cell encoding would reduce legibility.</p>
+            <p>Rows and columns share one station order. A filled cell denotes a direct route, hue shows route type, and opacity shows travel time. Ordering by district and station type creates comparison blocks. Label color preserves district membership. Passenger volume remains in tooltips because another cell encoding would reduce legibility.</p>
         </section>
 
         <section class="findings-section" aria-labelledby="findings-title">
             <div class="findings-intro"><p class="section-kicker">Network questions and findings</p><h2 id="findings-title">What the two views support</h2><p>Each conclusion identifies its evidential view and supporting encoding.</p></div>
-            <div class="findings-table-wrap" tabindex="0" aria-label="Scrollable findings table on narrow screens">
-                <table class="findings-table">
-                    <thead><tr><th scope="col">Question</th><th scope="col">Assessment</th><th scope="col">Best view</th><th scope="col">Visual evidence and observation</th></tr></thead>
-                    <tbody>
-                        <tr><th scope="row">1. Central stations</th><td><span class="answer-tag well">Well</span></td><td>Both</td><td>Highlighted neighborhoods and occupied matrix cells identify Stations 31 and 23 as central three-route stations. Station 31 also bridges distant parts of the core.</td></tr>
-                        <tr><th scope="row">2. District connections</th><td><span class="answer-tag well">Well</span></td><td>Matrix</td><td>District ordering makes block density comparable. East&ndash;South is the densest pairing, followed by Central&ndash;North and East&ndash;West.</td></tr>
-                        <tr><th scope="row">3. Transfer and terminal locations</th><td><span class="answer-tag well">Well</span></td><td>Node-link</td><td>Squares and triangles locate station functions. Terminals 4, 7, 10, 13, 16, 25, 31, and 34 are three-route junctions, while several later terminals are isolated.</td></tr>
-                        <tr><th scope="row">4. High passenger volume</th><td><span class="answer-tag well">Well</span></td><td>Node-link</td><td>Symbol area identifies Stations 50, 49, and 48 as the highest-volume stations. Their peripheral locations separate passenger volume from topological centrality.</td></tr>
-                        <tr><th scope="row">5. Longest direct trips</th><td><span class="answer-tag well">Well</span></td><td>Both</td><td>Link width and cell opacity identify 7&ndash;31 at 16 minutes, 18&ndash;34 at 15 minutes, and 29&ndash;50 at 14 minutes as the longest direct trips.</td></tr>
-                        <tr><th scope="row">6. Route concentration</th><td><span class="answer-tag partial">Partially</span></td><td>Both</td><td>Route colors are dispersed across the connected core and the district blocks. Express includes the three longest routes, but no service type is confined to one network region.</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ol class="findings-list">
+                <li><h3>Which stations appear central in the network?</h3><p class="finding-meta"><span class="answer-tag well">Answered well</span><span>Both views</span></p><p>Highlighting and occupied cells identify Stations 31 and 23 as central three-route stations. Station 31 also bridges distant sections.</p></li>
+                <li><h3>Which districts are strongly connected to one another?</h3><p class="finding-meta"><span class="answer-tag well">Answered well</span><span>Matrix</span></p><p>District ordering supports block comparison. East&ndash;South is densest, followed by Central&ndash;North and East&ndash;West.</p></li>
+                <li><h3>Where are transfer or terminal stations located in the topology?</h3><p class="finding-meta"><span class="answer-tag well">Answered well</span><span>Node-link</span></p><p>Shape locates station function. Terminals 4, 7, 10, 13, 16, 25, 31, and 34 are three-route junctions. Several later terminals are isolated.</p></li>
+                <li><h3>Which stations have high passenger volume?</h3><p class="finding-meta"><span class="answer-tag well">Answered well</span><span>Node-link</span></p><p>Symbol area identifies Stations 50, 49, and 48 as highest-volume stations. Their peripheral locations separate volume from centrality.</p></li>
+                <li><h3>Where are the longest direct travel-time connections?</h3><p class="finding-meta"><span class="answer-tag well">Answered well</span><span>Both views</span></p><p>Link width and cell opacity identify 7&ndash;31 at 16 minutes, 18&ndash;34 at 15 minutes, and 29&ndash;50 at 14 minutes as the longest direct trips.</p></li>
+                <li><h3>Are particular route types concentrated in particular parts of the network?</h3><p class="finding-meta"><span class="answer-tag partial">Partially answered</span><span>Both views</span></p><p>Route colors are dispersed across the network. Express includes the three longest routes, but no service type is confined to one region.</p></li>
+            </ol>
         </section>
 
     </main>
