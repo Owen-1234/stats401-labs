@@ -72,34 +72,6 @@ function prepareNetwork(stations, routes) {
     return adjacency;
 }
 
-function componentSizes(stations, adjacency) {
-    const unseen = new Set(stations.map(d => d.id));
-    const sizes = [];
-    while (unseen.size) {
-        const start = unseen.values().next().value;
-        const stack = [start];
-        unseen.delete(start);
-        let size = 0;
-        while (stack.length) {
-            const current = stack.pop();
-            size += 1;
-            adjacency.get(current).forEach(next => {
-                if (unseen.delete(next)) stack.push(next);
-            });
-        }
-        sizes.push(size);
-    }
-    return sizes.sort((a, b) => b - a);
-}
-
-function updateSummary(stations, routes, adjacency) {
-    const components = componentSizes(stations, adjacency);
-    d3.select("#station-count").text(stations.length);
-    d3.select("#route-count").text(routes.length);
-    d3.select("#district-count").text(new Set(stations.map(d => d.district)).size);
-    d3.select("#component-count").text(`${components[0]} + ${components.length - 1}`);
-}
-
 function tooltipPosition(event, target) {
     const node = tooltip.node();
     const bounds = node.getBoundingClientRect();
@@ -141,7 +113,7 @@ function routeTooltip(d) {
     </div>`;
 }
 
-function drawLegends(sizeScale) {
+function drawLegends() {
     d3.select("#district-legend").selectAll("span").data(districtOrder).join("span")
         .attr("class", "legend-item")
         .html(d => `<i class="legend-dot" style="--legend-color:${districtColors.get(d)}"></i>${d}`);
@@ -172,7 +144,7 @@ function renderNetwork(stations, routes, adjacency) {
     const height = 660;
     const sizeScale = d3.scaleSqrt().domain(d3.extent(stations, d => d.daily_passengers)).range([180, 980]);
     const widthScale = d3.scaleLinear().domain(d3.extent(routes, d => d.travel_time_min)).range([1.2, 5.4]);
-    drawLegends(sizeScale);
+    drawLegends();
 
     const svg = container.append("svg").attr("viewBox", `0 0 ${width} ${height}`)
         .attr("role", "img").attr("aria-labelledby", "network-svg-title network-svg-desc");
@@ -251,11 +223,6 @@ function renderNetwork(stations, routes, adjacency) {
         node.attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
-    d3.select("#reset-network").on("click", () => {
-        stations.forEach(d => { d.fx = null; d.fy = null; d.x = width / 2 + (Math.random() - 0.5) * 80; d.y = height / 2 + (Math.random() - 0.5) * 80; });
-        clearNetworkHighlight();
-        simulation.alpha(1).restart();
-    });
 }
 
 function renderMatrix(stations, routes) {
@@ -362,7 +329,6 @@ Promise.all([
 ]).then(([stations, routes]) => {
     validateData(stations, routes);
     const adjacency = prepareNetwork(stations, routes);
-    updateSummary(stations, routes, adjacency);
     renderNetwork(stations, routes, adjacency);
     renderMatrix(stations, routes);
 }).catch(showError);
