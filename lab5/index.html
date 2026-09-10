@@ -1,1 +1,108 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 5 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a aria-current="page" href="index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">05</div><p class="section-kicker">Upcoming study</p><h1>Lab 5</h1><p>Lab 5 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab5">View Lab 5 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive D3 study of topology, ridership, and route structure in a synthetic 50-station urban transit network.">
+    <title>Lab 5: Urban Transit Network | STATS 401</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../lab1/css/style.css">
+    <link rel="stylesheet" href="css/lab5.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+        <a class="course-mark" href="../index.html" aria-label="STATS 401 home"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a>
+        <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+    </header>
+    <nav class="lab-nav" aria-label="Lab navigation">
+        <a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="index.html" aria-current="page">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main id="main-content" class="lab-shell">
+        <section class="lab-heading lab5-heading">
+            <div class="lab-number" aria-hidden="true"><span>Network study</span>05</div>
+            <div class="lab-title-wrap">
+                <p class="section-kicker">Lab 5 &middot; Interactive Network Visualization</p>
+                <h1>Topology, Ridership, and Route Structure</h1>
+                <p class="lab-deck">Two complementary views examine how 50 stations connect across five urban districts. The force layout supports path tracing, while the matrix exposes repeated connection patterns.</p>
+                <div class="heading-links">
+                    <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab5"><span>GitHub code</span> View the implementation <span aria-hidden="true">&#8599;</span></a>
+                    <a class="dataset-link" href="https://github.com/hiilab/stats-401/blob/main/Lab5.md">Assignment and data <span aria-hidden="true">&#8599;</span></a>
+                </div>
+                <div class="publication-line" aria-label="Publication details"><span>Shilin Ou</span><span>NetID: so192</span><span>STATS 401</span><span>Fall 2026</span><span>D3.js v7</span></div>
+            </div>
+        </section>
+
+        <section class="network-summary" aria-label="Dataset summary">
+            <div><strong id="station-count">50</strong><span>stations</span></div><div><strong id="route-count">50</strong><span>direct routes</span></div><div><strong id="district-count">5</strong><span>districts</span></div><div><strong id="component-count">45 + 5</strong><span>main component + isolates</span></div>
+        </section>
+
+        <section class="visual-section dark-figure" aria-labelledby="network-title">
+            <div class="figure-heading">
+                <div><p class="figure-label">Figure 1 &middot; Node-link view</p><h2 id="network-title">A connected core and five isolated stations</h2><p>Color identifies district, area represents daily passengers, and shape identifies station type. Route color distinguishes service type, while width represents travel time. Hover or focus a station or route to isolate its local structure.</p></div>
+                <button id="reset-network" type="button">Reset layout</button>
+            </div>
+            <div class="network-layout">
+                <div class="network-canvas" id="network-chart" aria-live="polite"><p class="chart-status">Loading station and route data&hellip;</p></div>
+                <aside class="encoding-key network-key" aria-label="Node-link encoding legend">
+                    <div class="legend-block"><h3>District</h3><div id="district-legend" class="legend-list"></div></div>
+                    <div class="legend-block"><h3>Station type</h3><div id="station-type-legend" class="legend-list"></div></div>
+                    <div class="legend-block"><h3>Daily passengers</h3><div id="passenger-legend" class="size-legend"></div></div>
+                    <div class="legend-block"><h3>Route type</h3><div id="route-legend" class="legend-list"></div></div>
+                    <div class="legend-block"><h3>Travel time</h3><div class="width-legend"><span><i class="thin"></i>2 min</span><span><i class="thick"></i>16 min</span></div></div>
+                </aside>
+            </div>
+            <p class="figure-caption"><span>Figure 1.</span> The force-directed layout is topological rather than geographic. Numeric labels identify stations. Five unconnected stations remain visible near the periphery because their absence of routes is analytically meaningful.</p>
+        </section>
+
+        <section class="design-note" aria-labelledby="node-design-title">
+            <p class="section-kicker">Design rationale</p><h2 id="node-design-title">Node-link design</h2>
+            <p>Categorical color identifies district, while proportional symbol area represents passenger volume. Shape separates station functions without competing with color. Route hue distinguishes service and line width makes long trips salient. Dragging resolves overlap. Highlighting and tooltips preserve station-level inspection within the dense display.</p>
+        </section>
+
+        <section class="visual-section matrix-figure" aria-labelledby="matrix-title">
+            <div class="figure-heading">
+                <div><p class="figure-label">Figure 2 &middot; Adjacency matrix</p><h2 id="matrix-title">District ordering reveals the network&rsquo;s block structure</h2><p>Rows and columns represent the same stations. Filled cells indicate direct routes. Color identifies route type and opacity represents travel time. Labels are grouped by district, then station type.</p></div>
+                <div class="matrix-legend" id="matrix-legend" aria-label="Matrix route legend"></div>
+            </div>
+            <div class="matrix-scroll" tabindex="0" aria-label="Scrollable adjacency matrix on narrow screens"><div id="matrix-chart"><p class="chart-status">Building adjacency matrix&hellip;</p></div></div>
+            <p class="figure-caption"><span>Figure 2.</span> The symmetric pattern reflects an undirected network. Empty rows and columns identify isolates. Darker cells represent longer direct travel times, and the colored side bands show district membership.</p>
+        </section>
+
+        <section class="design-note matrix-note" aria-labelledby="matrix-design-title">
+            <p class="section-kicker">Design rationale</p><h2 id="matrix-design-title">Matrix design</h2>
+            <p>Filled cells preserve route existence, type, and travel time. Symmetry reflects undirected travel. Sorting by district creates blocks for comparing within- and between-district connections. Station type supplies a secondary order, and colored labels retain district identity. Passenger volume remains in tooltips because another matrix channel would reduce legibility.</p>
+        </section>
+
+        <section class="findings-section" aria-labelledby="findings-title">
+            <div class="findings-intro"><p class="section-kicker">Network questions and findings</p><h2 id="findings-title">What the two views support</h2><p>Each conclusion identifies its evidential view and supporting encoding.</p></div>
+            <div class="findings-table-wrap" tabindex="0" aria-label="Scrollable findings table on narrow screens">
+                <table class="findings-table">
+                    <thead><tr><th scope="col">Question</th><th scope="col">Assessment</th><th scope="col">Best view</th><th scope="col">Visual evidence and observation</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">1. Central stations</th><td><span class="answer-tag well">Well</span></td><td>Both</td><td>Stations 31 and 23 sit near the core and reveal three direct routes on highlight. Station 31 also bridges distant sections.</td></tr>
+                        <tr><th scope="row">2. District connections</th><td><span class="answer-tag well">Well</span></td><td>Matrix</td><td>District blocks show East&ndash;South as the densest pairing. Central&ndash;North and East&ndash;West form the next strongest blocks.</td></tr>
+                        <tr><th scope="row">3. Transfer and terminal locations</th><td><span class="answer-tag well">Well</span></td><td>Node-link</td><td>Squares and triangles span the core. Terminals 4, 7, 10, 13, 16, 25, 31, and 34 are three-route junctions. Several later terminals are isolated.</td></tr>
+                        <tr><th scope="row">4. High passenger volume</th><td><span class="answer-tag well">Well</span></td><td>Node-link</td><td>Symbol area identifies Stations 50, 49, and 48 as largest. Their peripheral positions show that ridership and topological centrality differ.</td></tr>
+                        <tr><th scope="row">5. Longest direct trips</th><td><span class="answer-tag well">Well</span></td><td>Both</td><td>The thickest links and darkest cells identify 7&ndash;31 at 16 minutes, 18&ndash;34 at 15, and 29&ndash;50 at 14.</td></tr>
+                        <tr><th scope="row">6. Route concentration</th><td><span class="answer-tag partial">Partially</span></td><td>Both</td><td>Route colors are dispersed across the core and district blocks. Express serves the three longest cross-links, but no type is confined to one region.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="method-note" aria-labelledby="method-title">
+            <p class="section-kicker">Data and interpretation</p><h2 id="method-title">A synthetic network for visualization practice</h2>
+            <p>The two external CSV files contain 50 stations and 50 direct routes. D3 data binding constructs both views from the same records. Because the dataset is synthetic and the force layout does not use geographic coordinates, the figures support structural comparison rather than claims about a real transit system.</p>
+        </section>
+    </main>
+
+    <div class="chart-tooltip" id="chart-tooltip" role="status" aria-live="polite"></div>
+    <footer><p>STATS 401 &middot; Lab 5</p><p class="footer-links"><a href="../index.html">Back to course portfolio</a><a href="https://github.com/Owen-1234/stats401-labs/tree/main/lab5">View Lab 5 code on GitHub</a></p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="lab5.js"></script>
+</body>
+</html>

@@ -14,6 +14,8 @@ Course website for **STATS 401: Data Acquisition and Visualization**.
 
 **[Open the published ChatGPT Conversations](https://owen-1234.github.io/stats401-labs/lab4/)**
 
+**[Open the published Urban Transit Network](https://owen-1234.github.io/stats401-labs/lab5/)**
+
 Lab 1 is organized as a self-contained study:
 
 ```text
@@ -35,3 +37,5 @@ Lab 2 uses the course-provided city dataset to coordinate four dimensions in an 
 Lab 3 acquires 2,928 daily U.S. public-debt observations from the Treasury Fiscal Data REST API with a reproducible Python script. The published study combines a responsive D3 time-series chart with a searchable, paginated, type-aware sortable table; the script and Lab 3 README document acquisition, validation, rate limiting, error handling, provenance, and a source-data reconciliation exception.
 
 Lab 4 cleans 50,001 public ChatGPT tweets and retains 7,076 English, de-duplicated records assigned to one of four documented topic groups. A Twitter-RoBERTa model estimates sentiment for every retained tweet; the D3 study coordinates normalized sentiment composition with interaction rates across Coding, Education, Work, and Reliability.
+
+Lab 5 loads 50 stations and 50 routes from two external CSV files. An interactive D3 force simulation encodes district, passenger volume, station type, travel time, and route type, while a district-ordered adjacency matrix reveals the same undirected network through complementary spatial encoding.
