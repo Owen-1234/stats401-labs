@@ -111,11 +111,6 @@
 .findings-list h3 { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; margin: 0; font: 600 1.08rem/1.35 "Source Serif 4", Georgia, serif; }
 .findings-list h3::before { content: counter(findings, decimal-leading-zero); color: var(--gold); font: 600 0.78rem/1.8 "IBM Plex Mono", monospace; }
 .findings-list li > p:last-child { max-width: 880px; margin: 13px 0 0 36px; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.65; }
-.finding-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 13px; margin: 11px 0 0 36px; color: var(--ink); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-.finding-meta > span + span::before { content: "·"; margin-right: 13px; color: var(--gold); }
-.answer-tag { display: inline-block; padding: 3px 8px; border-radius: 100px; font-size: inherit; letter-spacing: inherit; text-transform: uppercase; }
-.answer-tag.well { color: #174c43; background: #d6ebe4; }
-.answer-tag.partial { color: #754719; background: #f2dfc1; }
 
 .chart-tooltip { position: fixed; z-index: 50; width: min(270px, calc(100vw - 28px)); padding: 13px 15px; border: 1px solid rgba(255,255,255,0.18); color: #e6eeec; background: rgba(10,31,39,0.97); box-shadow: 0 12px 38px rgba(5,20,26,0.3); opacity: 0; pointer-events: none; transform: translateY(4px); transition: opacity 100ms ease, transform 100ms ease; }
 .chart-tooltip.visible { opacity: 1; transform: translateY(0); }
