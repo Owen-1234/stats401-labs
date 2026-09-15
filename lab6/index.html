@@ -1,1 +1,102 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 6 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a aria-current="page" href="index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">06</div><p class="section-kicker">Upcoming study</p><h1>Lab 6</h1><p>Lab 6 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab6">View Lab 6 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Two D3 treemaps compare GDP across a continent, area, and country hierarchy using different spatial subdivision methods.">
+    <title>Lab 6: GDP Hierarchy | STATS 401</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../lab1/css/style.css">
+    <link rel="stylesheet" href="css/lab6.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="course-mark" href="../index.html" aria-label="STATS 401 home">
+            <span class="course-number">401</span>
+            <span class="course-name">Data Acquisition<br>&amp; Visualization</span>
+        </a>
+        <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+    </header>
+
+    <nav class="lab-nav" aria-label="Lab navigation">
+        <a href="../lab1/index.html">Lab 1</a>
+        <a href="../lab2/index.html">Lab 2</a>
+        <a href="../lab3/index.html">Lab 3</a>
+        <a href="../lab4/index.html">Lab 4</a>
+        <a href="../lab5/index.html">Lab 5</a>
+        <a href="index.html" aria-current="page">Lab 6</a>
+        <a href="../lab7/index.html">Lab 7</a>
+        <a href="../lab8/index.html">Lab 8</a>
+        <a href="../lab9/index.html">Lab 9</a>
+        <a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main id="main-content" class="lab-shell">
+        <section class="lab-heading lab6-heading">
+            <div class="lab-number" aria-hidden="true"><span>Hierarchy study</span>06</div>
+            <div class="lab-title-wrap">
+                <p class="section-kicker">Lab 6 &middot; Hierarchical Data Visualization</p>
+                <h1>Global GDP Hierarchy</h1>
+                <p class="lab-deck">Two treemaps represent the same continent, area, and country hierarchy. Rectangle area encodes GDP in billions of U.S. dollars, while color encodes GDP status.</p>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>Shilin Ou</span>
+                    <span>NetID: so192</span>
+                    <span>STATS 401</span>
+                    <span>Fall 2026</span>
+                    <span>D3.js v7</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="status-key" aria-labelledby="status-key-title">
+            <h2 id="status-key-title">GDP status</h2>
+            <div id="status-legend" class="status-legend" aria-label="GDP status color legend"></div>
+        </section>
+
+        <figure class="treemap-figure" aria-labelledby="squarify-title">
+            <figcaption class="figure-heading">
+                <p class="figure-label">Figure 1 &middot; Squarify</p>
+                <h2 id="squarify-title">Compact cells support country comparison</h2>
+                <p>Hover or focus a country to inspect its full hierarchy, GDP, and status.</p>
+            </figcaption>
+            <div class="treemap-scroll" tabindex="0" aria-label="Scrollable squarified treemap on narrow screens">
+                <div id="treemap-squarify" class="treemap-chart" aria-live="polite">
+                    <p class="chart-status">Loading hierarchical GDP data&hellip;</p>
+                </div>
+            </div>
+        </figure>
+
+        <figure class="treemap-figure" aria-labelledby="slice-dice-title">
+            <figcaption class="figure-heading">
+                <p class="figure-label">Figure 2 &middot; Slice-and-dice</p>
+                <h2 id="slice-dice-title">Alternating bands emphasize nested groups</h2>
+                <p>Every country retains the same area and status encoding used in Figure 1.</p>
+            </figcaption>
+            <div class="treemap-scroll" tabindex="0" aria-label="Scrollable slice-and-dice treemap on narrow screens">
+                <div id="treemap-slice-dice" class="treemap-chart" aria-live="polite">
+                    <p class="chart-status">Loading hierarchical GDP data&hellip;</p>
+                </div>
+            </div>
+        </figure>
+
+        <section class="design-description" aria-labelledby="design-title">
+            <h2 id="design-title">Design description</h2>
+            <p>Rectangle area encodes GDP because a treemap uses a common spatial extent to support part-to-whole comparison across countries, areas, and continents. Color encodes GDP status as a categorical variable. Green marks increase, amber marks no change, and red marks decrease. The same scale and status palette are held constant across both figures, so their layouts can be compared without introducing a second visual explanation. Continent and area labels, nested boundaries, and full hierarchy paths in the tooltips make the parent-child structure explicit. The squarified treemap favors compact rectangles with relatively balanced aspect ratios. This generally improves country-label legibility and supports comparison among similarly sized economies. The slice-and-dice treemap alternates the partition direction across hierarchy levels. Its long bands make continental and regional nesting easier to trace, although small GDP values can produce narrow country cells and less readable labels. Together, the figures show how tiling changes spatial organization while preserving the same hierarchy, values, and status encoding.</p>
+        </section>
+    </main>
+
+    <div class="chart-tooltip" id="chart-tooltip" role="status" aria-live="polite"></div>
+
+    <footer>
+        <p>STATS 401 &middot; Lab 6</p>
+        <p><a href="../index.html">Back to course portfolio</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="lab6.js"></script>
+</body>
+</html>

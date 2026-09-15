@@ -1,0 +1,280 @@
+:root {
+    --gdp-ink: #142e35;
+    --gdp-panel: #f9f7f0;
+    --increase: #1f7a65;
+    --unchanged: #766949;
+    --decrease: #a9474b;
+}
+
+.lab-shell {
+    width: min(1240px, calc(100% - 40px));
+}
+
+.lab6-heading {
+    grid-template-columns: 190px minmax(0, 1fr);
+}
+
+.lab6-heading h1 {
+    max-width: 940px;
+}
+
+.status-key {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    margin: 0 0 30px;
+    padding: 18px 22px;
+    border: 1px solid var(--line-dark);
+    background: var(--surface);
+}
+
+.status-key h2 {
+    margin: 0;
+    font: 600 1.1rem/1.2 "Source Serif 4", Georgia, serif;
+}
+
+.status-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+}
+
+.status-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.status-swatch {
+    width: 18px;
+    height: 12px;
+    border: 1px solid rgba(20, 46, 53, 0.38);
+    background: var(--status-color);
+}
+
+.treemap-figure {
+    margin: 0 0 42px;
+    border: 1px solid var(--line-dark);
+    background: var(--gdp-panel);
+    box-shadow: var(--shadow);
+}
+
+.treemap-figure .figure-heading {
+    display: block;
+    padding: 26px 30px 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.treemap-figure .figure-label {
+    margin: 0 0 6px;
+    color: var(--gold);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.treemap-figure h2,
+.design-description h2 {
+    margin: 0;
+    font: 600 clamp(1.7rem, 3.4vw, 2.5rem)/1.08 "Source Serif 4", Georgia, serif;
+    letter-spacing: -0.025em;
+}
+
+.treemap-figure .figure-heading > p:last-child {
+    margin: 8px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+}
+
+.treemap-scroll {
+    overflow-x: auto;
+    padding: 18px;
+}
+
+.treemap-chart {
+    min-width: 820px;
+}
+
+.treemap-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.country-cell {
+    cursor: default;
+    outline: none;
+}
+
+.country-cell rect {
+    stroke: rgba(255, 255, 255, 0.88);
+    stroke-width: 1px;
+    transition: filter 120ms ease, stroke-width 120ms ease;
+}
+
+.country-cell:hover rect,
+.country-cell:focus rect {
+    filter: brightness(1.12);
+    stroke: #ffffff;
+    stroke-width: 3px;
+}
+
+.country-label {
+    fill: #ffffff;
+    font: 600 12px/1.15 "IBM Plex Sans", Arial, sans-serif;
+    pointer-events: none;
+}
+
+.country-value {
+    fill: rgba(255, 255, 255, 0.82);
+    font: 500 9.5px/1 "IBM Plex Mono", monospace;
+}
+
+.group-layer {
+    pointer-events: none;
+}
+
+.continent-boundary,
+.area-boundary {
+    fill: none;
+}
+
+.continent-boundary {
+    stroke: var(--gdp-ink);
+    stroke-width: 3px;
+}
+
+.area-boundary {
+    stroke: rgba(20, 46, 53, 0.72);
+    stroke-width: 1.5px;
+}
+
+.continent-label {
+    fill: var(--gdp-ink);
+    font: 700 12px/1 "IBM Plex Sans", Arial, sans-serif;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.area-label {
+    fill: #40545a;
+    font: 600 10px/1 "IBM Plex Sans", Arial, sans-serif;
+}
+
+.design-description {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+    margin: 56px 0 8px;
+    padding: 32px 0;
+    border-top: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line);
+}
+
+.design-description h2 {
+    font-size: 1.8rem;
+}
+
+.design-description p {
+    margin: 2px 0 0;
+    color: var(--ink-soft);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.chart-tooltip {
+    position: fixed;
+    z-index: 50;
+    width: min(290px, calc(100vw - 28px));
+    padding: 14px 16px;
+    border-top: 3px solid var(--gold);
+    color: #edf3f1;
+    background: rgba(14, 38, 45, 0.97);
+    box-shadow: 0 14px 42px rgba(7, 27, 32, 0.28);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5px);
+    transition: opacity 100ms ease, transform 100ms ease;
+}
+
+.chart-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chart-tooltip strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #ffffff;
+    font: 600 1.05rem/1.25 "Source Serif 4", Georgia, serif;
+}
+
+.tooltip-path {
+    margin-bottom: 9px;
+    color: #b9cac7;
+    font-size: 0.68rem;
+}
+
+.tooltip-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 16px;
+    font-size: 0.74rem;
+}
+
+.tooltip-grid span {
+    color: #abc0bc;
+}
+
+.tooltip-grid b {
+    color: #ffffff;
+    font-weight: 500;
+    text-align: right;
+}
+
+.chart-error {
+    margin: 24px;
+    padding: 18px 20px;
+    border-left: 4px solid var(--decrease);
+    color: #7f3034;
+    background: #f8eae8;
+}
+
+@media (max-width: 720px) {
+    .lab6-heading,
+    .design-description {
+        grid-template-columns: 1fr;
+    }
+
+    .status-key {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .treemap-figure .figure-heading {
+        padding: 23px 22px 19px;
+    }
+
+    .treemap-scroll {
+        padding: 10px;
+    }
+
+    .design-description {
+        gap: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .country-cell rect,
+    .chart-tooltip {
+        transition: none;
+    }
+}
