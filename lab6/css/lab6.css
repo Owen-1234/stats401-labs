@@ -6,16 +6,39 @@
     --decrease: #a9474b;
 }
 
-.lab-shell {
-    width: min(1240px, calc(100% - 40px));
-}
-
 .lab6-heading {
     grid-template-columns: 190px minmax(0, 1fr);
 }
 
 .lab6-heading h1 {
     max-width: 940px;
+}
+
+.heading-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin-top: 18px;
+}
+
+.heading-links .lab-source-prominent {
+    margin: 0;
+}
+
+.dataset-link {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--gold);
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.dataset-link:hover,
+.dataset-link:focus-visible {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
 }
 
 .status-key {
