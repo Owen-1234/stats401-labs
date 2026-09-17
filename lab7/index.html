@@ -42,7 +42,7 @@
             <div class="lab-title-wrap">
                 <p class="section-kicker">Lab 7: Temporal Data Visualization with D3</p>
                 <h1>Commercial Relationships Across 60 Days</h1>
-                <p class="lab-deck">An interactive view of when twelve companies transact, how strongly they are connected, and how the network changes from January 1 to March 1, 2026.</p>
+                <p class="lab-deck">How did the structure and connectivity of a twelve-company commercial network change across 60 days?</p>
                 <div class="heading-links">
                     <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab7"><span>GitHub code</span> View the implementation <span aria-hidden="true">&#8599;</span></a>
                     <a class="dataset-link" href="https://github.com/hiilab/stats-401/blob/main/Lab7.md">Assignment and source data <span aria-hidden="true">&#8599;</span></a>
@@ -104,25 +104,20 @@
 
         <section class="analysis-section" aria-labelledby="analysis-title">
             <div>
-                <p class="section-kicker">Analysis of the 60 daily networks</p>
-                <h2 id="analysis-title">How did the network change?</h2>
+                <p class="section-kicker">Five temporal-network questions</p>
+                <h2 id="analysis-title">What the daily networks show</h2>
             </div>
             <div class="analysis-copy">
-                <p><strong>Overall connectivity.</strong> The mean number of active links rose from 5.50 per day in days 1&ndash;20 to 7.25 in days 41&ndash;60. Days 45, 51, and 57 each had ten links involving all twelve companies. Greater activity did not produce a fully connected network on those days.</p>
-                <p><strong>Company activity.</strong> Fusion Electronics was most active in days 21&ndash;40, with 53 incident daily links and $1.05 million in associated transaction value. In days 41&ndash;60, Ion Systems led with 46 incident links and $1.10 million, followed by Cedar Retail with 43 links and $0.90 million.</p>
-                <p><strong>Separate clusters.</strong> On day 1, the network consisted of three disconnected pairs and six companies with no transaction. On day 42, all twelve companies were active, but the largest connected component contained eight companies. The network therefore remained partitioned even during a relatively active period.</p>
-                <p><strong>Changing relationships.</strong> BlueRiver Logistics and Delta Components transacted on ten even-numbered days through day 20, then did not appear together again. Fusion Electronics and Juniper Stores first appeared together on day 22. The mean value of Fusion Electronics&ndash;Granite Wholesale transactions increased from about $8,202 in days 1&ndash;20 to $25,003 in days 21&ndash;40.</p>
-                <p><strong>Cross-region exchange.</strong> Cross-region links accounted for 70 of 110 observed links (63.6%) in days 1&ndash;20 and 105 of 145 (72.4%) in days 41&ndash;60. The later period was more cross-regional by this measure. Region is shown by company color, so these connections can also be inspected day by day.</p>
+                <p><strong>Connectivity increased.</strong> Daily active links averaged 5.50 in days 1&ndash;20 and 7.25 in days 41&ndash;60. Days 45, 51, and 57 each had ten links involving all twelve companies, although none formed a single connected component.</p>
+                <p><strong>Commercial activity shifted.</strong> Fusion Electronics was incident to 53 daily links worth $1.05 million in days 21&ndash;40. In days 41&ndash;60, Ion Systems led with 46 daily links worth $1.10 million, followed by Cedar Retail with 43 links worth $0.90 million.</p>
+                <p><strong>Separate clusters persisted.</strong> Day 1 had three disconnected pairs and six inactive companies. On day 42, all twelve companies were active, but the connected components still had eight, two, and two companies.</p>
+                <p><strong>Relationships changed in presence and strength.</strong> BlueRiver Logistics and Delta Components transacted on ten even-numbered days through day 20 and did not appear together later. Fusion Electronics and Juniper Stores first appeared together on day 22. Fusion Electronics&ndash;Granite Wholesale transactions averaged $8,202 in days 1&ndash;20 and $25,003 in days 21&ndash;40.</p>
+                <p><strong>Cross-region exchange became more common.</strong> Cross-region links represented 70 of 110 daily links (63.6%) in days 1&ndash;20 and 105 of 145 (72.4%) in days 41&ndash;60. Company color shows region, so individual cross-region links can be inspected in the network.</p>
             </div>
         </section>
     </main>
 
     <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
-
-    <footer>
-        <p>STATS 401 &middot; Lab 7</p>
-        <p class="footer-links"><a href="../index.html">Back to course portfolio</a><a href="https://github.com/Owen-1234/stats401-labs/tree/main/lab7">View Lab 7 code on GitHub</a></p>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
     <script src="lab7.js"></script>

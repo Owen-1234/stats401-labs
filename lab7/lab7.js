@@ -246,15 +246,26 @@ async function main() {
 
         linkLayer.selectAll("g.transaction").interrupt();
         linkLayer.selectAll(".network-link").interrupt();
-        const selection = linkLayer.selectAll("g.transaction")
-            .data(currentLinks, d => d.key);
-        const entering = selection.enter().append("g")
-            .attr("class", "transaction")
-            .attr("tabindex", 0)
-            .attr("role", "img");
-        entering.append("line").attr("class", "network-link").attr("opacity", 0);
-        entering.append("line").attr("class", "link-hit");
-        const visible = entering.merge(selection)
+        const visible = linkLayer.selectAll("g.transaction")
+            .data(currentLinks, d => d.key)
+            .join(
+                enter => {
+                    const group = enter.append("g")
+                        .attr("class", "transaction")
+                        .attr("tabindex", 0)
+                        .attr("role", "img");
+                    group.append("line").attr("class", "network-link").attr("opacity", 0);
+                    group.append("line").attr("class", "link-hit");
+                    return group;
+                },
+                update => update,
+                exit => {
+                    exit.style("pointer-events", "none")
+                        .select(".network-link")
+                        .transition().duration(380).attr("opacity", 0);
+                    exit.transition().delay(390).remove();
+                }
+            )
             .style("pointer-events", null)
             .attr("aria-label", d => `${companyById.get(d.sourceId).company_name} and ${companyById.get(d.targetId).company_name}, ${d.type}, ${formatMoney(d.amount)}`)
             .on("pointerenter", function(event, d) { showTooltip(linkTooltip(d), event, this); })
@@ -272,11 +283,6 @@ async function main() {
             .transition().duration(380)
             .attr("stroke-width", d => width(d.amount))
             .attr("opacity", 0.8);
-        selection.exit().style("pointer-events", "none")
-            .select(".network-link")
-            .transition().duration(380).attr("opacity", 0);
-        selection.exit().transition().delay(390).remove();
-
         nodes.attr("aria-label", d => `${d.company_name}, ${d.region}, ${formatMoney(d.dailyVolume)} in transactions with ${d.dailyPartners} ${d.dailyPartners === 1 ? "partner" : "partners"}`);
         nodes.select(".node-circle")
             .attr("stroke", d => regionColors.get(d.region))
