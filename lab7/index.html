@@ -1,1 +1,130 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 7 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a aria-current="page" href="index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">07</div><p class="section-kicker">Upcoming study</p><h1>Lab 7</h1><p>Lab 7 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab7">View Lab 7 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive D3 study of how a twelve-company commercial network changes across sixty days.">
+    <title>Lab 7: Temporal Commercial Network | STATS 401</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../lab1/css/style.css">
+    <link rel="stylesheet" href="../lab4/css/lab4.css">
+    <link rel="stylesheet" href="css/lab7.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="course-mark" href="../index.html" aria-label="STATS 401 home">
+            <span class="course-number">401</span>
+            <span class="course-name">Data Acquisition<br>&amp; Visualization</span>
+        </a>
+        <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+    </header>
+
+    <nav class="lab-nav" aria-label="Lab navigation">
+        <a href="../lab1/index.html">Lab 1</a>
+        <a href="../lab2/index.html">Lab 2</a>
+        <a href="../lab3/index.html">Lab 3</a>
+        <a href="../lab4/index.html">Lab 4</a>
+        <a href="../lab5/index.html">Lab 5</a>
+        <a href="../lab6/index.html">Lab 6</a>
+        <a href="index.html" aria-current="page">Lab 7</a>
+        <a href="../lab8/index.html">Lab 8</a>
+        <a href="../lab9/index.html">Lab 9</a>
+        <a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main id="main-content" class="lab-shell">
+        <section class="lab-heading lab7-heading">
+            <div class="lab-number" aria-hidden="true"><span>Temporal network study</span>07</div>
+            <div class="lab-title-wrap">
+                <p class="section-kicker">Lab 7: Temporal Data Visualization with D3</p>
+                <h1>Commercial Relationships Across 60 Days</h1>
+                <p class="lab-deck">An interactive view of when twelve companies transact, how strongly they are connected, and how the network changes from January 1 to March 1, 2026.</p>
+                <div class="heading-links">
+                    <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab7"><span>GitHub code</span> View the implementation <span aria-hidden="true">&#8599;</span></a>
+                    <a class="dataset-link" href="https://github.com/hiilab/stats-401/blob/main/Lab7.md">Assignment and source data <span aria-hidden="true">&#8599;</span></a>
+                </div>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>Shilin Ou</span>
+                    <span>NetID: so192</span>
+                    <span>STATS 401</span>
+                    <span>Fall 2026</span>
+                    <span>D3.js</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="chart-panel network-panel" aria-labelledby="network-title">
+            <div class="chart-header network-header">
+                <div>
+                    <p class="figure-label">Figure 1 &middot; Daily commercial network</p>
+                    <h2 id="network-title">Relationships appear and disappear by day</h2>
+                    <p>Play the sequence or move the slider to inspect one day. Hover or focus a company or relationship for exact values.</p>
+                </div>
+                <div class="day-display" aria-live="polite">
+                    <span id="current-day">Day 1 of 60</span>
+                    <strong id="current-date">January 1, 2026</strong>
+                </div>
+            </div>
+
+            <div class="time-controls" aria-label="Time controls">
+                <div class="control-buttons">
+                    <button id="play" type="button" aria-label="Play the sixty-day animation">Play <span aria-hidden="true">&#9654;</span></button>
+                    <button id="pause" type="button" aria-label="Pause the animation" disabled>Pause <span aria-hidden="true">&#10074;&#10074;</span></button>
+                    <button id="reset" type="button" aria-label="Reset to day one">Reset <span aria-hidden="true">&#8634;</span></button>
+                </div>
+                <div class="slider-wrap">
+                    <label for="time-slider">Select day</label>
+                    <input id="time-slider" type="range" min="1" max="60" step="1" value="1" aria-valuetext="Day 1, January 1, 2026">
+                    <div class="slider-ends"><span>Day 1</span><span>Day 60</span></div>
+                </div>
+            </div>
+
+            <div class="daily-summary" aria-label="Current day summary">
+                <div><span>Active companies</span><strong id="active-companies">&mdash;</strong></div>
+                <div><span>Active links</span><strong id="active-links">&mdash;</strong></div>
+                <div><span>Transaction value</span><strong id="total-value">&mdash;</strong></div>
+                <div><span>Cross-region links</span><strong id="cross-region-links">&mdash;</strong></div>
+            </div>
+
+            <div class="network-scroll" tabindex="0" aria-label="Scrollable commercial network on narrow screens">
+                <div id="network-chart"><p class="chart-status">Loading the company and transaction data&hellip;</p></div>
+            </div>
+
+            <div class="encoding-key" aria-label="Visual encoding legend">
+                <div class="key-block"><h3>Company region</h3><div id="region-legend" class="key-items"></div></div>
+                <div class="key-block"><h3>Transaction type</h3><div id="type-legend" class="key-items"></div></div>
+                <p class="size-key">Company circle size shows its total transaction value on the selected day. Line width shows the value of that relationship. Faded circles indicate companies with no transaction that day.</p>
+            </div>
+            <p class="figure-caption"><span>Figure 1.</span> Each frame uses transactions recorded on that day, and links are undirected. Node positions come from a force-directed layout of all observed relationships and remain fixed to make day-to-day changes easier to compare. The course-provided data are synthetic.</p>
+        </section>
+
+        <section class="analysis-section" aria-labelledby="analysis-title">
+            <div>
+                <p class="section-kicker">Analysis of the 60 daily networks</p>
+                <h2 id="analysis-title">How did the network change?</h2>
+            </div>
+            <div class="analysis-copy">
+                <p><strong>Overall connectivity.</strong> The mean number of active links rose from 5.50 per day in days 1&ndash;20 to 7.25 in days 41&ndash;60. Days 45, 51, and 57 each had ten links involving all twelve companies. Greater activity did not produce a fully connected network on those days.</p>
+                <p><strong>Company activity.</strong> Fusion Electronics was most active in days 21&ndash;40, with 53 incident daily links and $1.05 million in associated transaction value. In days 41&ndash;60, Ion Systems led with 46 incident links and $1.10 million, followed by Cedar Retail with 43 links and $0.90 million.</p>
+                <p><strong>Separate clusters.</strong> On day 1, the network consisted of three disconnected pairs and six companies with no transaction. On day 42, all twelve companies were active, but the largest connected component contained eight companies. The network therefore remained partitioned even during a relatively active period.</p>
+                <p><strong>Changing relationships.</strong> BlueRiver Logistics and Delta Components transacted on ten even-numbered days through day 20, then did not appear together again. Fusion Electronics and Juniper Stores first appeared together on day 22. The mean value of Fusion Electronics&ndash;Granite Wholesale transactions increased from about $8,202 in days 1&ndash;20 to $25,003 in days 21&ndash;40.</p>
+                <p><strong>Cross-region exchange.</strong> Cross-region links accounted for 70 of 110 observed links (63.6%) in days 1&ndash;20 and 105 of 145 (72.4%) in days 41&ndash;60. The later period was more cross-regional by this measure. Region is shown by company color, so these connections can also be inspected day by day.</p>
+            </div>
+        </section>
+    </main>
+
+    <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+
+    <footer>
+        <p>STATS 401 &middot; Lab 7</p>
+        <p class="footer-links"><a href="../index.html">Back to course portfolio</a><a href="https://github.com/Owen-1234/stats401-labs/tree/main/lab7">View Lab 7 code on GitHub</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="lab7.js"></script>
+</body>
+</html>

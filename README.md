@@ -18,6 +18,8 @@ Course website for **STATS 401: Data Acquisition and Visualization**.
 
 **[Open the published Global GDP Hierarchy](https://owen-1234.github.io/stats401-labs/lab6/)**
 
+**[Open the published Temporal Commercial Network](https://owen-1234.github.io/stats401-labs/lab7/)**
+
 Lab 1 is organized as a self-contained study:
 
 ```text
@@ -43,3 +45,5 @@ Lab 4 cleans 50,001 public ChatGPT tweets and retains 7,076 English, de-duplicat
 Lab 5 loads 50 stations and 50 routes from two external CSV files. An interactive D3 force simulation encodes district, passenger volume, station type, travel time, and route type, while a district-ordered adjacency matrix reveals the same undirected network through complementary spatial encoding.
 
 Lab 6 converts the course-provided GDP table into hierarchical JSON with Python. Two D3 treemaps encode GDP by area and GDP status by color while comparing squarified and slice-and-dice spatial subdivision.
+
+Lab 7 uses the course-provided company and 60-day transaction data to show daily changes in an undirected commercial network. A D3 force simulation establishes stable company positions. Region, daily company volume, transaction type, and amount are encoded visually, while playback controls and a time slider support inspection of each day.

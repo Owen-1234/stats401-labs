@@ -1,0 +1,184 @@
+.lab7-heading { grid-template-columns: 190px minmax(0, 1fr); }
+.network-panel { margin-bottom: 42px; }
+.network-header { align-items: end; }
+.network-header > div:first-child { max-width: 660px; }
+.day-display {
+    flex: 0 0 auto;
+    min-width: 186px;
+    padding: 12px 0 12px 22px;
+    border-left: 2px solid var(--gold);
+}
+.day-display span,
+.day-display strong { display: block; }
+.day-display span {
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.day-display strong {
+    margin-top: 2px;
+    font: 600 1.28rem/1.25 "Source Serif 4", Georgia, serif;
+}
+.time-controls {
+    display: grid;
+    grid-template-columns: auto minmax(240px, 1fr);
+    align-items: start;
+    gap: 24px 34px;
+    padding: 20px 0 14px;
+    border-top: 1px solid var(--line);
+}
+.control-buttons { display: flex; flex-wrap: wrap; gap: 7px; }
+.control-buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 17px;
+    min-width: 84px;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    color: var(--ink);
+    background: transparent;
+    font: 600 0.76rem/1 "IBM Plex Sans", Arial, sans-serif;
+    cursor: pointer;
+}
+.control-buttons button:first-child { color: var(--surface); background: var(--ink); }
+.control-buttons button:disabled { opacity: 0.4; cursor: default; }
+.control-buttons button:not(:disabled):hover,
+.control-buttons button:not(:disabled):focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.control-buttons button span { font-size: 0.74rem; }
+.slider-wrap { min-width: 0; }
+.slider-wrap label {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--ink-soft);
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+#time-slider { display: block; width: 100%; margin: 0; accent-color: var(--blue); cursor: pointer; }
+.slider-ends { display: flex; justify-content: space-between; color: var(--ink-soft); font-size: 0.65rem; }
+.daily-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    margin: 7px 0 16px;
+    border: 1px solid var(--line);
+    background: var(--line);
+}
+.daily-summary > div { padding: 10px 15px; background: #f4f3ed; }
+.daily-summary span,
+.daily-summary strong { display: block; }
+.daily-summary span {
+    color: var(--ink-soft);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+.daily-summary strong { margin-top: 2px; font: 600 1.25rem/1.2 "Source Serif 4", Georgia, serif; }
+.network-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    background:
+        radial-gradient(circle at 50% 50%, rgba(115,145,154,0.07), transparent 55%),
+        #f7f6f0;
+}
+#network-chart { min-height: 580px; }
+#network-chart svg { display: block; width: 100%; height: auto; min-width: 740px; }
+.network-link { pointer-events: none; stroke-linecap: round; }
+.link-hit { fill: none; stroke: transparent; stroke-width: 18px; pointer-events: stroke; }
+.transaction:focus-visible .network-link,
+.transaction:hover .network-link { opacity: 1 !important; filter: drop-shadow(0 0 3px rgba(23,39,36,0.4)); }
+.network-node { cursor: default; }
+.node-circle { stroke-width: 2.5px; }
+.network-node:focus-visible .node-circle,
+.network-node:hover .node-circle { stroke: var(--ink); stroke-width: 4px; }
+.node-label {
+    fill: var(--ink);
+    stroke: #f7f6f0;
+    stroke-width: 3px;
+    paint-order: stroke;
+    font: 600 12px/1 "IBM Plex Sans", Arial, sans-serif;
+    pointer-events: none;
+}
+.encoding-key {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 18px 28px;
+    padding-top: 23px;
+}
+.key-block h3 {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.key-items { display: flex; flex-wrap: wrap; gap: 8px 15px; }
+.key-item { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: 0.7rem; }
+.key-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--swatch); }
+.key-line { width: 17px; border-top: 3px solid var(--swatch); }
+.size-key {
+    grid-column: 1 / -1;
+    max-width: 760px;
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+}
+.network-tooltip {
+    position: fixed;
+    z-index: 50;
+    width: max-content;
+    max-width: min(310px, calc(100vw - 24px));
+    padding: 12px 14px;
+    border-top: 3px solid var(--gold);
+    color: white;
+    background: var(--ink);
+    box-shadow: 0 12px 30px rgba(23,39,36,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 100ms ease;
+}
+.network-tooltip.visible { opacity: 1; }
+.network-tooltip strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--gold-soft);
+    font: 600 0.93rem/1.25 "Source Serif 4", Georgia, serif;
+}
+.network-tooltip .tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 2px 0;
+    font-size: 0.73rem;
+}
+.network-tooltip .tooltip-row span { color: #d1dcd8; }
+.network-tooltip .tooltip-row b { font-weight: 600; text-align: right; }
+.analysis-copy p { line-height: 1.55; }
+.analysis-copy strong { color: var(--ink); }
+@media (max-width: 900px) {
+    .network-header { align-items: start; }
+    .encoding-key { grid-template-columns: 1fr; }
+    .size-key { grid-column: auto; }
+}
+@media (max-width: 720px) {
+    .lab7-heading { grid-template-columns: 1fr; }
+    .network-header { display: block; }
+    .day-display { margin-top: 20px; }
+    .time-controls { grid-template-columns: 1fr; }
+    .daily-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 460px) {
+    .daily-summary { grid-template-columns: 1fr 1fr; }
+    .daily-summary > div { padding: 10px; }
+    .daily-summary strong { font-size: 1.06rem; }
+    .control-buttons button { min-width: 72px; gap: 7px; }
+}
