@@ -1,0 +1,12 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "PASS",
+  "file": "lab8/data/V2021-22_DKU_UG_Bulletin.pdf",
+  "sha256": "431bd3fdcdfdf7722783c29502a7600e8ac21ae45fd4785d230d1ab387dc9133",
+  "declared_page_count": 400,
+  "enumerated_page_count": 400,
+  "reader_page_count": 400,
+  "warnings": [],
+  "generated_at": "2026-09-22T06:06:18.328800+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}

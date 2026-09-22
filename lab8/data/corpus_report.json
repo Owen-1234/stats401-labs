@@ -1,0 +1,20 @@
+{
+  "source_title": "Bulletin of Duke Kunshan University Undergraduate Instruction",
+  "academic_year": "2021-2022",
+  "source_url": "https://dku-web-admissions.s3.cn-north-1.amazonaws.com.cn/dkumain/files/V2021-22_DKU_UG_Bulletin.pdf",
+  "date_accessed": "2026-09-22",
+  "pdf_pages": 400,
+  "content_pages": 391,
+  "raw_candidate_blocks": 3716,
+  "clean_passages": 1109,
+  "average_words_per_passage": 79.0,
+  "formal_sections": 147,
+  "exclusions": {
+    "heading": 930,
+    "page_number": 391,
+    "short_or_table_cell": 2479,
+    "duplicate": 91,
+    "low_text_density": 7,
+    "course_table_row": 30
+  }
+}

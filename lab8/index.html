@@ -1,1 +1,142 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 8 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a aria-current="page" href="index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">08</div><p class="section-kicker">Upcoming study</p><h1>Lab 8</h1><p>Lab 8 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab8">View Lab 8 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive semantic map and topic-by-section matrix of the 2021–22 DKU Undergraduate Bulletin.">
+    <title>Lab 8: DKU Bulletin | STATS 401</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../lab1/css/style.css">
+    <link rel="stylesheet" href="css/lab8.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+        <a class="course-mark" href="../index.html" aria-label="STATS 401 home">
+            <span class="course-number">401</span>
+            <span class="course-name">Data Acquisition<br>&amp; Visualization</span>
+        </a>
+        <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+    </header>
+    <nav class="lab-nav" aria-label="Lab navigation">
+        <a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a>
+        <a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a>
+        <a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a>
+        <a href="../lab7/index.html">Lab 7</a><a href="index.html" aria-current="page">Lab 8</a>
+        <a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main id="main-content" class="lab-shell">
+        <section class="lab-heading lab8-heading">
+            <div class="lab-number" aria-hidden="true"><span>Text analysis study</span>08</div>
+            <div class="lab-title-wrap">
+                <p class="section-kicker">Lab 8: Web Text Data and Visualization</p>
+                <h1>The DKU Bulletin, Mapped by Meaning</h1>
+                <p class="lab-deck">A paragraph-level exploration of how semantic topics cross the Bulletin’s formal sections.</p>
+                <div class="heading-links">
+                    <a class="lab-source-prominent" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab8"><span>GitHub code</span> View the reproducible pipeline <span aria-hidden="true">&#8599;</span></a>
+                    <a class="dataset-link" href="data/V2021-22_DKU_UG_Bulletin.pdf">Original bulletin PDF <span aria-hidden="true">&#8599;</span></a>
+                </div>
+                <div class="publication-line" aria-label="Publication details">
+                    <span>Shilin Ou</span><span>NetID: so192</span><span>STATS 401</span>
+                    <span>Fall 2026</span><span>Python + D3.js</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="corpus-section" aria-labelledby="corpus-title">
+            <div class="section-intro">
+                <p class="section-kicker">Corpus overview</p>
+                <h2 id="corpus-title">One bulletin, 391 content pages</h2>
+                <p>The 2021–22 <em>Bulletin of Duke Kunshan University Undergraduate Instruction</em> was retrieved from an <a href="https://dku-web-admissions.s3.cn-north-1.amazonaws.com.cn/dkumain/files/V2021-22_DKU_UG_Bulletin.pdf">official DKU source</a> on September 22, 2026. Paragraphs and short policy blocks are the units of analysis. The title and contents pages are excluded.</p>
+            </div>
+            <div class="study-meta" id="corpus-metrics" aria-label="Corpus statistics"></div>
+            <div class="overview-grid">
+                <article class="overview-card">
+                    <h3>Most represented sections</h3>
+                    <p>Number of retained passages</p>
+                    <div id="section-overview" class="overview-chart" role="img" aria-label="Bar chart of passages in the most represented sections"></div>
+                </article>
+                <article class="overview-card">
+                    <h3>Characteristic terms</h3>
+                    <p>Mean passage-level TF-IDF after removing generic bulletin terms</p>
+                    <div id="term-overview" class="overview-chart" role="img" aria-label="Bar chart of common characteristic terms"></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="chart-panel map-panel" aria-labelledby="map-title">
+            <div class="chart-header">
+                <div>
+                    <p class="figure-label">Figure 1 &middot; Semantic embedding map</p>
+                    <h2 id="map-title">Passages near one another tend to discuss similar ideas</h2>
+                    <p>Each point is one retained passage. Color indicates its modeled topic. Point area represents passage length.</p>
+                </div>
+            </div>
+            <div class="control-row" aria-label="Map controls">
+                <label class="control search-control">Search passage text <input id="search" type="search" placeholder="credit, graduation, registration…" autocomplete="off"></label>
+                <label class="control">Topic <select id="topic-filter"><option value="">All topics</option></select></label>
+                <label class="control section-control">Formal section <select id="section-filter"><option value="">All sections</option></select></label>
+                <button type="button" id="reset-map" class="quiet-button">Reset view</button>
+            </div>
+            <div id="topic-legend" class="topic-legend" aria-label="Semantic topic colors"></div>
+            <div class="map-layout">
+                <div class="map-wrap">
+                    <div id="semantic-map" aria-label="Interactive semantic map of bulletin passages"></div>
+                    <p id="map-status" class="map-status" aria-live="polite">Loading passages…</p>
+                </div>
+                <aside id="detail-panel" class="detail-panel" aria-labelledby="detail-title">
+                    <p class="section-kicker">Selected passage</p>
+                    <h3 id="detail-title">Select a point</h3>
+                    <p>Click a point or a matrix cell to inspect its source and related passages.</p>
+                </aside>
+            </div>
+            <p class="figure-caption"><span>Figure 1.</span> Coordinates are a UMAP approximation of normalized sentence embeddings. Distances and nearest neighbors are assessed in the original embedding space. The axes have no independent substantive meaning. Search highlights matches, while filters restrict the displayed set.</p>
+        </section>
+
+        <section class="chart-panel matrix-panel" aria-labelledby="matrix-title">
+            <div class="chart-header">
+                <div>
+                    <p class="figure-label">Figure 2 &middot; Topic × bulletin section</p>
+                    <h2 id="matrix-title">The formal structure and semantic topics intersect</h2>
+                    <p>Rows are bulletin sections and columns are modeled topics. Stronger color indicates a larger share of that section’s passages. Click a cell to highlight its passages in Figure 1.</p>
+                </div>
+                <label class="control matrix-control">Chapter <select id="matrix-chapter"><option value="">All chapters</option></select></label>
+            </div>
+            <div id="matrix-container" class="matrix-scroll" tabindex="0" aria-label="Scrollable topic by section matrix"></div>
+            <p id="matrix-status" class="matrix-status" aria-live="polite"></p>
+            <p class="figure-caption"><span>Figure 2.</span> Cell color encodes the within-section proportion of cleaned passages assigned to a topic. Hover or focus for the count and proportion. The chapter menu changes which rows are shown without excluding data.</p>
+        </section>
+
+        <section class="findings-section" aria-labelledby="findings-title">
+            <div class="section-intro"><p class="section-kicker">Semantic findings</p><h2 id="findings-title">What the two structures reveal</h2></div>
+            <div id="findings-copy" class="findings-copy">
+                <article class="finding"><h3>1. Major semantic topics</h3><p>The largest modeled topic is society, history and politics (153 passages), followed by quantitative and technical study (144) and degrees, transfer and services (125). The remaining topics include credit rules, academic procedures, policy, language, media, and life sciences. These labels summarize clusters after examining representative passages and TF-IDF terms.</p></article>
+                <article class="finding"><h3>2. Topics cross formal sections</h3><p>Credits and placement contains 122 passages distributed across 50 formal sections in nine bulletin parts. The topic includes Degree Requirements, Grading and Grade Requirements, and Entrance Credit and Placement. Its spread shows that a single semantic theme is not confined to a single heading.</p></article>
+                <article class="finding"><h3>3. Sections vary in semantic diversity</h3><p>Among sections with at least ten retained passages, Social Science (SOSC) has the highest topic entropy at 2.12 bits, with 11 passages spread across five topics. Global Health (GLHLTH) also spans five topics among 15 passages. Both combine disciplinary content that the formal heading alone does not convey.</p></article>
+                <article class="finding"><h3>4. Related policies appear in different parts</h3><p><button class="passage-button" data-passage="p00140">Transfer of Work Taken Elsewhere, p. 41</button> and <button class="passage-button" data-passage="p00324">Office of Global Education and Study Away, p. 76</button> both explain approval of outside coursework for DKU credit. Their original embedding vectors have cosine similarity 0.87, although the passages appear in different bulletin parts.</p></article>
+                <article class="finding"><h3>5. An unusual passage within its section</h3><p>A <button class="passage-button" data-passage="p00999">Public Policy course description on law and neuroscience, p. 370</button> is the least similar to its section centroid among 35 retained Public Policy passages, with cosine similarity 0.23. The model groups it with quantitative and technical study. This is a useful lead for reading across disciplinary boundaries.</p></article>
+                <article class="finding"><h3>6. “Credit” occupies several semantic regions</h3><p>A text search for “credit” and its word endings finds 140 passages across seven modeled topics. Most fall in Credits and placement (67), Degrees, transfer and services (41), or Academic status and procedures (22). The query therefore spans degree rules, credit transfer, and academic standing contexts rather than one semantic neighborhood.</p></article>
+            </div>
+        </section>
+
+        <section class="analysis-section" aria-labelledby="design-title">
+            <div><p class="section-kicker">Design description &middot; 200–300 words</p><h2 id="design-title">Methods and interpretation</h2></div>
+            <div id="design-copy" class="analysis-copy">
+                <p>The 2021–22 DKU Undergraduate Bulletin was segmented into paragraphs and short policy blocks. PDF heading typography supplied chapter, section, and subsection labels, while each passage retained its source page. Of 3,716 candidate text blocks, repeated passages, brief table cells, and malformed fragments were removed, leaving 1,109 passages. The mean length is 79 words. Section counts and mean TF-IDF terms provide the two corpus overviews.</p>
+                <p>Each passage was encoded with the <code>all-MiniLM-L6-v2</code> sentence model and its vector was normalized. UMAP projected these vectors to two dimensions using cosine distance, 15 neighbors, a minimum distance of 0.15, and random seed 401. K-means grouped the original 384-dimensional vectors into ten clusters with 20 initializations. Topic names were assigned after comparing representative passages with characteristic TF-IDF terms. The names are descriptive summaries of the fitted groups.</p>
+                <p>In Figure 1, position represents the UMAP projection, color marks topic, and point area reflects passage length. Clicking a point opens the original text, hierarchy, page link, and five nearest passages ranked by cosine similarity in the original vector space. Search highlights text matches, while topic and section controls restrict the map. Figure 2 places formal sections in rows and semantic topics in columns. Cell color encodes the within-section topic proportion, and its tooltip reports both count and proportion. Selecting a cell highlights the corresponding map points, while selecting a point marks its matrix cell. This coordination exposes cross-section themes, including the distribution of credit rules, and supports inspection of specific source passages.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>STATS 401 &middot; Lab 8</p>
+        <p class="footer-links"><a href="../index.html">Back to course portfolio</a><a href="https://github.com/Owen-1234/stats401-labs/tree/main/lab8">View Lab 8 code on GitHub</a></p>
+    </footer>
+    <div id="chart-tooltip" class="chart-tooltip" role="status"></div>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="lab8.js"></script>
+</body>
+</html>

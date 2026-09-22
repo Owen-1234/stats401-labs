@@ -1,0 +1,682 @@
+[
+  {
+    "cluster": 0,
+    "count": 67,
+    "top_terms": [
+      "molecular",
+      "human",
+      "biological",
+      "biology",
+      "include",
+      "systems",
+      "chemistry",
+      "environmental",
+      "disease",
+      "species",
+      "topics",
+      "chemical"
+    ],
+    "representative": [
+      {
+        "id": "p00426",
+        "section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+        "page": 189,
+        "text": "Finally, students who choose the Biogeochemistry track will discover how the activities of biological systems and other chemical, physical, and geological processes drive the global or local cycles of chemicals like carbon and nitrogen, and ultimately lead to global environmental change. These students, with their interdisciplinary training in molecular bioscience with a focus on ecosystem science, will be uniquely prepared to solve existential c"
+      },
+      {
+        "id": "p00392",
+        "section": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",
+        "page": 122,
+        "text": "The Biogeochemistry track is designed for students interested in analysis of links between environmental systems and other Earth system processes including biological, chemical, and geologic forces. Studies focus on global and local cycles of chemicals like carbon, nitrogen, and water that ultimately lead to global environmental change. Students selecting this major and track will receive interdisciplinary training in environmental science with a"
+      },
+      {
+        "id": "p00393",
+        "section": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",
+        "page": 122,
+        "text": "The Biology track is designed for students interested in a biological perspective on environmental science. Students learn the processes that connect living organisms to their environment at the molecular, cellular, physiological, organismal, and population levels. The track is designed to encourage breadth in the life sciences and allows students to acquire depth in a chosen area of scientific concentration through the choice of electives. This "
+      },
+      {
+        "id": "p00421",
+        "section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+        "page": 188,
+        "text": "Through the required interdisciplinary introductory courses including Biochemistry, Biophysics, Genetics and Evolution, and Biomedical Ethics, all molecular bioscience students will gain core foundational knowledge and skills that uniquely will enable them to pursue one of four more specialized tracks of courses that focus some of the most exciting fields of science today."
+      },
+      {
+        "id": "p00419",
+        "section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+        "page": 188,
+        "text": "All biological sciences rest on two central principles – all organisms and their characteristics are the product of evolution, and all life processes have a physical and chemical basis. Simply put, at the most fundamental level, there is a shared molecular basis of life. Despite the astonishing diversity of living organisms, from bacteria living in deep ocean hydrothermal vents to cherry trees flowering in the spring to complex modern humans shap"
+      },
+      {
+        "id": "p00425",
+        "section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+        "page": 189,
+        "text": "The Biophysics track will allow students to apply principles of physics to biological systems at molecular, organismal, and ecological levels. These students will learn how such integrated applications of these principles are leading to the incredible breadth of advances biophysicists are making in bioelectronics, quantum biology, nanotechnology, structural biology, biomechanics, biochemistry, and cell and molecular biology."
+      },
+      {
+        "id": "p00420",
+        "section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+        "page": 188,
+        "text": "The broad goal of molecular bioscience, to understand the mechanisms of life processes at the physical, chemical, and cellular levels, requires students to integrate knowledge from several disciplines that traditionally are treated as separate realms of knowledge. Molecular bioscience is at the intersection of biology, chemistry, and physics, but most undergraduate programs require that students focus on one discipline at the exclusion of the oth"
+      },
+      {
+        "id": "p00423",
+        "section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+        "page": 188,
+        "text": "The Genetics and Genomics track will provide students with deep insight into how the explosive fields of functional genomics, bioinformatics, and computational biology are revolutionizing our understanding of life. Students will learn how genomics is revealing the complex and highly orchestrated mechanisms that organisms use to regulate genes and genomes, how genomes evolve"
+      }
+    ]
+  },
+  {
+    "cluster": 1,
+    "count": 105,
+    "top_terms": [
+      "policy",
+      "economic",
+      "health",
+      "social",
+      "environmental",
+      "political",
+      "public",
+      "global",
+      "development",
+      "research",
+      "institutions",
+      "economics"
+    ],
+    "representative": [
+      {
+        "id": "p00985",
+        "section": "Public Policy (PUBPOL)",
+        "page": 368,
+        "text": "Governments constantly face questions such as: How do we address deforestation? How can we slow down climate change? How can we make food safer? This course teaches a systematic way of dealing with these questions, namely policy analysis. This technique enables students to identify, examine, and evaluate options to implement policy goals. Readings will be a combination of theory and case studies from around the world."
+      },
+      {
+        "id": "p00412",
+        "section": "Institutions and Governance with tracks in Economics, Political Science, and Public Policy",
+        "page": 165,
+        "text": "The world is more and more interconnected at a variety of levels and students are going to need a better understanding of the institutions that govern this global integration. The more that students can identify, analyze and engage with global institutions and understand their governing processes, the more they will be able to navigate these complexities. This focus in Institutions and Governance will prepare students for a variety of careers req"
+      },
+      {
+        "id": "p00949",
+        "section": "Political Science (POLSCI)",
+        "page": 359,
+        "text": "The purpose of this course is to examine and understand issues related to political institutions and processes. The main topics that will be examined over the course of the term include the central themes, theories, concepts, and questions of the contemporary study how policy-making processes vary across different institutional arrangements."
+      },
+      {
+        "id": "p00617",
+        "section": "Environment (ENVIR)",
+        "page": 270,
+        "text": "Course will focus on the major challenges developing countries face in balancing environmental management and economic growth. Class will use economic analyses to examine these challenges and to devise policy solutions, especially given that developing countries often have weak institutional capacity and fewer financial resources to cope with environmental pollution."
+      },
+      {
+        "id": "p00428",
+        "section": "Political Economy with tracks in Economics, Political Science, and Public Policy",
+        "page": 198,
+        "text": "The field of international political economy utilizes an interdisciplinary approach to examine the reciprocal relationships between politics and markets, both within and among countries, employing a variety of analytical and research tools, including those of economics. Its concerns include interactions among economic and political development; cooperation and conflict among nations, groups, and individuals; the distribution of material resources"
+      },
+      {
+        "id": "p01038",
+        "section": "Social Science (SOSC)",
+        "page": 381,
+        "text": "This course provides students with an understanding of research designs and research methods used in the social sciences. Students will learn about the scientific method, research methods and design, measurement, and ethical issues. Topics include quantitative and qualitative approaches, as well as mixed methods."
+      },
+      {
+        "id": "p00435",
+        "section": "Behavior Science (BEHAVSCI)",
+        "page": 219,
+        "text": "This course provides a broad overview of the research methods and applications of behavioral science. It introduces core phenomena of human behavior including but not limited to decision making, perception and action, and group interactions. It also considers how behavior is influenced by institutions (e.g., governmental policies, business, and environment). The course is expressly interdisciplinary, drawing upon theories and empirical research i"
+      },
+      {
+        "id": "p00437",
+        "section": "Behavior Science (BEHAVSCI)",
+        "page": 219,
+        "text": "This course is a team-taught, question-driven introduction to the certificate and the fundamentals of how humans make decisions. The primary goal is to provide hands-on and problem-focused instruction designed to connect students to research as quickly as possible. Substantive topics include behavioral and experimental economics, consumer behavior and marketing research, game theory, medical decision making, neuroeconomics, and political psycholo"
+      }
+    ]
+  },
+  {
+    "cluster": 2,
+    "count": 116,
+    "top_terms": [
+      "term",
+      "grade",
+      "absence",
+      "leave",
+      "leave absence",
+      "probation",
+      "undergraduate",
+      "underload",
+      "nc",
+      "withdrawal",
+      "final",
+      "cr"
+    ],
+    "representative": [
+      {
+        "id": "p00246",
+        "section": "Changes in Status",
+        "page": 61,
+        "text": "Students who wish to withdraw from the university must give official notification to the Office of Undergraduate Studies. Notification must be received prior to the beginning of classes in any term, or tuition and housing fee will be refunded only partially (See section on Refund in Part 5). For students withdrawing on their own initiative after the beginning of classes and up to the first day of the last two weeks of 7-week classes or of the las"
+      },
+      {
+        "id": "p00147",
+        "section": "Registration",
+        "page": 42,
+        "text": "Withdrawing from a course differs from dropping a course. Students drop the course themselves during the Drop/Add period, and the course does not appear on their official transcript. To withdraw from a course after the Drop/Add period, the student must obtain permission from his or her academic advisor. After the Drop/Add period, students permitted to withdraw from a course receive a designation of W for that course on their academic record. The "
+      },
+      {
+        "id": "p00162",
+        "section": "Undergraduate Course Load",
+        "page": 45,
+        "text": "Medical course withdrawals are subject to the same deadline as all other course withdrawals. Likewise, such courses receive a designation of W on the student’s academic record. Students deemed eligible to take a medical Leave of Absence (See Leave of Absence) after the regular course withdrawal deadline will have the option, upon obtaining the appropriate approvals from the instructor, to choose to receive the grade of I in one or more courses in"
+      },
+      {
+        "id": "p00192",
+        "section": "Incomplete Coursework and Excused Absence from Final Exam",
+        "page": 51,
+        "text": "a course with a prerequisite in which they have an I grade must either drop the course or resolve the I with a passing grade before the end of the drop/add period. For cases in which probationary status or term continuation is in question, incomplete work must be resolved in time for final grades to be submitted to the Office of the University Registrar no later than the weekday preceding the first day of classes of the subsequent fall or spring "
+      },
+      {
+        "id": "p00195",
+        "section": "Final Examinations",
+        "page": 51,
+        "text": "Any student late for an examination may not expect time beyond the end of the scheduled period. A student who fails to take any scheduled final examination shall receive a grade of F in the course, unless they are excused for reasons deemed sufficient by the instructor. If they are excused they shall receive an I (Incomplete). (See section on Incomplete Grades). Students must take final exams at the officially scheduled times. Because end-of-the-"
+      },
+      {
+        "id": "p00156",
+        "section": "Undergraduate Course Load",
+        "page": 44,
+        "text": "Students should take note that an underload may affect a student’s scholarship or ability to graduate on time; 8 additional credits above the minimum of 16 per term are needed in order to meet the 136 credits requirement for graduation. Students should not count on an overload later to compensate for a previous underload. Students taking an underload will be ineligible for the Dean’s list and the Dean’s List with Distinction during that term. Eac"
+      },
+      {
+        "id": "p00250",
+        "section": "Changes in Status",
+        "page": 62,
+        "text": "A medical leave of absence with proper documentation may be granted at any time but with one restriction. Students requesting a medical leave of absence during a current term must file the leave of absence forms with the Office of Undergraduate Studies prior to the end of the last day of classes of that term. Students who request a medical leave of absence for a current term and submit their leave request prior to the last day of classes will be "
+      },
+      {
+        "id": "p00254",
+        "section": "Changes in Status",
+        "page": 62,
+        "text": "Return from any type of leave of absence, including suspension or an involuntary leave of absence, is contingent upon approval of a Return from Leave of Absence application. The deadlines to file such applications, including all supporting materials, are 5:00 p.m. May 1 (BJT) for Fall Term and 5:00 p.m. October 15 (BJT) for Spring Term. Late or incomplete applications will not be accepted. The University reserves the right to request necessary do"
+      }
+    ]
+  },
+  {
+    "cluster": 3,
+    "count": 78,
+    "top_terms": [
+      "media",
+      "digital",
+      "art",
+      "cultural",
+      "film",
+      "arts",
+      "documentary",
+      "video",
+      "learn",
+      "sound",
+      "new",
+      "visual"
+    ],
+    "representative": [
+      {
+        "id": "p00781",
+        "section": "Literature (LIT)",
+        "page": 318,
+        "text": "This course introduces the theory, method, and practice of digital storytelling. Students will learn to analyze digital storytelling in various media forms and modes of production, and evaluate the cultural impact of new media narratives. They will explore digital storytelling affordances including text, video, audio, design, animation, and interactivity. Students will gain hands-on experience developing digital narratives and creating digital cr"
+      },
+      {
+        "id": "p00838",
+        "section": "Media and Arts (MEDIART)",
+        "page": 332,
+        "text": "For students of media, it is vital to have some skills in media production or art practice. This course will introduce students to some practical aspects of media and the arts. These might include: creative camera control and lighting; how to code a web page; how to write a news story; how to make a documentary, how to do interviews, how to edit media; cultivation of skills in theater, music or art, among others. An emphasis is placed on understa"
+      },
+      {
+        "id": "p00417",
+        "section": "Media and Arts with tracks in Art History and Creative Practice",
+        "page": 181,
+        "text": "Understanding of media and the arts is foundational to the concept of interdisciplinarity that is the basis for a liberal arts education at Duke Kunshan University. On the one hand, exposure to the arts provides for the complete student: a well-rounded individual who is able to see the world in both its breadth and depth, thus creatively seeking, discovering and implementing solutions to global problems. In particular, the documentary arts inters"
+      },
+      {
+        "id": "p00416",
+        "section": "Media and Arts with tracks in Art History and Creative Practice",
+        "page": 181,
+        "text": "The Media and Arts major captures the breadth of both media as a communications process and art as creative and documentary expressions. By exploring the history of media and arts as well as emerging technologies and cultures, students in this major will gain a depth of understanding that is broadly applicable to future life choices. Media studies might include communications studies, journalism, science, technology and society at the local, as w"
+      },
+      {
+        "id": "p00548",
+        "section": "Cultural Anthropology (CULANTH)",
+        "page": 251,
+        "text": "This course is an anthropological examination of 'new media' - their varied forms and histories, how they are used and understood, and their meanings and effects within different communities of users. We will chart a number of technologies deemed 'new' in their day and the social meanings and communities that such technologies generated. We will also explore new media in domains of art and literature, as well as issues of race, gender, sexuality "
+      },
+      {
+        "id": "p00820",
+        "section": "Media and Arts (MEDIART)",
+        "page": 328,
+        "text": "Media Studies and the Arts explores the cultural significance of the media in the contemporary world. It is a cross-disciplinary field that draws on communication studies, art history, literature, sociology, psychology and philosophy, among others. Particular attention is paid to new media and digital media including those enabled by the technological revolution of the internet age."
+      },
+      {
+        "id": "p00715",
+        "section": "History (HIST)",
+        "page": 298,
+        "text": "Art has been a part of every society since recorded history. How have the arts told stories about civilizations, ethnicities, communities and peoples? How have the arts evolved and circulated across the globe? The arts provide vital narratives in our understandings of each other as our cultures have both clashed and shared over time. This course asks these questions by focusing on visual arts across cultures not with the aim of comprehensive cove"
+      },
+      {
+        "id": "p00718",
+        "section": "History (HIST)",
+        "page": 299,
+        "text": "This course will aid students in their efforts to make sense of how communications processes have mediated and shaped our interactions with each other as well as our understanding of the world. It does so by examining specific instances of media communications in a number of key cases observed in world history and by showing how technological innovation in media communications has led to new social, cultural, and political forms."
+      }
+    ]
+  },
+  {
+    "cluster": 4,
+    "count": 108,
+    "top_terms": [
+      "seminar",
+      "community",
+      "language",
+      "interdisciplinary",
+      "major",
+      "knowledge",
+      "apply",
+      "skills",
+      "learning",
+      "work",
+      "instructor",
+      "disciplines"
+    ],
+    "representative": [
+      {
+        "id": "p00571",
+        "section": "Cultures and Movements (CULMOVE)",
+        "page": 257,
+        "text": "have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further develop their capacities to translate between their areas of expertise and the larger questions and issues that apply across a variety of disciplines. The seminar will foster the ability to see their disciplinary knowledge from a wider perspective and to apply it flexibly. Specific topics will vary. This sem"
+      },
+      {
+        "id": "p00572",
+        "section": "Cultures and Movements (CULMOVE)",
+        "page": 257,
+        "text": "This seminar is a core component of the interdisciplinary major in Cultures and Movements. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further develop their capacities to translate between their areas of expertise and the larger questions and issues that apply acro"
+      },
+      {
+        "id": "p01082",
+        "section": "US Studies (USTUD)",
+        "page": 393,
+        "text": "This seminar is a core component of the interdisciplinary major in US Studies. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further develop their capacities to translate between their areas of expertise and the larger questions and issues that apply across a variety"
+      },
+      {
+        "id": "p00059",
+        "section": "Degree Requirements",
+        "page": 23,
+        "text": "Signature Work calls for each student to identify one or more questions, problems, or issues that are of particular importance to him or herself and to society, and to investigate these through a combination of curricular and related co-curricular experiences. Students develop guided pathways, identify questions, and undertake projects early in their academic career. During the sophomore year students work with their advisors and faculty mentors "
+      },
+      {
+        "id": "p01083",
+        "section": "US Studies (USTUD)",
+        "page": 393,
+        "text": "This seminar is a core component of the interdisciplinary major in US Studies. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further develop their capacities to translate between their areas of expertise and the larger questions and issues that apply across a variety"
+      },
+      {
+        "id": "p00745",
+        "section": "Institutions and Governance (INSTGOV)",
+        "page": 307,
+        "text": "This seminar is a core component of the interdisciplinary major in Institutions and Governance. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further develop their capacities to translate between their areas of expertise and the larger questions and issues that apply"
+      },
+      {
+        "id": "p00033",
+        "section": "Key Components",
+        "page": 17,
+        "text": "• Common Core courses required of all students focus on big questions and critical challenges. Students take one per year for three years. • Language courses required in English, Chinese or potentially a third language. • Majors that have interdisciplinary and disciplinary components, with the former serving as the entry point and primary definition of a students’ academic community and the latter providing specialized training, as well as divisi"
+      },
+      {
+        "id": "p00027",
+        "section": "Overview",
+        "page": 16,
+        "text": "The curriculum fosters learning communities of students and faculty whose intellectual interactions revolve around two groups: (1) The interdisciplinary community, which spans laterally a variety of disciplines. To the big questions at the core of each interdisciplinary community will be deployed a variety of disciplines, voices, viewpoints and expertise, usually also from a variety of divisions. The deep expertise brought to bear on discussion w"
+      }
+    ]
+  },
+  {
+    "cluster": 5,
+    "count": 122,
+    "top_terms": [
+      "placement",
+      "term",
+      "advanced placement",
+      "placement basis",
+      "college",
+      "requirements",
+      "basis college",
+      "advanced",
+      "basis",
+      "college board",
+      "board",
+      "board examination"
+    ],
+    "representative": [
+      {
+        "id": "p00068",
+        "section": "Degree Requirements",
+        "page": 26,
+        "text": "To meet the 136-credit requirement, students need to complete additional elective courses in addition to completing the General Education and Major Requirements. The curriculum is designed to enable a wide range of flexibility for students. Some may elect to use their full range of electives to go wide and broad while others may elect to dive deep into their areas of disciplinary study."
+      },
+      {
+        "id": "p00205",
+        "section": "Grading and Grade Requirements",
+        "page": 53,
+        "text": "In their first year (two terms), students may use up to eight of the sixteen CR/NC credits for any course, up to a maximum of 4 credits per term. For students in their 3rd term and beyond, CHINESE 201A-B and CHINESE 202A-B may also be taken on a CR/NC basis. Courses taken on a CR/NC basis from the 3rd term onward (except those courses offered only on this basis and the previously mentioned 200-level Chinese language courses) do not count toward g"
+      },
+      {
+        "id": "p00213",
+        "section": "Grading and Grade Requirements",
+        "page": 55,
+        "text": "In their first year (two terms, 4 sessions), students may use the CR/NC credits for any course, up to a maximum of 4 credits per session. For students in their 3rd term and beyond, CHINESE 201AB and CHINESE 202A-B may also be taken on a CR/NC basis. Courses taken on a CR/NC basis from the 3rd term onward (except those courses offered only on this basis and the previously mentioned 200-level Chinese language courses) may not count toward general e"
+      },
+      {
+        "id": "p00597",
+        "section": "English (ENGLISH)",
+        "page": 264,
+        "text": "Credit for Advanced Placement on the basis of the College Board examination in Composition and Language."
+      },
+      {
+        "id": "p00151",
+        "section": "Undergraduate Course Load",
+        "page": 43,
+        "text": "Students are reminded that it is their responsibility to be certain that their course load conforms with academic requirements. In fall and spring terms, the normal course load is 16-20 credits (8-10 credits in each 7-week session). In addition, students may enroll in up to one credit of PE courses without special permission from their advisor. In the first 7-week session of their first term, firstyear students are restricted to a maximum of 8 cr"
+      },
+      {
+        "id": "p00127",
+        "section": "Entrance Credit and Placement",
+        "page": 38,
+        "text": "For any of the above three types of college-level work, students are expected to submit their scores and/or any other required documents during their first term on campus. After the first term, no entrance credits will be accepted."
+      },
+      {
+        "id": "p01061",
+        "section": "Statistics (STATS)",
+        "page": 388,
+        "text": "Credit for Advanced Placement on the basis of the College Board Examination in Statistics (Score of 5)."
+      },
+      {
+        "id": "p00051",
+        "section": "Degree Requirements",
+        "page": 22,
+        "text": "Requirements for each major include Divisional Foundation Courses, Interdisciplinary Studies Courses, Disciplinary Studies Courses, Signature Work and Experiential Education. The detailed course requirements for each major are listed in Part 10: Majors and Courses."
+      }
+    ]
+  },
+  {
+    "cluster": 6,
+    "count": 91,
+    "top_terms": [
+      "chinese",
+      "china",
+      "skills",
+      "cultural",
+      "social",
+      "texts",
+      "world",
+      "culture",
+      "history",
+      "global",
+      "asia",
+      "issues"
+    ],
+    "representative": [
+      {
+        "id": "p00686",
+        "section": "History (HIST)",
+        "page": 292,
+        "text": "The course introduces the foundations of modern China from the Song Dynasty up through the late imperial period (about 1800 CE to 1911). It will cover the major historical events, developments, and trends -- social, political, economic, philosophical, literary, cultural, multi-ethnic, and China’s relations with the other regions. The main focus of the course will be on primary sources, which include dynastic histories, historical biographies, nov"
+      },
+      {
+        "id": "p00500",
+        "section": "Chinese (CHINESE)",
+        "page": 239,
+        "text": "In this course students will learn about social and cultural issues in China through study of authentic texts in Chinese and authentic media resources (e.g. television programs, documentaries, etc.). Oral skills will be built through discussion of these topics, and students will also be expected to practice their spoken Chinese outside class by talking with Chinese speakers about the topics studied in class. Students will also continue to build t"
+      },
+      {
+        "id": "p00657",
+        "section": "Global Cultural Studies (GCULS)",
+        "page": 284,
+        "text": "This course considers a variety of literary texts from the perspective of the nexus of cultures and societies in Asia, primarily on modern and contemporary China. This course exposes students to cultural and literary expressions and representations of modern China from the beginning of the 20th century to the present. It explores issues of politics and ideology and the formation of Chinese exceptionalism. The class is divided into two parts: 1. t"
+      },
+      {
+        "id": "p00501",
+        "section": "Chinese (CHINESE)",
+        "page": 239,
+        "text": "The Advanced Chinese course sequence is designed to build students' ability to read authentic texts in Chinese, such as newspaper texts; it also builds students' ability to watch and listen to authentic media programs (e.g. television programs, documentaries, etc.). Students will be introduced to the following themes: popular culture, social change, cultural traditions, history and politics. Through study and discussion, students will be able to "
+      },
+      {
+        "id": "p00498",
+        "section": "Chinese (CHINESE)",
+        "page": 238,
+        "text": "This course reinforces what students have learned in the Intermediate Chinese courses, and continues to expand and refine their skills in listening, speaking, reading, and writing by learning a variety of texts that are written with advanced vocabulary (including academic vocabulary and vocabulary denoting abstract concepts), complex grammatical structures, and formal language uses. In addition, students will be introduced to current social issue"
+      },
+      {
+        "id": "p00403",
+        "section": "Global China Studies with tracks in Chinese History, Economics, Philosophy, Political Science and Religious Studies",
+        "page": 141,
+        "text": "This major prepares students to engage, work with, and understand China in the twenty-first century. It provides students with opportunities to gain deep historical knowledge of China in the ancient, pre-modern, and modern periods, while focusing on the place and impact of China in the world—past, present, and future. Students will be exposed to debates about China’s philosophical traditions and their force in shaping China’s history and present;"
+      },
+      {
+        "id": "p00515",
+        "section": "Chinese Society and Culture (CHSC)",
+        "page": 243,
+        "text": "This course reviews the history in which how China, as an ancient civilization, has revived from the fallen state in modern times to a mighty power in today’s world, helping students to understand and perceive Chinese society along with its changing trends with longer-term vision, the connotation of the Chinese national spirit, and the reason why today's China cherishes independence while vigorously promoting opening up. This course requires clas"
+      },
+      {
+        "id": "p00497",
+        "section": "Chinese (CHINESE)",
+        "page": 238,
+        "text": "This course, a continuation of CHINESE 231, is designed to help Chinese heritage students continue improving their formal and informal discourse in speaking and writing. This course aims to further expand and refine students’ language skills by studying a variety of texts that are written with advanced intermediate-level vocabulary (including vocabulary denoting abstract concepts), complex grammatical structures, and formal language uses. Student"
+      }
+    ]
+  },
+  {
+    "cluster": 7,
+    "count": 125,
+    "top_terms": [
+      "education",
+      "taken",
+      "office",
+      "transfer",
+      "undergraduate",
+      "term",
+      "chinese",
+      "financial",
+      "faculty",
+      "research",
+      "based",
+      "degree"
+    ],
+    "representative": [
+      {
+        "id": "p00141",
+        "section": "Transfer of Work Taken Elsewhere",
+        "page": 41,
+        "text": "Approval forms for Duke Kunshan University students taking courses at institutions other than Duke Kunshan University and Duke University may be obtained online or from the Office of Global Education. Students wishing to transfer credit for study at another accredited college or university while on leave, on a DKU-approved study abroad program, or during the summer must complete and receive approval through published credit-transfer review proces"
+      },
+      {
+        "id": "p00139",
+        "section": "Transfer of Work Taken Elsewhere",
+        "page": 40,
+        "text": "All coursework undertaken after matriculation as a full-time degree-seeking student at Duke Kunshan University must be at another accredited four-year institution in the United States or similarly accredited institution abroad and with a liberal arts and general education curriculum. Duke Kunshan University students may study away for a fall or spring term and/or during the summer, either at Duke University or on a Duke Kunshan University-approve"
+      },
+      {
+        "id": "p00007",
+        "section": "Who We Are",
+        "page": 11,
+        "text": "Duke Kunshan University is a Sino-American partnership of Duke University, Wuhan University and Kunshan city in Jiangsu province to create a world-class liberal arts and research university offering a range of academic programs for students from China and throughout the world. A nonprofit, joint-venture institution, Duke Kunshan University was granted the accreditation approval by China’s Ministry of Education in September 2013. Duke Kunshan welc"
+      },
+      {
+        "id": "p00062",
+        "section": "Degree Requirements",
+        "page": 24,
+        "text": "A total of 136 Duke Kunshan University credits is required for international students to graduate and obtain the degrees, inclusive of 34 Duke Kunshan University credits earned through courses taught or co-taught by Duke faculty (i.e. 8.5 courses; 1 course credit at Duke is equivalent to 4 Duke Kunshan University credits). The specific Chinese Society and Culture courses required by the Ministry of Education of China for Chinese students are opti"
+      },
+      {
+        "id": "p00061",
+        "section": "Degree Requirements",
+        "page": 24,
+        "text": "Duke Kunshan University adheres to the academic standards upheld by Duke University and the relevant requirements for graduation and degree awarding by the education administration authorities of China. All undergraduate students must meet the requirements of both Duke University and Duke Kunshan University before they can graduate and be awarded a graduation certificate and a bachelor’s degree from Duke Kunshan University, as well as a bachelor’"
+      },
+      {
+        "id": "p00063",
+        "section": "Degree Requirements",
+        "page": 24,
+        "text": "A total of 156 (Class of 2022) or 158 (Class of 2023 and beyond) Duke Kunshan University credits is required for Chinese students to graduate and obtain the degrees, including: (1) 136 Duke Kunshan University credits required for graduation with a Duke University bachelor’s degree, inclusive of 34 Duke Kunshan University credits earned through courses taught or co-taught by Duke faculty (i.e. 8.5 courses; 1 course credit at Duke is equivalent to "
+      },
+      {
+        "id": "p00126",
+        "section": "Entrance Credit and Placement",
+        "page": 38,
+        "text": "First-year Duke Kunshan students may submit for evaluation college courses taken at another accredited college or university after commencement of the student’s junior year of high school. (For details concerning transferring this work, see the section “Work Taken During High School.”) Prematriculation credits awarded for such work may be used as electives and, thus, may not be used to satisfy the general education requirements. Any combination o"
+      },
+      {
+        "id": "p00322",
+        "section": "Office of Global Education and Study Away",
+        "page": 75,
+        "text": "Students may transfer up to a maximum of 40 credits taken outside of the Duke Kunshan University campus, including advanced placement credits. A maximum of 8 credits may be from coursework undertaken while on voluntary leave of absence for personal or medical reasons. No credit will be accepted for coursework taken while a Duke Kunshan University student is withdrawn, suspended, or on involuntary leave of absence. All courses must be pre-approved"
+      }
+    ]
+  },
+  {
+    "cluster": 8,
+    "count": 153,
+    "top_terms": [
+      "political",
+      "world",
+      "american",
+      "religious",
+      "social",
+      "cultural",
+      "global",
+      "history",
+      "historical",
+      "examines",
+      "war",
+      "human"
+    ],
+    "representative": [
+      {
+        "id": "p00730",
+        "section": "History (HIST)",
+        "page": 301,
+        "text": "This course takes a comparative historical approach to contemporary global issues in various temporal and geographical contexts. Students will focus on issues that emerged in the modern era and may include such topics as terrorism and national security, environmental protection and degradation, resource distribution and trade, health and welfare, and cultural and religious diversity. Students explore the nature of historical change and continuity"
+      },
+      {
+        "id": "p00706",
+        "section": "History (HIST)",
+        "page": 296,
+        "text": "This course offers a survey of the history of the world, by which is meant a historical overview of major processes and interactions in the development of human society since its early development some 60,000 years ago, going beyond the fundamental questions and concerns of area studies (such as East Asian studies, South Asian studies). In explaining the large scale processes such as empire building, commerce and religious practices, this course "
+      },
+      {
+        "id": "p00752",
+        "section": "Literature (LIT)",
+        "page": 312,
+        "text": "This course introduces a range of works from the US canon that engage the concept of travels in relation to the themes of race and slavery, gender and sexuality, and citizenship and empire. Through reading some great American novels, we will explore travels and mobility from pre-Civil War to modern America, and from the slave-holding south to multiracial and multicultural metropolises both within and beyond the US borders. By drawing connections "
+      },
+      {
+        "id": "p00693",
+        "section": "History (HIST)",
+        "page": 293,
+        "text": "This course takes a comparative historical approach to contemporary global issues in various temporal and geographical contexts. Students will focus on issues that emerged in the modern era and may include such topics as terrorism and national security, environmental protection and"
+      },
+      {
+        "id": "p00771",
+        "section": "Literature (LIT)",
+        "page": 316,
+        "text": "What does it mean to be a global citizen? What can literature reveal about the social, cultural, and ethical dimensions of an increasingly interconnected world? What modes of critique, formations of belonging, and possibilities for conceptualizing the world —and one’s place in it— does of literature offer? Through a variety of texts, paired with perspectives drawn from literary criticism as well as sociology, anthropology, and philosophy, this in"
+      },
+      {
+        "id": "p01059",
+        "section": "Sociology (SOCIOL)",
+        "page": 386,
+        "text": "This course exposes students to major classical and modern social theorists from the Enlightenment to the present. The course pays particular attention to theories seeking to follow models of the natural sciences and those seeking a more critical and interpretive understanding of modern society. Topics also include examining how sociological theory relates to other modern currents, such as conservatism, socialism, existentialism, anti-colonialism"
+      },
+      {
+        "id": "p00402",
+        "section": "Ethics and Leadership with tracks in Philosophy, Public Policy, Religious Studies",
+        "page": 132,
+        "text": "This interdisciplinary major, drawing from fields such as philosophy, political theory, history, literature, religion, and the social and natural sciences, seeks to provide students with the specific expertise that is needed to address issues such as global health, pollution and the environment or regulation of corporations and markets. Students will be encouraged and guided in the task of framing specific expertise with a broader and deeper fram"
+      },
+      {
+        "id": "p00407",
+        "section": "Global Cultural Studies with tracks in World History and World Literature",
+        "page": 152,
+        "text": "Focusing on the practical and theoretical issues arising from cross-cultural encounters around the world, Cultural Studies examines conventional cultural products (literature, history, film, visual art, music, social media, new technology, etc.) and also their broader political and social contexts (colonialism, modernity, capitalism, etc.). In today's era of economic globalization and neoliberal restructuring, the language of culture is increasin"
+      }
+    ]
+  },
+  {
+    "cluster": 9,
+    "count": 144,
+    "top_terms": [
+      "data",
+      "science",
+      "materials",
+      "applications",
+      "properties",
+      "theory",
+      "topics",
+      "covers",
+      "techniques",
+      "models",
+      "analysis",
+      "systems"
+    ],
+    "representative": [
+      {
+        "id": "p00527",
+        "section": "Computer Science (COMPSCI)",
+        "page": 246,
+        "text": "This course focuses on the following: computer structure, assembly language, instruction execution, addressing techniques, and digital representation of data. Computer system organization, logic design, microprogramming, cache and memory systems, and input/output interfaces are also central."
+      },
+      {
+        "id": "p01046",
+        "section": "Social Science (SOSC)",
+        "page": 382,
+        "text": "This course to explore how to extend statistical techniques learned in earlier classes and how to apply them to real-world problems. The course starts with the standard linear model and then"
+      },
+      {
+        "id": "p00798",
+        "section": "Mathematics (MATH)",
+        "page": 322,
+        "text": "Main topics of this course include vectors and vector functions, the geometry of higher dimensional Euclidean spaces, partial derivatives, multiple integrals, line integrals, vector fields, Green’s Theorem, Stokes’ Theorem and the Divergence Theorem."
+      },
+      {
+        "id": "p00893",
+        "section": "Physics (PHYS)",
+        "page": 347,
+        "text": "This course is the second of a series of two general physics courses that are highly interactive and illustrated with applications from different perspective of sciences and everyday life. Core topics: electric fields, circuits, magnetic fields, Faraday's law, Maxwell's equations, electromagnetic waves, properties of light, geometric optics, wave optics. Additional possible topics: optical instrumentation, quantum physics, selected applications."
+      },
+      {
+        "id": "p00890",
+        "section": "Physics (PHYS)",
+        "page": 346,
+        "text": "This course is about how to view the world from the perspective of classical mechanics, based on an understanding of the core concepts and theoretical laws. As a science foundation course, it helps students appreciate the elegant simplicity of the universal laws governing the complex systems surrounding us, and it teaches an important approach to identifying, formulating, and solving problems encountered in the physical world. The course begins w"
+      },
+      {
+        "id": "p00812",
+        "section": "Mathematics (MATH)",
+        "page": 325,
+        "text": "Topics include heat, wave, and potential equations: scientific context, derivation, techniques of solution, and qualitative properties. Topics to include Fourier series and transforms, eigenvalue problems, maximum principles, Green's functions, and characteristics. Prerequisite(s): MATH 303 and MATH 308"
+      },
+      {
+        "id": "p00484",
+        "section": "Chemistry (CHEM)",
+        "page": 233,
+        "text": "The course introduces students to core concepts in physical chemistry including quantum chemistry, molecular structure, molecular spectroscopy, thermodynamics, and kinetics. The course also includes laboratory experiments illustrative of these topics, as well as instruction and practice in writing the laboratory notebook and formal laboratory reports."
+      },
+      {
+        "id": "p00525",
+        "section": "Computer Science (COMPSCI)",
+        "page": 246,
+        "text": "This course focuses on the following: mathematical notations, logic, and proof; linear and matrix algebra; graphs, digraphs, trees, representations, and algorithms; counting, permutations, combinations, discrete probability, Markov models; advanced topics from algebraic structures, geometric structures, combinatorial optimization, and number theory."
+      }
+    ]
+  }
+]

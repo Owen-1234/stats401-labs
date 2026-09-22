@@ -1,0 +1,436 @@
+{
+  "diverse_sections": [
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Social Science (SOSC)",
+      "n": 11,
+      "entropy": 2.118,
+      "topic_count": 5
+    },
+    {
+      "chapter": "Part 5: Financial Information",
+      "section": "Estimated Expenses",
+      "n": 11,
+      "entropy": 1.936,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global Health (GLHLTH)",
+      "n": 15,
+      "entropy": 1.857,
+      "topic_count": 5
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Computation and Design with tracks in Computer Science, Digital Media, and Social Policy",
+      "n": 10,
+      "entropy": 1.846,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "History (HIST)",
+      "n": 57,
+      "entropy": 1.836,
+      "topic_count": 6
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Philosophy (PHIL)",
+      "n": 17,
+      "entropy": 1.821,
+      "topic_count": 5
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global Cultural Studies (GCULS)",
+      "n": 17,
+      "entropy": 1.808,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 3: The Curriculum",
+      "section": "Degree Requirements",
+      "n": 36,
+      "entropy": 1.677,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Ethics and Leadership (ETHLDR)",
+      "n": 13,
+      "entropy": 1.669,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Political Science (POLSCI)",
+      "n": 37,
+      "entropy": 1.636,
+      "topic_count": 5
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Cultures and Movements (CULMOVE)",
+      "n": 11,
+      "entropy": 1.617,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Sociology (SOCIOL)",
+      "n": 13,
+      "entropy": 1.573,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Grading and Grade Requirements",
+      "n": 21,
+      "entropy": 1.557,
+      "topic_count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Environment (ENVIR)",
+      "n": 16,
+      "entropy": 1.544,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Public Policy (PUBPOL)",
+      "n": 35,
+      "entropy": 1.511,
+      "topic_count": 6
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Cultural Anthropology (CULANTH)",
+      "n": 20,
+      "entropy": 1.49,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Literature (LIT)",
+      "n": 31,
+      "entropy": 1.417,
+      "topic_count": 4
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Changes in Status",
+      "n": 12,
+      "entropy": 1.384,
+      "topic_count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Written and Oral Communication (WOC)",
+      "n": 13,
+      "entropy": 1.335,
+      "topic_count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Chemistry (CHEM)",
+      "n": 13,
+      "entropy": 1.296,
+      "topic_count": 3
+    }
+  ],
+  "cross_section_neighbors": [
+    {
+      "a": "p00591",
+      "b": "p00810",
+      "score": 1.0,
+      "a_section": "Economics (ECON)",
+      "b_section": "Mathematics (MATH)",
+      "a_page": 262,
+      "b_page": 325,
+      "a_text": "This is a introductory course in mathematical models in ﬁnance, centered around the problem of pricing and hedging derivative securities. Due to the uncertainty inherent in the evolution of the stock market, the theory naturally involves probabilistic tools and structures such as conditioning, marti",
+      "b_text": "This is an introductory course in mathematical models in ﬁnance, centered around the problem of pricing and hedging derivative securities. Due to the uncertainty inherent in the evolution of the stock market, the theory naturally involves probabilistic tools and structures such as conditioning, mart"
+    },
+    {
+      "a": "p00716",
+      "b": "p00844",
+      "score": 0.999,
+      "a_section": "History (HIST)",
+      "b_section": "Media and Arts (MEDIART)",
+      "a_page": 298,
+      "b_page": 333,
+      "a_text": "This survey course covers art in a variety of contexts from the foundations of Chinese civilization until the end of the imperial period in 1912 including tomb artifacts, religious images and statuary, court art, crafted objects and the painting and calligraphy of the literati. A number of themes ma",
+      "b_text": "This survey course covers art in a variety of contexts from the foundations of Chinese civilization until the end of the imperial period in 1912 including tomb artefacts, religious images and statuary, court art, crafted objects and the painting and calligraphy of the literati. A number of themes ma"
+    },
+    {
+      "a": "p00232",
+      "b": "p00244",
+      "score": 0.994,
+      "a_section": "Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",
+      "b_section": "Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",
+      "a_page": 58,
+      "b_page": 60,
+      "a_text": "Students on academic probation must clear their probationary status as described above (see section on Academic Probation) in order to continue at Duke Kunshan University. For the purposes of clearing academic probation, incomplete work in any course is considered a failure to achieve satisfactory p",
+      "b_text": "Students on academic probation must clear their probationary status as described above (see section on Academic Probation) in order to continue at Duke Kunshan University. For the purposes of clearing academic probation, incomplete work in any course is considered a failure to achieve satisfactory p"
+    },
+    {
+      "a": "p00233",
+      "b": "p00245",
+      "score": 0.992,
+      "a_section": "Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",
+      "b_section": "Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",
+      "a_page": 58,
+      "b_page": 60,
+      "a_text": "Students who fail to meet the minimum requirements to clear their probationary status are subject to academic suspension for a period of at least two terms (excluding summer term). Those desiring to return after the suspension period may apply for Return to the University. Such students are placed o",
+      "b_text": "Students who fail to meet the minimum requirements to clear their probationary status are subject to academic suspension for a period of at least two terms (excluding summer term). Those desiring to return after the suspension period may apply for Return to the University. Such students are placed o"
+    },
+    {
+      "a": "p00553",
+      "b": "p00960",
+      "score": 0.991,
+      "a_section": "Cultural Anthropology (CULANTH)",
+      "b_section": "Political Science (POLSCI)",
+      "a_page": 252,
+      "b_page": 361,
+      "a_text": "This subject explores the precarious balance between the ideal of democracy and histories of authoritarianism in Latin America. Using case studies from different historical contexts, the class examines continuities and ruptures in Latin American political history, and the cultural contexts in which ",
+      "b_text": "This subject explores the precarious balance between the ideal of democracy and histories of authoritarianism in Latin America. Using case studies from different historical contexts, the class examines continuities and ruptures in Latin American political history, and the cultural contexts in which "
+    },
+    {
+      "a": "p00368",
+      "b": "p00413",
+      "score": 0.984,
+      "a_section": "Applied Mathematics and Computational Sciences with tracks in Computer Science and Mathematics",
+      "b_section": "Institutions and Governance with tracks in Economics, Political Science, and Public Policy",
+      "a_page": 88,
+      "b_page": 167,
+      "a_text": "Courses listed in the table below are recommended electives for the major and the course list will be updated periodically. Students can also select other courses in different disciplines or divisions as electives.",
+      "b_text": "Courses listed in the table below are recommended electives for this major and the course list will be updated periodically. Students can also select other courses in different disciplines or divisions as electives."
+    },
+    {
+      "a": "p00643",
+      "b": "p00940",
+      "score": 0.979,
+      "a_section": "Global China Studies (GCHINA)",
+      "b_section": "Political Economy (POLECON)",
+      "a_page": 280,
+      "b_page": 357,
+      "a_text": "This course provides a comprehensive overview of the Chinese economy and China’s role in the world economy. China’s current economic challenges will be given particular attention. Topics addressed will include: the Chinese economy before 1949; the socialist era, 1949-1978; economic reform and market",
+      "b_text": "This course will provide a comprehensive overview of the Chinese economy and China’s role in the world economy. China’s current economic challenges will be given particular attention. Topics that will be addressed include: the Chinese economy before 1949; the socialist era, 1949-1978; economic refor"
+    },
+    {
+      "a": "p00230",
+      "b": "p00242",
+      "score": 0.97,
+      "a_section": "Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",
+      "b_section": "Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",
+      "a_page": 58,
+      "b_page": 60,
+      "a_text": "The probation status will be reflected on those academic records used for internal purposes only. Students placed on academic probation must acknowledge their probationary status in writing to the Office of Undergraduate Studies in order to continue at the University. They are also required to meet ",
+      "b_text": "The probation status will be reflected on those academic records used for internal purposes only. Students placed on academic probation must acknowledge their probationary status in writing to the Office of Undergraduate Studies in order to continue at the University. They are also required to meet "
+    },
+    {
+      "a": "p00226",
+      "b": "p00238",
+      "score": 0.955,
+      "a_section": "Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",
+      "b_section": "Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",
+      "a_page": 57,
+      "b_page": 59,
+      "a_text": "1. A single or more grade of F or NC (excluding PE courses) in a term 2. A second or more grade of D (D, D-, D+) over the student’s tenure at DKU 3. Failure to meet the term credit requirements (See section on Term Credit Requirements",
+      "b_text": "4. A single or more grade of F or NC (excluding PE courses) in a term 5. A second or more grade of D (D, D-, D+) over the student’s tenure at DKU 6. Failure to meet the term credit requirements (See section on Term Credit Requirements"
+    },
+    {
+      "a": "p00726",
+      "b": "p00996",
+      "score": 0.938,
+      "a_section": "History (HIST)",
+      "b_section": "Public Policy (PUBPOL)",
+      "a_page": 300,
+      "b_page": 370,
+      "a_text": "This course studies immigrants and immigration policy in the United States from 1850 to the present, with a focus on the origins and power of immigrant exclusion during three waves of migration: Northern European and Asian migrations between 1850 and 1880; Eastern European, Latin American, and Asian",
+      "b_text": "Immigrants and immigration policy in the United States from 1850 to the present, with focus on origins and power of immigrant exclusion during three waves of migration: Northern European and Asian migrations between 1850 and 1880, Eastern European, Latin American, and Asian migrations, 1880-1920, an"
+    },
+    {
+      "a": "p00375",
+      "b": "p00399",
+      "score": 0.934,
+      "a_section": "Behavioral Science with tracks in Psychology and Neuroscience",
+      "b_section": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",
+      "a_page": 96,
+      "b_page": 130,
+      "a_text": "Students can choose the recommended electives in their tracks or select other courses in different disciplines or divisions as electives. The course list will be updated periodically.",
+      "b_text": "Students can choose the recommended electives in the major or select other courses in different disciplines or divisions as electives. The course list will be updated periodically."
+    },
+    {
+      "a": "p00745",
+      "b": "p01083",
+      "score": 0.934,
+      "a_section": "Institutions and Governance (INSTGOV)",
+      "b_section": "US Studies (USTUD)",
+      "a_page": 307,
+      "b_page": 393,
+      "a_text": "This seminar is a core component of the interdisciplinary major in Institutions and Governance. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and stu",
+      "b_text": "This seminar is a core component of the interdisciplinary major in US Studies. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their ma"
+    },
+    {
+      "a": "p00231",
+      "b": "p00243",
+      "score": 0.93,
+      "a_section": "Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",
+      "b_section": "Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",
+      "a_page": 58,
+      "b_page": 60,
+      "a_text": "Probationary status cannot be cleared in a term in which students seek permission and are allowed to withdraw to an underload. In such cases, the probationary status continues through the next fall or spring term of enrollment. Students who clear their probationary status by earning a C average in t",
+      "b_text": "Probationary status cannot be cleared in a term in which students seek permission and are allowed to withdraw to an underload. In such cases, the probationary status continues through the next fall or spring term of enrollment. Students on probation, whether in a normal load or an underload, are req"
+    },
+    {
+      "a": "p00572",
+      "b": "p01083",
+      "score": 0.926,
+      "a_section": "Cultures and Movements (CULMOVE)",
+      "b_section": "US Studies (USTUD)",
+      "a_page": 257,
+      "b_page": 393,
+      "a_text": "This seminar is a core component of the interdisciplinary major in Cultures and Movements. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students",
+      "b_text": "This seminar is a core component of the interdisciplinary major in US Studies. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their ma"
+    },
+    {
+      "a": "p00126",
+      "b": "p00138",
+      "score": 0.921,
+      "a_section": "Entrance Credit and Placement",
+      "b_section": "Transfer of Work Taken Elsewhere",
+      "a_page": 38,
+      "b_page": 40,
+      "a_text": "First-year Duke Kunshan students may submit for evaluation college courses taken at another accredited college or university after commencement of the student’s junior year of high school. (For details concerning transferring this work, see the section “Work Taken During High School.”) Prematriculat",
+      "b_text": "College-level courses taken elsewhere prior to matriculation at Duke Kunshan may be considered for prematriculation credit provided they meet each of the following criteria: were taken after the commencement of the junior year of high school and yielded a grade of B- or better, not used to meet high"
+    },
+    {
+      "a": "p00392",
+      "b": "p00426",
+      "score": 0.919,
+      "a_section": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",
+      "b_section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+      "a_page": 122,
+      "b_page": 189,
+      "a_text": "The Biogeochemistry track is designed for students interested in analysis of links between environmental systems and other Earth system processes including biological, chemical, and geologic forces. Studies focus on global and local cycles of chemicals like carbon, nitrogen, and water that ultimatel",
+      "b_text": "Finally, students who choose the Biogeochemistry track will discover how the activities of biological systems and other chemical, physical, and geological processes drive the global or local cycles of chemicals like carbon and nitrogen, and ultimately lead to global environmental change. These stude"
+    },
+    {
+      "a": "p00001",
+      "b": "p00005",
+      "score": 0.915,
+      "a_section": "General Information",
+      "b_section": "Statement on Diversity and Inclusion",
+      "a_page": 10,
+      "b_page": 10,
+      "a_text": "Welcome to the intellectual and personal excitement of Duke Kunshan University, to its commitment to the finest education and to its passion for shaping a more knowledgeable, inclusive, responsible and peaceful world. DKU’s founders, leaders and community have set ambitious goals. Confident that you",
+      "b_text": "Duke Kunshan University welcomes passionate, creative, and intellectually-driven students, faculty, and staff from all walks of life, from all over the world. We affirm the diverse histories, perspectives, experiences, identities, languages, and cultures that enhance our community, and we aim to cre"
+    },
+    {
+      "a": "p00162",
+      "b": "p00250",
+      "score": 0.898,
+      "a_section": "Undergraduate Course Load",
+      "b_section": "Changes in Status",
+      "a_page": 45,
+      "b_page": 62,
+      "a_text": "Medical course withdrawals are subject to the same deadline as all other course withdrawals. Likewise, such courses receive a designation of W on the student’s academic record. Students deemed eligible to take a medical Leave of Absence (See Leave of Absence) after the regular course withdrawal dead",
+      "b_text": "A medical leave of absence with proper documentation may be granted at any time but with one restriction. Students requesting a medical leave of absence during a current term must file the leave of absence forms with the Office of Undergraduate Studies prior to the end of the last day of classes of "
+    },
+    {
+      "a": "p00067",
+      "b": "p00221",
+      "score": 0.897,
+      "a_section": "Degree Requirements",
+      "b_section": "Progress toward Degree",
+      "a_page": 25,
+      "b_page": 56,
+      "a_text": "Course credit at Duke Kunshan University follows the same standard as Duke University in terms of instruction hours and out-of-class study hours. Of the 136 credits required for a Duke University degree, a maximum of 8 credits passed with a D grade (D, D+, D-) can be used toward the 136 credits requ",
+      "b_text": "7 A maximum of 8 credits passed with a D grade (D, D+, D-) can be counted. The credit count may include (1) no more than 2 credits in physical education activity courses (i.e., four half-credit activity courses)’ (2) no more than 8 credits taken on a CR/NC grading basis (not including courses offere"
+    },
+    {
+      "a": "p00367",
+      "b": "p00431",
+      "score": 0.889,
+      "a_section": "Applied Mathematics and Computational Sciences with tracks in Computer Science and Mathematics",
+      "b_section": "Majors and Courses",
+      "a_page": 87,
+      "b_page": 217,
+      "a_text": "(Not every course listed is offered every term, and the course list will be updated periodically. Please refer to the online Course Catalog for Courses offered in 2021-2022.)",
+      "b_text": "Not every course listed is offered every term, and the course list and course information will be updated periodically. Please refer to the online Course Catalog for Courses offered in AY2021-2022."
+    }
+  ],
+  "keywords": {
+    "credit": {
+      "passages": 140,
+      "topics": {
+        "Credits and placement": 67,
+        "Degrees, transfer and services": 41,
+        "Academic status and procedures": 22,
+        "Interdisciplinary learning": 5,
+        "China and language studies": 3,
+        "Quantitative and technical study": 1,
+        "Policy, economics and governance": 1
+      },
+      "sections": {
+        "Grading and Grade Requirements": 18,
+        "Degree Requirements": 15,
+        "Undergraduate Course Load": 9,
+        "Entrance Credit and Placement": 9,
+        "Transfer of Work Taken Elsewhere": 7,
+        "Progress toward Degree": 6,
+        "Office of Global Education and Study Away": 6,
+        "Chinese Society and Culture (CHSC)": 5
+      }
+    },
+    "graduation": {
+      "passages": 30,
+      "topics": {
+        "Degrees, transfer and services": 11,
+        "Credits and placement": 11,
+        "Academic status and procedures": 8
+      },
+      "sections": {
+        "Grading and Grade Requirements": 4,
+        "Entrance Credit and Placement": 3,
+        "Undergraduate Course Load": 3,
+        "Course Repeat": 2,
+        "Degree Requirements": 2,
+        "Estimated Expenses": 2,
+        "Academic Recognition and Honors": 2,
+        "Declaration of Major": 2
+      }
+    },
+    "registration": {
+      "passages": 9,
+      "topics": {
+        "Academic status and procedures": 7,
+        "China and language studies": 1,
+        "Credits and placement": 1
+      },
+      "sections": {
+        "Registration": 2,
+        "Changes in Status": 2,
+        "Estimated Expenses": 1,
+        "Class Scheduling": 1,
+        "Grading and Grade Requirements": 1,
+        "Compliance with Academic Regulations": 1,
+        "International Student Services": 1
+      }
+    },
+    "academic integrity": {
+      "passages": 3,
+      "topics": {
+        "Degrees, transfer and services": 2,
+        "Academic status and procedures": 1
+      },
+      "sections": {
+        "Academic Integrity": 2,
+        "Procedure for Resolution of Students' Academic Concerns": 1
+      }
+    }
+  }
+}

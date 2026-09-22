@@ -20,6 +20,8 @@ Course website for **STATS 401: Data Acquisition and Visualization**.
 
 **[Open the published Temporal Commercial Network](https://owen-1234.github.io/stats401-labs/lab7/)**
 
+**[Open the published DKU Bulletin Semantic Map](https://owen-1234.github.io/stats401-labs/lab8/)**
+
 Lab 1 is organized as a self-contained study:
 
 ```text
@@ -47,3 +49,5 @@ Lab 5 loads 50 stations and 50 routes from two external CSV files. An interactiv
 Lab 6 converts the course-provided GDP table into hierarchical JSON with Python. Two D3 treemaps encode GDP by area and GDP status by color while comparing squarified and slice-and-dice spatial subdivision.
 
 Lab 7 uses the course-provided company and 60-day transaction data to show daily changes in an undirected commercial network. A D3 force simulation establishes stable company positions. Region, daily company volume, transaction type, and amount are encoded visually, while playback controls and a time slider support inspection of each day.
+
+Lab 8 extracts 1,109 meaningful passages from the official 2021–22 DKU Undergraduate Bulletin, preserves their formal hierarchy and page numbers, and analyzes sentence embeddings with K-means and UMAP. The D3 study coordinates a searchable semantic map, nearest-neighbor details, and a topic-by-section matrix. Its six findings are linked to source passages.

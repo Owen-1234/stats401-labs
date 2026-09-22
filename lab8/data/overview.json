@@ -1,0 +1,815 @@
+{
+  "top_meaningful_terms": [
+    "chinese",
+    "term",
+    "social",
+    "world",
+    "political",
+    "global",
+    "topics",
+    "china",
+    "major",
+    "cultural",
+    "science",
+    "research"
+  ],
+  "top_term_scores": [
+    {
+      "term": "chinese",
+      "mean_tfidf": 0.01619
+    },
+    {
+      "term": "term",
+      "mean_tfidf": 0.014939
+    },
+    {
+      "term": "social",
+      "mean_tfidf": 0.01469
+    },
+    {
+      "term": "world",
+      "mean_tfidf": 0.013443
+    },
+    {
+      "term": "political",
+      "mean_tfidf": 0.012692
+    },
+    {
+      "term": "global",
+      "mean_tfidf": 0.012332
+    },
+    {
+      "term": "topics",
+      "mean_tfidf": 0.011837
+    },
+    {
+      "term": "china",
+      "mean_tfidf": 0.011767
+    },
+    {
+      "term": "major",
+      "mean_tfidf": 0.011692
+    },
+    {
+      "term": "cultural",
+      "mean_tfidf": 0.011378
+    },
+    {
+      "term": "science",
+      "mean_tfidf": 0.011226
+    },
+    {
+      "term": "research",
+      "mean_tfidf": 0.011149
+    }
+  ],
+  "cluster_counts": {
+    "7": 125,
+    "1": 105,
+    "4": 108,
+    "5": 122,
+    "6": 91,
+    "2": 116,
+    "9": 144,
+    "3": 78,
+    "8": 153,
+    "0": 67
+  },
+  "section_counts": [
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "History (HIST)",
+      "count": 57
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Media and Arts (MEDIART)",
+      "count": 41
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Political Science (POLSCI)",
+      "count": 37
+    },
+    {
+      "chapter": "Part 3: The Curriculum",
+      "section": "Degree Requirements",
+      "count": 36
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Public Policy (PUBPOL)",
+      "count": 35
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Biology (BIOL)",
+      "count": 31
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Literature (LIT)",
+      "count": 31
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Physical Education (PHYSEDU)",
+      "count": 28
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Mathematics (MATH)",
+      "count": 26
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Chinese (CHINESE)",
+      "count": 23
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Economics (ECON)",
+      "count": 23
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Grading and Grade Requirements",
+      "count": 21
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Physics (PHYS)",
+      "count": 21
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Computer Science (COMPSCI)",
+      "count": 20
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Cultural Anthropology (CULANTH)",
+      "count": 20
+    },
+    {
+      "chapter": "Part 8: Career Services, Study Away, and Research Opportunities",
+      "section": "Office of Global Education and Study Away",
+      "count": 18
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global Cultural Studies (GCULS)",
+      "count": 17
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Philosophy (PHIL)",
+      "count": 17
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Environment (ENVIR)",
+      "count": 16
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Entrance Credit and Placement",
+      "count": 16
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Undergraduate Course Load",
+      "count": 16
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Religious Studies (RELIG)",
+      "count": 16
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Statistics (STATS)",
+      "count": 15
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global Health (GLHLTH)",
+      "count": 15
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Ethics and Leadership (ETHLDR)",
+      "count": 13
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Sociology (SOCIOL)",
+      "count": 13
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Written and Oral Communication (WOC)",
+      "count": 13
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",
+      "count": 13
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Chemistry (CHEM)",
+      "count": 13
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Changes in Status",
+      "count": 12
+    },
+    {
+      "chapter": "Part 5: Financial Information",
+      "section": "Estimated Expenses",
+      "count": 11
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Material Science (MATSCI)",
+      "count": 11
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Social Science (SOSC)",
+      "count": 11
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Behavior Science (BEHAVSCI)",
+      "count": 11
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Cultures and Movements (CULMOVE)",
+      "count": 11
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",
+      "count": 10
+    },
+    {
+      "chapter": "Part 5: Financial Information",
+      "section": "Refund",
+      "count": 10
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Computation and Design with tracks in Computer Science, Digital Media, and Social Policy",
+      "count": 10
+    },
+    {
+      "chapter": "Part 11: Academic Calendar 2021-22",
+      "section": "Academic Calendar 2021-22",
+      "count": 10
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",
+      "count": 9
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Grade Review Procedure",
+      "count": 8
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global China Studies (GCHINA)",
+      "count": 8
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "English for Academic Purposes (EAP)",
+      "count": 8
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",
+      "count": 8
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Chinese Society and Culture (CHSC)",
+      "count": 8
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Political Economy (POLECON)",
+      "count": 7
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Applied Mathematics and Computational Sciences with tracks in Computer Science and Mathematics",
+      "count": 7
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Course Repeat",
+      "count": 7
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Information Science (INFOSCI)",
+      "count": 7
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Transfer of Work Taken Elsewhere",
+      "count": 7
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Registration",
+      "count": 7
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Psychology (PSYCH)",
+      "count": 6
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Athletics & University Sports",
+      "count": 6
+    },
+    {
+      "chapter": "Part 4: Admission, Scholarships and Financial Aid",
+      "section": "Application Timelines",
+      "count": 6
+    },
+    {
+      "chapter": "Part 8: Career Services, Study Away, and Research Opportunities",
+      "section": "Career Services",
+      "count": 6
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Academic Integrity",
+      "count": 6
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Behavioral Science with tracks in Psychology and Neuroscience",
+      "count": 6
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Progress toward Degree",
+      "count": 6
+    },
+    {
+      "chapter": "Part 1: General Information",
+      "section": "Partners",
+      "count": 6
+    },
+    {
+      "chapter": "Part 1: General Information",
+      "section": "Who We Are",
+      "count": 6
+    },
+    {
+      "chapter": "Part 3: The Curriculum",
+      "section": "Key Components",
+      "count": 6
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Academic Recognition and Honors",
+      "count": 5
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Procedure for Resolution of Students' Academic Concerns",
+      "count": 5
+    },
+    {
+      "chapter": "Part 4: Admission, Scholarships and Financial Aid",
+      "section": "Application Requirements",
+      "count": 5
+    },
+    {
+      "chapter": "Part 7: Academic Advising and Support",
+      "section": "Academic Advising",
+      "count": 5
+    },
+    {
+      "chapter": "Part 3: The Curriculum",
+      "section": "Overview",
+      "count": 5
+    },
+    {
+      "chapter": "Part 4: Admission, Scholarships and Financial Aid",
+      "section": "Scholarships and Financial Aid",
+      "count": 5
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Class Attendance and Missed Work",
+      "count": 4
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Education Records",
+      "count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "US Studies (USTUD)",
+      "count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Third Language (TLANG)",
+      "count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Requirements for All Majors",
+      "count": 4
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Eligibility for Courses",
+      "count": 4
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Neuroscience (NEUROSCI)",
+      "count": 4
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Accommodations",
+      "count": 3
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Campus Programs",
+      "count": 3
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Final Examinations",
+      "count": 3
+    },
+    {
+      "chapter": "Part 2: A Liberal Arts Education at Duke Kunshan University",
+      "section": "Animating Principles",
+      "count": 3
+    },
+    {
+      "chapter": "Part 7: Academic Advising and Support",
+      "section": "Academic Resource Center",
+      "count": 3
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Student Conduct",
+      "count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global Health with Tracks in Biology and Public Policy",
+      "count": 3
+    },
+    {
+      "chapter": "Part 12: Useful Contacts",
+      "section": "Useful Contacts",
+      "count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Cultures and Movements with tracks in Cultural Anthropology, Sociology and World History",
+      "count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global China Studies with tracks in Chinese History, Economics, Philosophy, Political Science and Religious Studies",
+      "count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Institutions and Governance with tracks in Economics, Political Science, and Public Policy",
+      "count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Japanese (JAPANESE)",
+      "count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Media and Arts with tracks in Art History and Creative Practice",
+      "count": 3
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Ethics and Leadership with tracks in Philosophy, Public Policy, Religious Studies",
+      "count": 3
+    },
+    {
+      "chapter": "Part 1: General Information",
+      "section": "General Information",
+      "count": 3
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Student Affairs",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global Cultural Studies with tracks in World History and World Literature",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "US Studies with tracks in American History, American Literature, Political Science, and Public Policy",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Arts and Humanities (ARHU)",
+      "count": 2
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Campus Health Clinic",
+      "count": 2
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Incomplete Coursework and Excused Absence from Final Exam",
+      "count": 2
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Independent Studies",
+      "count": 2
+    },
+    {
+      "chapter": "Part 1: General Information",
+      "section": "Statement on Diversity and Inclusion",
+      "count": 2
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Exclusion of Disruptive Students from a Course",
+      "count": 2
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Religious Holidays",
+      "count": 2
+    },
+    {
+      "chapter": "Part 8: Career Services, Study Away, and Research Opportunities",
+      "section": "Student Research Opportunities",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Data Science",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "German (GERMAN)",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "French (FRENCH)",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "English (ENGLISH)",
+      "count": 2
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Student Affairs Conceptual Framework",
+      "count": 2
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Chinese Student Services and Student Mobility",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Integrated Science (INTGSCI)",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Materials Science with tracks in Chemistry and Physics",
+      "count": 2
+    },
+    {
+      "chapter": "Part 5: Financial Information",
+      "section": "Tuition and Fees",
+      "count": 2
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Residence Life",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Political Economy with tracks in Economics, Political Science, and Public Policy",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Music (MUSIC)",
+      "count": 2
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Military Science (MILITSCI)",
+      "count": 2
+    },
+    {
+      "chapter": "Part 7: Academic Advising and Support",
+      "section": "Seven Principles of Duke Kunshan University Academic Advising",
+      "count": 2
+    },
+    {
+      "chapter": "Part 4: Admission, Scholarships and Financial Aid",
+      "section": "Principles of Selection",
+      "count": 2
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "International Student Services",
+      "count": 2
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Course Audit",
+      "count": 2
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Declaration of Major",
+      "count": 2
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Leadership Development",
+      "count": 1
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Blue Oasis Student Center",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Computer Design (COMPDSGN)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Arts and Culture",
+      "count": 1
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Student Clubs and Organizations",
+      "count": 1
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Campus Engagement",
+      "count": 1
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Host Family Program",
+      "count": 1
+    },
+    {
+      "chapter": "Part 9: Student Affairs and Campus Life",
+      "section": "Counseling and Psychological Services (CAPS)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 2: A Liberal Arts Education at Duke Kunshan University",
+      "section": "Dual Degrees",
+      "count": 1
+    },
+    {
+      "chapter": "Part 7: Academic Advising and Support",
+      "section": "Academic Advising and Support",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Two-Credit Writing Courses",
+      "count": 1
+    },
+    {
+      "chapter": "Part 2: A Liberal Arts Education at Duke Kunshan University",
+      "section": "A 21st Century Curriculum",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Arts (ARTS)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 1: General Information",
+      "section": "Duke Kunshan University Community Standard",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Research Independent Study (RINDSTU)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Class Scheduling",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Compliance with Academic Regulations",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Majors and Courses",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Italian (ITALIAN)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Institutions and Governance (INSTGOV)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Independent Study (INDSTU)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Graduation and Commencement",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Notification of Intention to Graduate",
+      "count": 1
+    },
+    {
+      "chapter": "Part 2: A Liberal Arts Education at Duke Kunshan University",
+      "section": "A Liberal Arts College Experience",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Submission of Term Paper",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "The Provision of Academic Information to Parents and Guardians",
+      "count": 1
+    },
+    {
+      "chapter": "Part 6: Academic Procedures and Information",
+      "section": "Time Limit for Completing Undergraduate Degree",
+      "count": 1
+    },
+    {
+      "chapter": "Part 10: Majors and Courses",
+      "section": "Global Challenges (GLOCHALL)",
+      "count": 1
+    },
+    {
+      "chapter": "Part 1: General Information",
+      "section": "Mission Statement",
+      "count": 1
+    }
+  ]
+}

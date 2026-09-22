@@ -1,0 +1,317 @@
+chapter,section,cluster,cluster_name,count,section_total,proportion
+Part 10: Majors and Courses,Applied Mathematics and Computational Sciences with tracks in Computer Science and Mathematics,4,Interdisciplinary learning,1,7,0.1429
+Part 10: Majors and Courses,Applied Mathematics and Computational Sciences with tracks in Computer Science and Mathematics,5,Credits and placement,3,7,0.4286
+Part 10: Majors and Courses,Applied Mathematics and Computational Sciences with tracks in Computer Science and Mathematics,9,Quantitative and technical study,3,7,0.4286
+Part 10: Majors and Courses,Arts (ARTS),5,Credits and placement,1,1,1.0
+Part 10: Majors and Courses,Arts and Humanities (ARHU),3,Media and creative practice,2,2,1.0
+Part 10: Majors and Courses,Behavior Science (BEHAVSCI),0,Life and environmental sciences,1,11,0.0909
+Part 10: Majors and Courses,Behavior Science (BEHAVSCI),1,"Policy, economics and governance",7,11,0.6364
+Part 10: Majors and Courses,Behavior Science (BEHAVSCI),9,Quantitative and technical study,3,11,0.2727
+Part 10: Majors and Courses,Behavioral Science with tracks in Psychology and Neuroscience,1,"Policy, economics and governance",1,6,0.1667
+Part 10: Majors and Courses,Behavioral Science with tracks in Psychology and Neuroscience,4,Interdisciplinary learning,1,6,0.1667
+Part 10: Majors and Courses,Behavioral Science with tracks in Psychology and Neuroscience,5,Credits and placement,3,6,0.5
+Part 10: Majors and Courses,Behavioral Science with tracks in Psychology and Neuroscience,9,Quantitative and technical study,1,6,0.1667
+Part 10: Majors and Courses,Biology (BIOL),0,Life and environmental sciences,29,31,0.9355
+Part 10: Majors and Courses,Biology (BIOL),1,"Policy, economics and governance",1,31,0.0323
+Part 10: Majors and Courses,Biology (BIOL),9,Quantitative and technical study,1,31,0.0323
+Part 10: Majors and Courses,Chemistry (CHEM),0,Life and environmental sciences,5,13,0.3846
+Part 10: Majors and Courses,Chemistry (CHEM),5,Credits and placement,1,13,0.0769
+Part 10: Majors and Courses,Chemistry (CHEM),9,Quantitative and technical study,7,13,0.5385
+Part 10: Majors and Courses,Chinese (CHINESE),6,China and language studies,22,23,0.9565
+Part 10: Majors and Courses,Chinese (CHINESE),7,"Degrees, transfer and services",1,23,0.0435
+Part 10: Majors and Courses,Chinese Society and Culture (CHSC),5,Credits and placement,2,8,0.25
+Part 10: Majors and Courses,Chinese Society and Culture (CHSC),6,China and language studies,6,8,0.75
+Part 10: Majors and Courses,"Computation and Design with tracks in Computer Science, Digital Media, and Social Policy",1,"Policy, economics and governance",1,10,0.1
+Part 10: Majors and Courses,"Computation and Design with tracks in Computer Science, Digital Media, and Social Policy",3,Media and creative practice,3,10,0.3
+Part 10: Majors and Courses,"Computation and Design with tracks in Computer Science, Digital Media, and Social Policy",4,Interdisciplinary learning,2,10,0.2
+Part 10: Majors and Courses,"Computation and Design with tracks in Computer Science, Digital Media, and Social Policy",9,Quantitative and technical study,4,10,0.4
+Part 10: Majors and Courses,Computer Design (COMPDSGN),4,Interdisciplinary learning,1,1,1.0
+Part 10: Majors and Courses,Computer Science (COMPSCI),3,Media and creative practice,1,20,0.05
+Part 10: Majors and Courses,Computer Science (COMPSCI),5,Credits and placement,1,20,0.05
+Part 10: Majors and Courses,Computer Science (COMPSCI),9,Quantitative and technical study,18,20,0.9
+Part 10: Majors and Courses,Cultural Anthropology (CULANTH),1,"Policy, economics and governance",1,20,0.05
+Part 10: Majors and Courses,Cultural Anthropology (CULANTH),3,Media and creative practice,5,20,0.25
+Part 10: Majors and Courses,Cultural Anthropology (CULANTH),6,China and language studies,2,20,0.1
+Part 10: Majors and Courses,Cultural Anthropology (CULANTH),8,"Society, history and politics",12,20,0.6
+Part 10: Majors and Courses,Cultures and Movements (CULMOVE),1,"Policy, economics and governance",1,11,0.0909
+Part 10: Majors and Courses,Cultures and Movements (CULMOVE),4,Interdisciplinary learning,3,11,0.2727
+Part 10: Majors and Courses,Cultures and Movements (CULMOVE),6,China and language studies,1,11,0.0909
+Part 10: Majors and Courses,Cultures and Movements (CULMOVE),8,"Society, history and politics",6,11,0.5455
+Part 10: Majors and Courses,"Cultures and Movements with tracks in Cultural Anthropology, Sociology and World History",5,Credits and placement,1,3,0.3333
+Part 10: Majors and Courses,"Cultures and Movements with tracks in Cultural Anthropology, Sociology and World History",8,"Society, history and politics",2,3,0.6667
+Part 10: Majors and Courses,Data Science,9,Quantitative and technical study,2,2,1.0
+Part 10: Majors and Courses,Economics (ECON),1,"Policy, economics and governance",18,23,0.7826
+Part 10: Majors and Courses,Economics (ECON),5,Credits and placement,2,23,0.087
+Part 10: Majors and Courses,Economics (ECON),8,"Society, history and politics",1,23,0.0435
+Part 10: Majors and Courses,Economics (ECON),9,Quantitative and technical study,2,23,0.087
+Part 10: Majors and Courses,English (ENGLISH),5,Credits and placement,2,2,1.0
+Part 10: Majors and Courses,English for Academic Purposes (EAP),3,Media and creative practice,2,8,0.25
+Part 10: Majors and Courses,English for Academic Purposes (EAP),4,Interdisciplinary learning,5,8,0.625
+Part 10: Majors and Courses,English for Academic Purposes (EAP),6,China and language studies,1,8,0.125
+Part 10: Majors and Courses,Environment (ENVIR),0,Life and environmental sciences,7,16,0.4375
+Part 10: Majors and Courses,Environment (ENVIR),1,"Policy, economics and governance",7,16,0.4375
+Part 10: Majors and Courses,Environment (ENVIR),5,Credits and placement,1,16,0.0625
+Part 10: Majors and Courses,Environment (ENVIR),6,China and language studies,1,16,0.0625
+Part 10: Majors and Courses,"Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",0,Life and environmental sciences,4,9,0.4444
+Part 10: Majors and Courses,"Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",1,"Policy, economics and governance",2,9,0.2222
+Part 10: Majors and Courses,"Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",5,Credits and placement,3,9,0.3333
+Part 10: Majors and Courses,Ethics and Leadership (ETHLDR),0,Life and environmental sciences,1,13,0.0769
+Part 10: Majors and Courses,Ethics and Leadership (ETHLDR),1,"Policy, economics and governance",3,13,0.2308
+Part 10: Majors and Courses,Ethics and Leadership (ETHLDR),4,Interdisciplinary learning,2,13,0.1538
+Part 10: Majors and Courses,Ethics and Leadership (ETHLDR),8,"Society, history and politics",7,13,0.5385
+Part 10: Majors and Courses,"Ethics and Leadership with tracks in Philosophy, Public Policy, Religious Studies",1,"Policy, economics and governance",1,3,0.3333
+Part 10: Majors and Courses,"Ethics and Leadership with tracks in Philosophy, Public Policy, Religious Studies",4,Interdisciplinary learning,1,3,0.3333
+Part 10: Majors and Courses,"Ethics and Leadership with tracks in Philosophy, Public Policy, Religious Studies",8,"Society, history and politics",1,3,0.3333
+Part 10: Majors and Courses,French (FRENCH),4,Interdisciplinary learning,1,2,0.5
+Part 10: Majors and Courses,French (FRENCH),5,Credits and placement,1,2,0.5
+Part 10: Majors and Courses,German (GERMAN),4,Interdisciplinary learning,1,2,0.5
+Part 10: Majors and Courses,German (GERMAN),5,Credits and placement,1,2,0.5
+Part 10: Majors and Courses,Global Challenges (GLOCHALL),4,Interdisciplinary learning,1,1,1.0
+Part 10: Majors and Courses,Global China Studies (GCHINA),6,China and language studies,8,8,1.0
+Part 10: Majors and Courses,"Global China Studies with tracks in Chinese History, Economics, Philosophy, Political Science and Religious Studies",6,China and language studies,3,3,1.0
+Part 10: Majors and Courses,Global Cultural Studies (GCULS),3,Media and creative practice,3,17,0.1765
+Part 10: Majors and Courses,Global Cultural Studies (GCULS),4,Interdisciplinary learning,2,17,0.1176
+Part 10: Majors and Courses,Global Cultural Studies (GCULS),6,China and language studies,4,17,0.2353
+Part 10: Majors and Courses,Global Cultural Studies (GCULS),8,"Society, history and politics",8,17,0.4706
+Part 10: Majors and Courses,Global Cultural Studies with tracks in World History and World Literature,3,Media and creative practice,1,2,0.5
+Part 10: Majors and Courses,Global Cultural Studies with tracks in World History and World Literature,8,"Society, history and politics",1,2,0.5
+Part 10: Majors and Courses,Global Health (GLHLTH),0,Life and environmental sciences,3,15,0.2
+Part 10: Majors and Courses,Global Health (GLHLTH),1,"Policy, economics and governance",8,15,0.5333
+Part 10: Majors and Courses,Global Health (GLHLTH),3,Media and creative practice,1,15,0.0667
+Part 10: Majors and Courses,Global Health (GLHLTH),4,Interdisciplinary learning,1,15,0.0667
+Part 10: Majors and Courses,Global Health (GLHLTH),8,"Society, history and politics",2,15,0.1333
+Part 10: Majors and Courses,Global Health with Tracks in Biology and Public Policy,1,"Policy, economics and governance",2,3,0.6667
+Part 10: Majors and Courses,Global Health with Tracks in Biology and Public Policy,6,China and language studies,1,3,0.3333
+Part 10: Majors and Courses,History (HIST),1,"Policy, economics and governance",1,57,0.0175
+Part 10: Majors and Courses,History (HIST),3,Media and creative practice,7,57,0.1228
+Part 10: Majors and Courses,History (HIST),5,Credits and placement,3,57,0.0526
+Part 10: Majors and Courses,History (HIST),6,China and language studies,18,57,0.3158
+Part 10: Majors and Courses,History (HIST),7,"Degrees, transfer and services",1,57,0.0175
+Part 10: Majors and Courses,History (HIST),8,"Society, history and politics",27,57,0.4737
+Part 10: Majors and Courses,Independent Study (INDSTU),4,Interdisciplinary learning,1,1,1.0
+Part 10: Majors and Courses,Information Science (INFOSCI),3,Media and creative practice,2,7,0.2857
+Part 10: Majors and Courses,Information Science (INFOSCI),4,Interdisciplinary learning,1,7,0.1429
+Part 10: Majors and Courses,Information Science (INFOSCI),9,Quantitative and technical study,4,7,0.5714
+Part 10: Majors and Courses,Institutions and Governance (INSTGOV),4,Interdisciplinary learning,1,1,1.0
+Part 10: Majors and Courses,"Institutions and Governance with tracks in Economics, Political Science, and Public Policy",1,"Policy, economics and governance",2,3,0.6667
+Part 10: Majors and Courses,"Institutions and Governance with tracks in Economics, Political Science, and Public Policy",5,Credits and placement,1,3,0.3333
+Part 10: Majors and Courses,Integrated Science (INTGSCI),0,Life and environmental sciences,2,2,1.0
+Part 10: Majors and Courses,Italian (ITALIAN),4,Interdisciplinary learning,1,1,1.0
+Part 10: Majors and Courses,Japanese (JAPANESE),4,Interdisciplinary learning,3,3,1.0
+Part 10: Majors and Courses,Literature (LIT),0,Life and environmental sciences,1,31,0.0323
+Part 10: Majors and Courses,Literature (LIT),3,Media and creative practice,5,31,0.1613
+Part 10: Majors and Courses,Literature (LIT),6,China and language studies,5,31,0.1613
+Part 10: Majors and Courses,Literature (LIT),8,"Society, history and politics",20,31,0.6452
+Part 10: Majors and Courses,Majors and Courses,5,Credits and placement,1,1,1.0
+Part 10: Majors and Courses,Material Science (MATSCI),9,Quantitative and technical study,11,11,1.0
+Part 10: Majors and Courses,Materials Science with tracks in Chemistry and Physics,4,Interdisciplinary learning,1,2,0.5
+Part 10: Majors and Courses,Materials Science with tracks in Chemistry and Physics,9,Quantitative and technical study,1,2,0.5
+Part 10: Majors and Courses,Mathematics (MATH),0,Life and environmental sciences,1,26,0.0385
+Part 10: Majors and Courses,Mathematics (MATH),5,Credits and placement,3,26,0.1154
+Part 10: Majors and Courses,Mathematics (MATH),9,Quantitative and technical study,22,26,0.8462
+Part 10: Majors and Courses,Media and Arts (MEDIART),3,Media and creative practice,36,41,0.878
+Part 10: Majors and Courses,Media and Arts (MEDIART),4,Interdisciplinary learning,3,41,0.0732
+Part 10: Majors and Courses,Media and Arts (MEDIART),6,China and language studies,1,41,0.0244
+Part 10: Majors and Courses,Media and Arts (MEDIART),7,"Degrees, transfer and services",1,41,0.0244
+Part 10: Majors and Courses,Media and Arts with tracks in Art History and Creative Practice,3,Media and creative practice,3,3,1.0
+Part 10: Majors and Courses,Military Science (MILITSCI),4,Interdisciplinary learning,1,2,0.5
+Part 10: Majors and Courses,Military Science (MILITSCI),6,China and language studies,1,2,0.5
+Part 10: Majors and Courses,"Molecular Bioscience with Tracks in Biogeochemistry, Biophysics, Cell and Molecular Biology, Genetics and Genomics",0,Life and environmental sciences,8,8,1.0
+Part 10: Majors and Courses,Music (MUSIC),4,Interdisciplinary learning,1,2,0.5
+Part 10: Majors and Courses,Music (MUSIC),7,"Degrees, transfer and services",1,2,0.5
+Part 10: Majors and Courses,Neuroscience (NEUROSCI),0,Life and environmental sciences,2,4,0.5
+Part 10: Majors and Courses,Neuroscience (NEUROSCI),9,Quantitative and technical study,2,4,0.5
+Part 10: Majors and Courses,Philosophy (PHIL),1,"Policy, economics and governance",1,17,0.0588
+Part 10: Majors and Courses,Philosophy (PHIL),4,Interdisciplinary learning,1,17,0.0588
+Part 10: Majors and Courses,Philosophy (PHIL),6,China and language studies,2,17,0.1176
+Part 10: Majors and Courses,Philosophy (PHIL),8,"Society, history and politics",9,17,0.5294
+Part 10: Majors and Courses,Philosophy (PHIL),9,Quantitative and technical study,4,17,0.2353
+Part 10: Majors and Courses,Physical Education (PHYSEDU),3,Media and creative practice,1,28,0.0357
+Part 10: Majors and Courses,Physical Education (PHYSEDU),4,Interdisciplinary learning,2,28,0.0714
+Part 10: Majors and Courses,Physical Education (PHYSEDU),5,Credits and placement,1,28,0.0357
+Part 10: Majors and Courses,Physical Education (PHYSEDU),6,China and language studies,2,28,0.0714
+Part 10: Majors and Courses,Physical Education (PHYSEDU),9,Quantitative and technical study,22,28,0.7857
+Part 10: Majors and Courses,Physics (PHYS),0,Life and environmental sciences,2,21,0.0952
+Part 10: Majors and Courses,Physics (PHYS),5,Credits and placement,4,21,0.1905
+Part 10: Majors and Courses,Physics (PHYS),9,Quantitative and technical study,15,21,0.7143
+Part 10: Majors and Courses,Political Economy (POLECON),1,"Policy, economics and governance",4,7,0.5714
+Part 10: Majors and Courses,Political Economy (POLECON),4,Interdisciplinary learning,1,7,0.1429
+Part 10: Majors and Courses,Political Economy (POLECON),6,China and language studies,2,7,0.2857
+Part 10: Majors and Courses,"Political Economy with tracks in Economics, Political Science, and Public Policy",1,"Policy, economics and governance",1,2,0.5
+Part 10: Majors and Courses,"Political Economy with tracks in Economics, Political Science, and Public Policy",8,"Society, history and politics",1,2,0.5
+Part 10: Majors and Courses,Political Science (POLSCI),1,"Policy, economics and governance",10,37,0.2703
+Part 10: Majors and Courses,Political Science (POLSCI),4,Interdisciplinary learning,1,37,0.027
+Part 10: Majors and Courses,Political Science (POLSCI),5,Credits and placement,2,37,0.0541
+Part 10: Majors and Courses,Political Science (POLSCI),6,China and language studies,3,37,0.0811
+Part 10: Majors and Courses,Political Science (POLSCI),8,"Society, history and politics",21,37,0.5676
+Part 10: Majors and Courses,Psychology (PSYCH),0,Life and environmental sciences,1,6,0.1667
+Part 10: Majors and Courses,Psychology (PSYCH),1,"Policy, economics and governance",1,6,0.1667
+Part 10: Majors and Courses,Psychology (PSYCH),4,Interdisciplinary learning,1,6,0.1667
+Part 10: Majors and Courses,Psychology (PSYCH),9,Quantitative and technical study,3,6,0.5
+Part 10: Majors and Courses,Public Policy (PUBPOL),1,"Policy, economics and governance",22,35,0.6286
+Part 10: Majors and Courses,Public Policy (PUBPOL),3,Media and creative practice,1,35,0.0286
+Part 10: Majors and Courses,Public Policy (PUBPOL),4,Interdisciplinary learning,1,35,0.0286
+Part 10: Majors and Courses,Public Policy (PUBPOL),6,China and language studies,1,35,0.0286
+Part 10: Majors and Courses,Public Policy (PUBPOL),8,"Society, history and politics",9,35,0.2571
+Part 10: Majors and Courses,Public Policy (PUBPOL),9,Quantitative and technical study,1,35,0.0286
+Part 10: Majors and Courses,Religious Studies (RELIG),4,Interdisciplinary learning,1,16,0.0625
+Part 10: Majors and Courses,Religious Studies (RELIG),6,China and language studies,1,16,0.0625
+Part 10: Majors and Courses,Religious Studies (RELIG),8,"Society, history and politics",14,16,0.875
+Part 10: Majors and Courses,Requirements for All Majors,5,Credits and placement,4,4,1.0
+Part 10: Majors and Courses,Research Independent Study (RINDSTU),4,Interdisciplinary learning,1,1,1.0
+Part 10: Majors and Courses,Social Science (SOSC),1,"Policy, economics and governance",4,11,0.3636
+Part 10: Majors and Courses,Social Science (SOSC),4,Interdisciplinary learning,1,11,0.0909
+Part 10: Majors and Courses,Social Science (SOSC),5,Credits and placement,1,11,0.0909
+Part 10: Majors and Courses,Social Science (SOSC),8,"Society, history and politics",2,11,0.1818
+Part 10: Majors and Courses,Social Science (SOSC),9,Quantitative and technical study,3,11,0.2727
+Part 10: Majors and Courses,Sociology (SOCIOL),1,"Policy, economics and governance",4,13,0.3077
+Part 10: Majors and Courses,Sociology (SOCIOL),3,Media and creative practice,1,13,0.0769
+Part 10: Majors and Courses,Sociology (SOCIOL),4,Interdisciplinary learning,1,13,0.0769
+Part 10: Majors and Courses,Sociology (SOCIOL),8,"Society, history and politics",7,13,0.5385
+Part 10: Majors and Courses,Statistics (STATS),1,"Policy, economics and governance",1,15,0.0667
+Part 10: Majors and Courses,Statistics (STATS),5,Credits and placement,1,15,0.0667
+Part 10: Majors and Courses,Statistics (STATS),9,Quantitative and technical study,13,15,0.8667
+Part 10: Majors and Courses,Third Language (TLANG),4,Interdisciplinary learning,4,4,1.0
+Part 10: Majors and Courses,US Studies (USTUD),3,Media and creative practice,1,4,0.25
+Part 10: Majors and Courses,US Studies (USTUD),4,Interdisciplinary learning,2,4,0.5
+Part 10: Majors and Courses,US Studies (USTUD),8,"Society, history and politics",1,4,0.25
+Part 10: Majors and Courses,"US Studies with tracks in American History, American Literature, Political Science, and Public Policy",8,"Society, history and politics",2,2,1.0
+Part 10: Majors and Courses,Written and Oral Communication (WOC),3,Media and creative practice,3,13,0.2308
+Part 10: Majors and Courses,Written and Oral Communication (WOC),4,Interdisciplinary learning,8,13,0.6154
+Part 10: Majors and Courses,Written and Oral Communication (WOC),5,Credits and placement,2,13,0.1538
+Part 11: Academic Calendar 2021-22,Academic Calendar 2021-22,2,Academic status and procedures,9,10,0.9
+Part 11: Academic Calendar 2021-22,Academic Calendar 2021-22,5,Credits and placement,1,10,0.1
+Part 12: Useful Contacts,Useful Contacts,7,"Degrees, transfer and services",3,3,1.0
+Part 1: General Information,Duke Kunshan University Community Standard,7,"Degrees, transfer and services",1,1,1.0
+Part 1: General Information,General Information,1,"Policy, economics and governance",1,3,0.3333
+Part 1: General Information,General Information,4,Interdisciplinary learning,1,3,0.3333
+Part 1: General Information,General Information,7,"Degrees, transfer and services",1,3,0.3333
+Part 1: General Information,Mission Statement,7,"Degrees, transfer and services",1,1,1.0
+Part 1: General Information,Partners,5,Credits and placement,1,6,0.1667
+Part 1: General Information,Partners,6,China and language studies,1,6,0.1667
+Part 1: General Information,Partners,7,"Degrees, transfer and services",4,6,0.6667
+Part 1: General Information,Statement on Diversity and Inclusion,4,Interdisciplinary learning,1,2,0.5
+Part 1: General Information,Statement on Diversity and Inclusion,7,"Degrees, transfer and services",1,2,0.5
+Part 1: General Information,Who We Are,5,Credits and placement,1,6,0.1667
+Part 1: General Information,Who We Are,7,"Degrees, transfer and services",5,6,0.8333
+Part 2: A Liberal Arts Education at Duke Kunshan University,A 21st Century Curriculum,7,"Degrees, transfer and services",1,1,1.0
+Part 2: A Liberal Arts Education at Duke Kunshan University,A Liberal Arts College Experience,7,"Degrees, transfer and services",1,1,1.0
+Part 2: A Liberal Arts Education at Duke Kunshan University,Animating Principles,4,Interdisciplinary learning,2,3,0.6667
+Part 2: A Liberal Arts Education at Duke Kunshan University,Animating Principles,7,"Degrees, transfer and services",1,3,0.3333
+Part 2: A Liberal Arts Education at Duke Kunshan University,Dual Degrees,7,"Degrees, transfer and services",1,1,1.0
+Part 3: The Curriculum,Degree Requirements,4,Interdisciplinary learning,10,36,0.2778
+Part 3: The Curriculum,Degree Requirements,5,Credits and placement,16,36,0.4444
+Part 3: The Curriculum,Degree Requirements,6,China and language studies,1,36,0.0278
+Part 3: The Curriculum,Degree Requirements,7,"Degrees, transfer and services",9,36,0.25
+Part 3: The Curriculum,Key Components,4,Interdisciplinary learning,2,6,0.3333
+Part 3: The Curriculum,Key Components,5,Credits and placement,1,6,0.1667
+Part 3: The Curriculum,Key Components,7,"Degrees, transfer and services",3,6,0.5
+Part 3: The Curriculum,Overview,4,Interdisciplinary learning,3,5,0.6
+Part 3: The Curriculum,Overview,7,"Degrees, transfer and services",2,5,0.4
+"Part 4: Admission, Scholarships and Financial Aid",Application Requirements,5,Credits and placement,5,5,1.0
+"Part 4: Admission, Scholarships and Financial Aid",Application Timelines,5,Credits and placement,5,6,0.8333
+"Part 4: Admission, Scholarships and Financial Aid",Application Timelines,7,"Degrees, transfer and services",1,6,0.1667
+"Part 4: Admission, Scholarships and Financial Aid",Principles of Selection,7,"Degrees, transfer and services",2,2,1.0
+"Part 4: Admission, Scholarships and Financial Aid",Scholarships and Financial Aid,5,Credits and placement,2,5,0.4
+"Part 4: Admission, Scholarships and Financial Aid",Scholarships and Financial Aid,7,"Degrees, transfer and services",3,5,0.6
+Part 5: Financial Information,Estimated Expenses,2,Academic status and procedures,4,11,0.3636
+Part 5: Financial Information,Estimated Expenses,5,Credits and placement,3,11,0.2727
+Part 5: Financial Information,Estimated Expenses,6,China and language studies,2,11,0.1818
+Part 5: Financial Information,Estimated Expenses,7,"Degrees, transfer and services",2,11,0.1818
+Part 5: Financial Information,Refund,2,Academic status and procedures,10,10,1.0
+Part 5: Financial Information,Tuition and Fees,2,Academic status and procedures,1,2,0.5
+Part 5: Financial Information,Tuition and Fees,5,Credits and placement,1,2,0.5
+Part 6: Academic Procedures and Information,Academic Integrity,2,Academic status and procedures,3,6,0.5
+Part 6: Academic Procedures and Information,Academic Integrity,7,"Degrees, transfer and services",2,6,0.3333
+Part 6: Academic Procedures and Information,Academic Integrity,9,Quantitative and technical study,1,6,0.1667
+Part 6: Academic Procedures and Information,Academic Recognition and Honors,5,Credits and placement,4,5,0.8
+Part 6: Academic Procedures and Information,Academic Recognition and Honors,7,"Degrees, transfer and services",1,5,0.2
+Part 6: Academic Procedures and Information,"Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",2,Academic status and procedures,8,10,0.8
+Part 6: Academic Procedures and Information,"Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",5,Credits and placement,2,10,0.2
+Part 6: Academic Procedures and Information,"Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",2,Academic status and procedures,12,13,0.9231
+Part 6: Academic Procedures and Information,"Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",5,Credits and placement,1,13,0.0769
+Part 6: Academic Procedures and Information,Changes in Status,2,Academic status and procedures,7,12,0.5833
+Part 6: Academic Procedures and Information,Changes in Status,5,Credits and placement,2,12,0.1667
+Part 6: Academic Procedures and Information,Changes in Status,7,"Degrees, transfer and services",3,12,0.25
+Part 6: Academic Procedures and Information,Class Attendance and Missed Work,2,Academic status and procedures,4,4,1.0
+Part 6: Academic Procedures and Information,Class Scheduling,2,Academic status and procedures,1,1,1.0
+Part 6: Academic Procedures and Information,Compliance with Academic Regulations,2,Academic status and procedures,1,1,1.0
+Part 6: Academic Procedures and Information,Course Audit,2,Academic status and procedures,1,2,0.5
+Part 6: Academic Procedures and Information,Course Audit,7,"Degrees, transfer and services",1,2,0.5
+Part 6: Academic Procedures and Information,Course Repeat,2,Academic status and procedures,2,7,0.2857
+Part 6: Academic Procedures and Information,Course Repeat,5,Credits and placement,3,7,0.4286
+Part 6: Academic Procedures and Information,Course Repeat,7,"Degrees, transfer and services",2,7,0.2857
+Part 6: Academic Procedures and Information,Declaration of Major,7,"Degrees, transfer and services",2,2,1.0
+Part 6: Academic Procedures and Information,Education Records,2,Academic status and procedures,1,4,0.25
+Part 6: Academic Procedures and Information,Education Records,7,"Degrees, transfer and services",3,4,0.75
+Part 6: Academic Procedures and Information,Eligibility for Courses,2,Academic status and procedures,1,4,0.25
+Part 6: Academic Procedures and Information,Eligibility for Courses,5,Credits and placement,3,4,0.75
+Part 6: Academic Procedures and Information,Entrance Credit and Placement,5,Credits and placement,5,16,0.3125
+Part 6: Academic Procedures and Information,Entrance Credit and Placement,6,China and language studies,1,16,0.0625
+Part 6: Academic Procedures and Information,Entrance Credit and Placement,7,"Degrees, transfer and services",10,16,0.625
+Part 6: Academic Procedures and Information,Exclusion of Disruptive Students from a Course,2,Academic status and procedures,2,2,1.0
+Part 6: Academic Procedures and Information,Final Examinations,2,Academic status and procedures,3,3,1.0
+Part 6: Academic Procedures and Information,Grade Review Procedure,2,Academic status and procedures,6,8,0.75
+Part 6: Academic Procedures and Information,Grade Review Procedure,7,"Degrees, transfer and services",2,8,0.25
+Part 6: Academic Procedures and Information,Grading and Grade Requirements,2,Academic status and procedures,9,21,0.4286
+Part 6: Academic Procedures and Information,Grading and Grade Requirements,5,Credits and placement,6,21,0.2857
+Part 6: Academic Procedures and Information,Grading and Grade Requirements,7,"Degrees, transfer and services",6,21,0.2857
+Part 6: Academic Procedures and Information,Graduation and Commencement,5,Credits and placement,1,1,1.0
+Part 6: Academic Procedures and Information,Incomplete Coursework and Excused Absence from Final Exam,2,Academic status and procedures,2,2,1.0
+Part 6: Academic Procedures and Information,Independent Studies,4,Interdisciplinary learning,2,2,1.0
+Part 6: Academic Procedures and Information,Notification of Intention to Graduate,7,"Degrees, transfer and services",1,1,1.0
+Part 6: Academic Procedures and Information,Procedure for Resolution of Students' Academic Concerns,2,Academic status and procedures,4,5,0.8
+Part 6: Academic Procedures and Information,Procedure for Resolution of Students' Academic Concerns,7,"Degrees, transfer and services",1,5,0.2
+Part 6: Academic Procedures and Information,Progress toward Degree,2,Academic status and procedures,3,6,0.5
+Part 6: Academic Procedures and Information,Progress toward Degree,5,Credits and placement,2,6,0.3333
+Part 6: Academic Procedures and Information,Progress toward Degree,7,"Degrees, transfer and services",1,6,0.1667
+Part 6: Academic Procedures and Information,Registration,2,Academic status and procedures,6,7,0.8571
+Part 6: Academic Procedures and Information,Registration,7,"Degrees, transfer and services",1,7,0.1429
+Part 6: Academic Procedures and Information,Religious Holidays,2,Academic status and procedures,1,2,0.5
+Part 6: Academic Procedures and Information,Religious Holidays,7,"Degrees, transfer and services",1,2,0.5
+Part 6: Academic Procedures and Information,Submission of Term Paper,5,Credits and placement,1,1,1.0
+Part 6: Academic Procedures and Information,The Provision of Academic Information to Parents and Guardians,2,Academic status and procedures,1,1,1.0
+Part 6: Academic Procedures and Information,Time Limit for Completing Undergraduate Degree,7,"Degrees, transfer and services",1,1,1.0
+Part 6: Academic Procedures and Information,Transfer of Work Taken Elsewhere,7,"Degrees, transfer and services",7,7,1.0
+Part 6: Academic Procedures and Information,Two-Credit Writing Courses,5,Credits and placement,1,1,1.0
+Part 6: Academic Procedures and Information,Undergraduate Course Load,2,Academic status and procedures,10,16,0.625
+Part 6: Academic Procedures and Information,Undergraduate Course Load,5,Credits and placement,5,16,0.3125
+Part 6: Academic Procedures and Information,Undergraduate Course Load,7,"Degrees, transfer and services",1,16,0.0625
+Part 7: Academic Advising and Support,Academic Advising,4,Interdisciplinary learning,4,5,0.8
+Part 7: Academic Advising and Support,Academic Advising,7,"Degrees, transfer and services",1,5,0.2
+Part 7: Academic Advising and Support,Academic Advising and Support,4,Interdisciplinary learning,1,1,1.0
+Part 7: Academic Advising and Support,Academic Resource Center,4,Interdisciplinary learning,3,3,1.0
+Part 7: Academic Advising and Support,Seven Principles of Duke Kunshan University Academic Advising,4,Interdisciplinary learning,2,2,1.0
+"Part 8: Career Services, Study Away, and Research Opportunities",Career Services,4,Interdisciplinary learning,2,6,0.3333
+"Part 8: Career Services, Study Away, and Research Opportunities",Career Services,7,"Degrees, transfer and services",4,6,0.6667
+"Part 8: Career Services, Study Away, and Research Opportunities",Office of Global Education and Study Away,2,Academic status and procedures,3,18,0.1667
+"Part 8: Career Services, Study Away, and Research Opportunities",Office of Global Education and Study Away,5,Credits and placement,2,18,0.1111
+"Part 8: Career Services, Study Away, and Research Opportunities",Office of Global Education and Study Away,7,"Degrees, transfer and services",13,18,0.7222
+"Part 8: Career Services, Study Away, and Research Opportunities",Student Research Opportunities,7,"Degrees, transfer and services",2,2,1.0
+Part 9: Student Affairs and Campus Life,Accommodations,4,Interdisciplinary learning,1,3,0.3333
+Part 9: Student Affairs and Campus Life,Accommodations,5,Credits and placement,2,3,0.6667
+Part 9: Student Affairs and Campus Life,Arts and Culture,7,"Degrees, transfer and services",1,1,1.0
+Part 9: Student Affairs and Campus Life,Athletics & University Sports,4,Interdisciplinary learning,3,6,0.5
+Part 9: Student Affairs and Campus Life,Athletics & University Sports,7,"Degrees, transfer and services",2,6,0.3333
+Part 9: Student Affairs and Campus Life,Athletics & University Sports,9,Quantitative and technical study,1,6,0.1667
+Part 9: Student Affairs and Campus Life,Blue Oasis Student Center,4,Interdisciplinary learning,1,1,1.0
+Part 9: Student Affairs and Campus Life,Campus Engagement,4,Interdisciplinary learning,1,1,1.0
+Part 9: Student Affairs and Campus Life,Campus Health Clinic,4,Interdisciplinary learning,2,2,1.0
+Part 9: Student Affairs and Campus Life,Campus Programs,4,Interdisciplinary learning,1,3,0.3333
+Part 9: Student Affairs and Campus Life,Campus Programs,7,"Degrees, transfer and services",2,3,0.6667
+Part 9: Student Affairs and Campus Life,Chinese Student Services and Student Mobility,6,China and language studies,1,2,0.5
+Part 9: Student Affairs and Campus Life,Chinese Student Services and Student Mobility,7,"Degrees, transfer and services",1,2,0.5
+Part 9: Student Affairs and Campus Life,Counseling and Psychological Services (CAPS),7,"Degrees, transfer and services",1,1,1.0
+Part 9: Student Affairs and Campus Life,Host Family Program,7,"Degrees, transfer and services",1,1,1.0
+Part 9: Student Affairs and Campus Life,International Student Services,5,Credits and placement,1,2,0.5
+Part 9: Student Affairs and Campus Life,International Student Services,7,"Degrees, transfer and services",1,2,0.5
+Part 9: Student Affairs and Campus Life,Leadership Development,4,Interdisciplinary learning,1,1,1.0
+Part 9: Student Affairs and Campus Life,Residence Life,4,Interdisciplinary learning,1,2,0.5
+Part 9: Student Affairs and Campus Life,Residence Life,7,"Degrees, transfer and services",1,2,0.5
+Part 9: Student Affairs and Campus Life,Student Affairs,4,Interdisciplinary learning,2,2,1.0
+Part 9: Student Affairs and Campus Life,Student Affairs Conceptual Framework,4,Interdisciplinary learning,1,2,0.5
+Part 9: Student Affairs and Campus Life,Student Affairs Conceptual Framework,7,"Degrees, transfer and services",1,2,0.5
+Part 9: Student Affairs and Campus Life,Student Clubs and Organizations,7,"Degrees, transfer and services",1,1,1.0
+Part 9: Student Affairs and Campus Life,Student Conduct,2,Academic status and procedures,1,3,0.3333
+Part 9: Student Affairs and Campus Life,Student Conduct,4,Interdisciplinary learning,1,3,0.3333
+Part 9: Student Affairs and Campus Life,Student Conduct,7,"Degrees, transfer and services",1,3,0.3333
