@@ -22,6 +22,8 @@ Course website for **STATS 401: Data Acquisition and Visualization**.
 
 **[Open the published DKU Bulletin Semantic Map](https://owen-1234.github.io/stats401-labs/lab8/)**
 
+**[Open Messi, Repositioned: Visualization Critique and Redesign](https://owen-1234.github.io/messi-repositioned/)**
+
 Lab 1 is organized as a self-contained study:
 
 ```text
@@ -50,4 +52,6 @@ Lab 6 converts the course-provided GDP table into hierarchical JSON with Python.
 
 Lab 7 uses the course-provided company and 60-day transaction data to show daily changes in an undirected commercial network. A D3 force simulation establishes stable company positions. Region, daily company volume, transaction type, and amount are encoded visually, while playback controls and a time slider support inspection of each day.
 
-Lab 8 extracts 1,109 meaningful passages from the official 2021–22 DKU Undergraduate Bulletin, preserves their formal hierarchy and page numbers, and analyzes sentence embeddings with K-means and UMAP. The D3 study coordinates a searchable semantic map, nearest-neighbor details, and a topic-by-section matrix. Its six findings are linked to source passages.
+Lab 8 extracts 1,035 meaningful passages from the official 2021–22 DKU Undergraduate Bulletin, preserves their formal hierarchy and page numbers, and analyzes sentence embeddings with K-means and UMAP. The D3 study coordinates a searchable semantic map, nearest-neighbor details, and a topic-by-section matrix. Its four findings are linked to source passages.
+
+The individual project critiques an existing eight-panel Lionel Messi shot-map series and rebuilds the comparison from one pinned StatsBomb dataset. A coordinated D3 interface compares event locations, fixed-bin density, and playing-time-standardized rates across Barcelona manager periods; the accompanying 500–800 word report connects every redesign decision to a documented weakness.
