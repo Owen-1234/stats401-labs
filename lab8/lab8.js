@@ -177,6 +177,8 @@
             .on("mouseenter", event => showTip(event, [s.row.section, t.name, `${count} ${count === 1 ? "passage" : "passages"} · ${(share*100).toFixed(1)}% of section`]))
             .on("mousemove", event => showTip(event, [s.row.section, t.name, `${count} ${count === 1 ? "passage" : "passages"} · ${(share*100).toFixed(1)}% of section`]))
             .on("mouseleave", hideTip)
+            .on("focus", function() { const box = this.getBoundingClientRect(); showTip({clientX: box.left + box.width / 2, clientY: box.top}, [s.row.section, t.name, `${count} ${count === 1 ? "passage" : "passages"} · ${(share*100).toFixed(1)}% of section`]); })
+            .on("blur", hideTip)
             .on("click", () => selectCell(s, t, count))
             .on("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); selectCell(s, t, count); } });
         });
@@ -226,7 +228,9 @@
         chart.append("rect").attr("x", left).attr("y", yy+5).attr("width", width-left-right).attr("height", 15).attr("fill", "#e8e6de");
         chart.append("rect").attr("x", left).attr("y", yy+5)
           .attr("width", (width-left-right)*d.value/max).attr("height", 15).attr("fill", color);
-        if (quantitative) chart.append("text").attr("x", width-30).attr("y", yy+17).attr("font-size", 11).attr("fill", "#172724").text(d.value);
+        chart.append("text").attr("x", width - 2).attr("y", yy+17).attr("text-anchor", "end")
+          .attr("font-size", 11).attr("fill", "#172724")
+          .text(quantitative ? d.value : d.value.toFixed(3));
       });
     }
   }).catch(error => {
