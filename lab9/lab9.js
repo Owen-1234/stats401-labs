@@ -194,7 +194,7 @@
                 if (other === item) return Infinity;
                 return Math.hypot(item.x - other.x, item.y - other.y);
             });
-            item.radius = Math.max(3.5, Math.min(item.baseRadius, nearest * 0.43));
+            item.radius = Math.max(0.8, Math.min(item.baseRadius, nearest * 0.38));
         });
 
         contextGroup.selectAll("path")
@@ -216,8 +216,8 @@
     };
 
     Promise.all([
-        d3.json("../data/lab9_world.geojson?v=centroid-symbols-3"),
-        d3.csv("../data/lab9_gdp_2025_top50.csv?v=centroid-symbols-3", row => ({
+        d3.json("../data/lab9_world.geojson?v=centroid-symbols-4"),
+        d3.csv("../data/lab9_gdp_2025_top50.csv?v=centroid-symbols-4", row => ({
             iso3: row.iso3.trim().toUpperCase(),
             country: row.country.trim(),
             gdp: Number(row.gdp_2025_billion_usd),
