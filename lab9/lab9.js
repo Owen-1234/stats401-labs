@@ -135,7 +135,7 @@
     };
 
     const attachCartogramInteractions = () => {
-        const features = d3.selectAll("#cartogram-map .feature");
+        const features = d3.selectAll("#cartogram-map .feature, #cartogram-map .context-feature");
         const tooltip = d3.select("#cartogram-tooltip");
         const propertiesOf = datum => datum.feature?.properties || datum.properties || {};
         features
@@ -168,68 +168,56 @@
             .attr("viewBox", `0 0 ${width} ${height}`)
             .attr("role", "img")
             .attr("aria-label", "GDP cartogram of the world's countries");
-        const group = svg.append("g");
+        const contextGroup = svg.append("g").attr("class", "cartogram-context");
+        const symbolGroup = svg.append("g").attr("class", "cartogram-symbols");
         const observed = geoData.features.filter(feature => Number.isFinite(feature.properties.gdp));
         const referenceGDP = d3.median(observed, feature => feature.properties.gdp);
-        const areaScale = feature => {
-            if (!Number.isFinite(feature.properties.gdp)) return 1;
-            // A bounded square-root scale keeps the global topology legible
-            // while making higher GDP values occupy more area.
-            return Math.max(0.62, Math.min(2.6, Math.pow(feature.properties.gdp / referenceGDP, 0.38)));
-        };
-        const placements = geoData.features.map(feature => {
-            const [cx, cy] = path.centroid(feature);
-            const scale = areaScale(feature);
-            const projectedArea = path.area(feature);
-            const radius = Number.isFinite(projectedArea)
-                ? Math.max(4, Math.sqrt(projectedArea / Math.PI) * scale * 0.58)
-                : 4;
-            return {
-                feature,
-                cx,
-                cy,
-                x: cx,
-                y: cy,
-                scale,
-                radius,
-                observed: Number.isFinite(feature.properties.gdp)
-            };
-        });
-        const observedPlacements = placements.filter(item => item.observed && Number.isFinite(item.cx) && Number.isFinite(item.cy));
-        const collisionForce = d3.forceSimulation(observedPlacements)
-            .randomSource(d3.randomLcg(0.4019))
-            .force("x", d3.forceX(item => item.cx).strength(0.16))
-            .force("y", d3.forceY(item => item.cy).strength(0.16))
-            .force("collision", d3.forceCollide(item => item.radius + 1.5).strength(0.9).iterations(3))
-            .stop();
-        for (let tick = 0; tick < 220; tick += 1) collisionForce.tick();
+        const uniqueObserved = Array.from(
+            d3.rollup(
+                observed,
+                features => features.sort((a, b) => path.area(b) - path.area(a))[0],
+                feature => feature.properties.iso3
+            ).values()
+        );
+        const placements = uniqueObserved
+            .map(feature => {
+                const [x, y] = path.centroid(feature);
+                const baseRadius = Math.max(4, Math.min(48, 9 * Math.sqrt(feature.properties.gdp / referenceGDP)));
+                return { feature, x, y, baseRadius, radius: baseRadius };
+            })
+            .filter(item => Number.isFinite(item.x) && Number.isFinite(item.y));
 
+        // Keep every symbol centered on its projected geographic centroid.
+        // The radius cap prevents neighboring GDP symbols from overlapping.
         placements.forEach(item => {
-            if (!item.observed) return;
-            item.x = Math.max(24 + item.radius, Math.min(width - 24 - item.radius, item.x));
-            item.y = Math.max(24 + item.radius, Math.min(height - 24 - item.radius, item.y));
+            const nearest = d3.min(placements, other => {
+                if (other === item) return Infinity;
+                return Math.hypot(item.x - other.x, item.y - other.y);
+            });
+            item.radius = Math.max(3.5, Math.min(item.baseRadius, nearest * 0.43));
         });
 
-        const ordered = placements
-            .sort((a, b) => Number(a.observed) - Number(b.observed));
-        group.selectAll("path")
-            .data(ordered, d => d.feature.properties.iso3 || d.feature.properties.name)
+        contextGroup.selectAll("path")
+            .data(geoData.features, d => d.properties.iso3 || d.properties.name)
             .join("path")
+            .attr("class", "context-feature")
+            .attr("d", path)
+            .attr("fill", noDataColor);
+
+        symbolGroup.selectAll("circle")
+            .data(placements, d => d.feature.properties.iso3)
+            .join("circle")
             .attr("class", "feature")
-            .attr("d", d => path(d.feature))
-            .attr("fill", d => d.feature.properties.gdp == null ? noDataColor : state.colorScale(d.feature.properties.gdp))
-            .attr("transform", d => {
-                const { cx, cy, x, y, scale } = d;
-                return Number.isFinite(cx) && Number.isFinite(cy)
-                    ? `translate(${x} ${y}) scale(${scale}) translate(${-cx} ${-cy})`
-                    : null;
-            });
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", d => d.radius)
+            .attr("fill", d => state.colorScale(d.feature.properties.gdp));
         attachCartogramInteractions();
     };
 
     Promise.all([
-        d3.json("../data/lab9_world.geojson?v=collision-fix-1"),
-        d3.csv("../data/lab9_gdp_2025_top50.csv?v=collision-fix-1", row => ({
+        d3.json("../data/lab9_world.geojson?v=centroid-symbols-3"),
+        d3.csv("../data/lab9_gdp_2025_top50.csv?v=centroid-symbols-3", row => ({
             iso3: row.iso3.trim().toUpperCase(),
             country: row.country.trim(),
             gdp: Number(row.gdp_2025_billion_usd),
