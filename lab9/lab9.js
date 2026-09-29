@@ -142,7 +142,7 @@
         features
             .attr("tabindex", 0)
             .attr("role", "button")
-            .attr("data-iso3", (d, i) => state.cartogramProperties[i]?.iso3 || "")
+            .attr("data-iso3", d => d?.properties?.iso3 || "")
             .attr("aria-label", function() {
                 const properties = propertiesOf(null, this);
                 return `${properties.country || properties.name || "Unknown economy"}: ${properties.gdp == null ? "no supplied GDP observation" : `$${formatGDP(properties.gdp)} billion`}`;
@@ -170,13 +170,29 @@
         const observedValues = geoData.features
             .map(feature => feature.properties.gdp)
             .filter(Number.isFinite);
-        const noDataValue = d3.min(observedValues);
+        // Keep geographic context visible, but prevent 191 no-data features
+        // from absorbing the same area budget as the supplied GDP records.
+        const noDataValue = d3.min(observedValues) * 0.01;
+        const weightedIso3 = new Set();
+        // Antarctica is not a country and its continental footprint would
+        // dominate the area solver despite having no GDP observation.
+        const cartogramGeometries = topoData.objects.countries.geometries
+            .filter(geometry => geometry.properties?.iso3 !== "ATA");
         const cartogram = topogram.cartogram()
             .projection(projection)
             .properties(geometry => geometry.properties || {})
-            .iterations(28)
-            .value(geometry => Number.isFinite(geometry.properties?.gdp) ? geometry.properties.gdp : noDataValue);
-        const distorted = cartogram(topoData, topoData.objects.countries.geometries).features;
+            .iterations(120)
+            .value(geometry => {
+                const properties = geometry.properties || {};
+                const iso3 = properties.iso3;
+                if (!Number.isFinite(properties.gdp)) return noDataValue;
+                // A few multi-part country records share one ISO-3 code. Count
+                // the GDP observation once so a split geometry cannot double it.
+                if (iso3 && weightedIso3.has(iso3)) return noDataValue;
+                if (iso3) weightedIso3.add(iso3);
+                return properties.gdp;
+            });
+        const distorted = cartogram(topoData, cartogramGeometries).features;
         state.cartogramProperties = distorted.map(feature => feature.properties || {});
         const svg = container.append("svg")
             .attr("viewBox", `0 0 ${width} ${height}`)
