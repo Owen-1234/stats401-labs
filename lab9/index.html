@@ -93,8 +93,11 @@
                 </div>
                 <div class="area-key" aria-label="Cartogram encoding"><span class="area-dot area-dot-small"></span><span class="area-dot area-dot-large"></span><span>larger area = larger GDP</span></div>
             </div>
-            <div id="cartogram-map" class="map-container cartogram-container"><p class="chart-status">Loading cartogram&hellip;</p></div>
-            <p class="figure-caption"><span>Figure 2.</span> The cartogram is computed from the same country topology and GDP values. Countries without a supplied GDP observation retain a small baseline weight and are colored as no data, rather than being interpreted as zero GDP.</p>
+            <div class="cartogram-wrap">
+                <div id="cartogram-map" class="map-container cartogram-container"><p class="chart-status">Loading cartogram&hellip;</p></div>
+                <div id="cartogram-tooltip" class="chart-tooltip map-tooltip" role="status" aria-live="polite"></div>
+            </div>
+            <p class="figure-caption"><span>Figure 2.</span> This non-contiguous cartogram scales each projected country boundary around its centroid with a bounded GDP-derived area weight. Countries without a supplied GDP observation retain their geographic scale and are colored as no data, rather than being interpreted as zero GDP.</p>
         </section>
 
         <section class="analysis-section" aria-labelledby="analysis-title">
@@ -115,7 +118,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cartogram-chart@1.4.4/dist/cartogram-chart.min.js"></script>
     <script src="lab9.js"></script>
 </body>
 </html>

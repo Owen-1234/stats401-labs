@@ -136,11 +136,18 @@
 
     const attachCartogramInteractions = () => {
         const features = d3.selectAll("#cartogram-map .feature");
+        const tooltip = d3.select("#cartogram-tooltip");
         features
             .attr("tabindex", 0)
             .attr("role", "button")
             .attr("data-iso3", d => d.properties?.iso3 || "")
             .attr("aria-label", d => `${d.properties?.country || d.properties?.name || "Unknown economy"}: ${d.properties?.gdp == null ? "no supplied GDP observation" : `$${formatGDP(d.properties.gdp)} billion`}`)
+            .on("mouseenter.lab9 focus.lab9", function(event, d) {
+                tooltip.html(tooltipHtml(d.properties)).classed("visible", true);
+                positionTooltip(event, tooltip);
+            })
+            .on("mousemove.lab9", event => positionTooltip(event, tooltip))
+            .on("mouseleave.lab9 blur.lab9", () => tooltip.classed("visible", false))
             .on("click keydown", function(event, d) {
                 if (event.type === "keydown" && event.key !== "Enter" && event.key !== " ") return;
                 event.preventDefault();
@@ -150,44 +157,50 @@
         applySelection();
     };
 
-    const renderCartogram = topology => {
-        const container = document.getElementById("cartogram-map");
-        container.innerHTML = "";
-        const cartogram = new Cartogram(container)
-            .width(width)
-            .height(height)
-            .topoJson(topology)
-            .topoObjectName("countries")
-            .projection(d3.geoNaturalEarth1())
-            .iterations(30)
-            .value(feature => feature.properties?.gdp == null ? 1 : feature.properties.gdp)
-            .color(feature => feature.properties?.gdp == null ? noDataColor : state.colorScale(feature.properties.gdp))
-            .label(feature => feature.properties?.country || feature.properties?.name || feature.properties?.iso3 || "Unknown economy")
-            .valFormatter(value => `$${formatGDP(value)}`)
-            .units("billion USD")
-            .tooltipContent(feature => feature.properties?.gdp == null
-                ? "<div>No supplied GDP observation</div>"
-                : `<div>Rank ${formatRank(feature.properties.rank)} in the supplied top 50</div>`)
-            .onClick(feature => selectCountry(feature?.properties?.iso3));
-
-        // The component creates its SVG synchronously, while the topology distortion
-        // finishes in a short transition. Reattach keyboard and linked-selection
-        // behavior after each render frame.
-        requestAnimationFrame(attachCartogramInteractions);
-        window.setTimeout(attachCartogramInteractions, 900);
-        return cartogram;
+    const renderCartogram = geoData => {
+        const container = d3.select("#cartogram-map");
+        container.html("");
+        const projection = d3.geoNaturalEarth1();
+        projection.fitSize([width, height], geoData);
+        const path = d3.geoPath(projection);
+        const svg = container.append("svg")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("role", "img")
+            .attr("aria-label", "GDP cartogram of the world's countries");
+        const group = svg.append("g");
+        const observed = geoData.features.filter(feature => Number.isFinite(feature.properties.gdp));
+        const referenceGDP = d3.median(observed, feature => feature.properties.gdp);
+        const areaScale = feature => {
+            if (!Number.isFinite(feature.properties.gdp)) return 1;
+            // A bounded square-root scale keeps the global topology legible
+            // while making higher GDP values occupy more area.
+            return Math.max(0.62, Math.min(2.6, Math.pow(feature.properties.gdp / referenceGDP, 0.38)));
+        };
+        group.selectAll("path")
+            .data(geoData.features, d => d.properties.iso3 || d.properties.name)
+            .join("path")
+            .attr("class", "feature")
+            .attr("d", path)
+            .attr("fill", d => d.properties.gdp == null ? noDataColor : state.colorScale(d.properties.gdp))
+            .attr("transform", d => {
+                const [cx, cy] = path.centroid(d);
+                const scale = areaScale(d);
+                return Number.isFinite(cx) && Number.isFinite(cy)
+                    ? `translate(${cx} ${cy}) scale(${scale}) translate(${-cx} ${-cy})`
+                    : null;
+            });
+        attachCartogramInteractions();
     };
 
     Promise.all([
         d3.json("../data/lab9_world.geojson"),
-        d3.json("../data/lab9_world.topojson"),
         d3.csv("../data/lab9_gdp_2025_top50.csv", row => ({
             iso3: row.iso3.trim().toUpperCase(),
             country: row.country.trim(),
             gdp: Number(row.gdp_2025_billion_usd),
             rank: Number(row.rank)
         }))
-    ]).then(([geoData, topology, stats]) => {
+    ]).then(([geoData, stats]) => {
         stats.forEach(row => state.statsByIso.set(row.iso3, row));
         const values = stats.map(row => row.gdp).filter(Number.isFinite);
         state.colorScale = d3.scaleSequentialLog(d3.interpolateYlGnBu)
@@ -203,21 +216,10 @@
                 rank: stat?.rank ?? null
             };
         });
-        topology.objects.countries.geometries.forEach(feature => {
-            const iso3 = feature.properties?.iso3;
-            const stat = state.statsByIso.get(iso3);
-            feature.properties = {
-                ...feature.properties,
-                country: stat?.country || feature.properties?.name || iso3,
-                gdp: stat?.gdp ?? null,
-                rank: stat?.rank ?? null
-            };
-        });
-
         const matched = geoData.features.filter(feature => state.statsByIso.has(feature.properties.iso3)).length;
         if (matched !== stats.length) console.warn(`GDP join matched ${matched} of ${stats.length} supplied rows.`);
         renderLegend();
         renderChoropleth(geoData);
-        renderCartogram(topology);
+        renderCartogram(geoData);
     }).catch(showPageError);
 })();
