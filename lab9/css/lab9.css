@@ -205,10 +205,23 @@
 
 .cartogram-container .cartogram,
 .cartogram-container svg { width: 100% !important; height: auto !important; }
-.cartogram-context .context-feature { fill: #d8d8d0; stroke: #fffdf7; stroke-width: 0.45px; vector-effect: non-scaling-stroke; cursor: pointer; }
-.cartogram-container .feature { cursor: pointer; stroke: #fffdf7; stroke-width: 0.65px; vector-effect: non-scaling-stroke; }
-.cartogram-symbols .feature { transition: opacity 120ms ease, stroke 120ms ease, r 120ms ease; }
+.cartogram-container .cartogram { position: relative; }
+.cartogram-container .feature {
+    cursor: pointer;
+    stroke: #fffdf7;
+    stroke-width: 0.65px;
+    vector-effect: non-scaling-stroke;
+    transition: opacity 120ms ease, stroke 120ms ease, stroke-width 120ms ease, fill-opacity 120ms ease;
+}
 .cartogram-container .feature:hover { stroke: var(--ink); stroke-width: 1.8px; }
+.cartogram-container .feature.is-selected {
+    /* Some countries contain many overseas islands. Suppressing the outline
+       keeps those distant components from drawing an artificial box around
+       the whole map while dimming still makes the selection unmistakable. */
+    stroke: transparent !important;
+    stroke-opacity: 0 !important;
+    filter: none;
+}
 .cartogram-container .chart-tooltip { font-family: "IBM Plex Sans", Arial, sans-serif; }
 
 .figure-caption { margin-bottom: 0; }

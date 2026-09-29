@@ -89,7 +89,7 @@
                 <div>
                     <p class="figure-label">3 &middot; 2025 GDP cartogram</p>
                     <h2 id="cartogram-title">Area makes differences in economic magnitude visible</h2>
-                    <p>Click a country to highlight the same economy in both maps. The cartogram intentionally distorts geographic area so that area represents GDP.</p>
+                    <p>Click a country to highlight the same economy in both maps. This topology-preserving contiguous cartogram distorts geographic area so that area represents GDP while shared borders remain connected.</p>
                 </div>
                 <div class="area-key" aria-label="Cartogram encoding"><span class="area-dot area-dot-small"></span><span class="area-dot area-dot-large"></span><span>larger area = larger GDP</span></div>
             </div>
@@ -97,7 +97,7 @@
                 <div id="cartogram-map" class="map-container cartogram-container"><p class="chart-status">Loading cartogram&hellip;</p></div>
                 <div id="cartogram-tooltip" class="chart-tooltip map-tooltip" role="status" aria-live="polite"></div>
             </div>
-                    <p class="figure-caption"><span>Figure 2.</span> This centroid cartogram keeps each observed economy at its projected geographic position and uses non-overlapping symbol area to represent GDP. The original boundaries remain as a light geographic reference, while countries without a supplied GDP observation are shown as no data.</p>
+            <p class="figure-caption"><span>Figure 2.</span> This topology-preserving contiguous cartogram distorts each country polygon so its area is weighted by 2025 GDP. Shared borders remain connected, preventing country-to-country overlap, while countries without a supplied GDP observation remain gray and are labeled as no data.</p>
         </section>
 
         <section class="analysis-section" aria-labelledby="analysis-title">
@@ -107,7 +107,7 @@
             </div>
             <div class="analysis-copy">
                 <p>In the choropleth, the United States and China are the most visually prominent because their large GDP values receive the darkest colors, while the underlying map preserves each country&rsquo;s location, shape, and relative geographic context. Germany, India, Japan, and the United Kingdom remain easy to locate even when their areas are geographically small. The logarithmic scale prevents the many lower-ranked economies from collapsing into one indistinguishable shade.</p>
-                <p>The cartogram makes the same ranking more forceful through area. The United States and China expand substantially, whereas many smaller economies contract, so economic magnitude becomes easier to compare but geographic recognition becomes harder. The cartogram distorts shape, distance, and land area; it therefore supports questions about relative economic size and rank rather than questions about spatial adjacency or physical extent. The choropleth is better for locating economic concentrations and regional patterns. The cartogram is better for judging how much global output is concentrated in a few economies. Moving from color to area changes perception because area occupies physical space and turns numerical inequality into a change in the map&rsquo;s geometry.</p>
+                <p>The cartogram makes the same ranking more forceful through area. The United States and China expand substantially, whereas many smaller economies contract, so economic magnitude becomes easier to compare but geographic recognition becomes harder. Because the contiguous algorithm preserves shared topology, adjacent countries remain connected even when their polygons expand or contract. The cartogram distorts shape, distance, and land area; it therefore supports questions about relative economic size and rank rather than questions about spatial adjacency or physical extent. The choropleth is better for locating economic concentrations and regional patterns. The cartogram is better for judging how much global output is concentrated in a few economies. Moving from color to area changes perception because area occupies physical space and turns numerical inequality into a change in the map&rsquo;s geometry.</p>
             </div>
         </section>
     </main>
@@ -118,6 +118,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script src="lab9.js?v=centroid-symbols-4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topogram@1.0.1/build/topogram.min.js"></script>
+    <script src="lab9.js?v=topogram-1"></script>
 </body>
 </html>
