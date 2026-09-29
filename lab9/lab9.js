@@ -216,7 +216,11 @@
                 rank: stat?.rank ?? null
             };
         });
-        const matched = geoData.features.filter(feature => state.statsByIso.has(feature.properties.iso3)).length;
+        const matched = new Set(
+            geoData.features
+                .map(feature => feature.properties.iso3)
+                .filter(iso3 => state.statsByIso.has(iso3))
+        ).size;
         if (matched !== stats.length) console.warn(`GDP join matched ${matched} of ${stats.length} supplied rows.`);
         renderLegend();
         renderChoropleth(geoData);
