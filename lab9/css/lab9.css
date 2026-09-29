@@ -213,6 +213,9 @@
     vector-effect: non-scaling-stroke;
     transition: opacity 120ms ease, stroke 120ms ease, stroke-width 120ms ease, fill-opacity 120ms ease;
 }
+.cartogram-context .context-country {
+    pointer-events: none;
+}
 .cartogram-container .feature:hover { stroke: var(--ink); stroke-width: 1.8px; }
 .cartogram-container .feature.is-selected {
     /* Some countries contain many overseas islands. Suppressing the outline

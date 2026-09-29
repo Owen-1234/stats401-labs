@@ -171,31 +171,50 @@
         const observedValues = geoData.features
             .map(feature => feature.properties.gdp)
             .filter(Number.isFinite);
-        const noDataValue = d3.min(observedValues) * 0.006;
-        // The compact polygons make the GDP area signal readable while the
-        // choropleth above preserves the original country boundaries.
-        const areaPerGDP = 0.20;
-        const polygonSides = 8;
-        const circleGap = 0.8;
-        const globalGDPThreshold = 3000;
+        const areaPerGDP = 0.32;
+        const circleGap = 1.4;
+        const globalGDPThreshold = 4000;
         const components = [];
 
-        const polygonAreaCoefficient = polygonSides * Math.sin((2 * Math.PI) / polygonSides) / 2;
-        const compactPath = (centroid, radius) => d3.range(polygonSides)
-            .map(index => {
-                const angle = -Math.PI / 8 + index * (2 * Math.PI / polygonSides);
-                const x = centroid[0] + radius * Math.cos(angle);
-                const y = centroid[1] + radius * Math.sin(angle);
-                return `${index === 0 ? "M" : "L"}${x},${y}`;
-            })
+        const projectRing = ring => ring
+            .map(point => projection(point))
+            .filter(point => point && point.every(Number.isFinite));
+        const sampleRing = ring => {
+            const maxPoints = 72;
+            if (ring.length <= maxPoints) return ring;
+            const step = Math.ceil(ring.length / maxPoints);
+            return ring.filter((_, index) => index % step === 0);
+        };
+        const irregularPath = points => points
+            .map((point, index) => `${index === 0 ? "M" : "L"}${point[0]},${point[1]}`)
             .join("") + "Z";
 
-        // Each polygon component is scaled around its own geographic centroid.
-        // This keeps country locations stable while preventing distant islands
-        // from forcing the mainland into an oversized collision envelope.
+        const svg = container.append("svg")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("width", width)
+            .attr("height", height)
+            .attr("role", "img")
+            .attr("aria-label", "World GDP area cartogram with geographic context");
+        const contextGroup = svg.append("g").attr("class", "cartogram-context");
+        contextGroup.selectAll("path.context-country")
+            .data(geoData.features.filter(feature => feature.properties.iso3 !== "ATA"))
+            .join("path")
+            .attr("class", "context-country")
+            .attr("d", feature => path(feature))
+            .attr("fill", noDataColor)
+            .attr("fill-opacity", feature => feature.properties.gdp == null ? 0.44 : 0.24)
+            .attr("stroke", "#cbd3cf")
+            .attr("stroke-width", 0.65)
+            .attr("vector-effect", "non-scaling-stroke")
+            .attr("data-context-iso3", feature => feature.properties.iso3 || "");
+
+        // Each observed country keeps a sampled version of its own projected
+        // boundary. The result is irregular and country-specific, rather than
+        // a repeated symbol, while its centroid remains geographically fixed.
         geoData.features.forEach(feature => {
             const properties = feature.properties || {};
             if (properties.iso3 === "ATA") return;
+            if (!Number.isFinite(properties.gdp)) return;
             const geometry = feature.geometry || {};
             const polygons = geometry.type === "Polygon"
                 ? [geometry.coordinates]
@@ -212,16 +231,26 @@
                     part,
                     area: Math.abs(path.area(part)),
                     centroid: path.centroid(part),
-                    radius: 0
+                    ring: projectRing(sampleRing(coordinates[0] || [])),
+                    radius: 0,
+                    targetScale: 1
                 };
-            }).filter(part => Number.isFinite(part.area) && part.area > 0);
+            }).filter(part => Number.isFinite(part.area) && part.area > 0 && part.ring.length > 3);
             const totalArea = d3.sum(projectedParts, part => part.area);
             if (!totalArea) return;
-            const weight = Number.isFinite(properties.gdp) ? properties.gdp : noDataValue;
             projectedParts.forEach(part => {
-                const targetArea = weight * areaPerGDP * (part.area / totalArea);
-                part.radius = Math.sqrt(targetArea / polygonAreaCoefficient);
-                part.pathD = compactPath(part.centroid, part.radius);
+                const targetArea = properties.gdp * areaPerGDP * (part.area / totalArea);
+                const originalPoints = part.ring;
+                const originalArea = Math.max(part.area, 1);
+                part.targetScale = Math.sqrt(Math.max(targetArea, 3) / originalArea);
+                const scaledPoints = originalPoints.map(point => [
+                    part.centroid[0] + (point[0] - part.centroid[0]) * part.targetScale,
+                    part.centroid[1] + (point[1] - part.centroid[1]) * part.targetScale
+                ]);
+                part.radius = d3.max(scaledPoints, point => Math.hypot(
+                    point[0] - part.centroid[0], point[1] - part.centroid[1]
+                )) || 0;
+                part.points = scaledPoints;
                 components.push({
                     ...part,
                     properties,
@@ -259,10 +288,14 @@
         }
         components.forEach(component => {
             component.scale *= globalSafety;
+            component.pathD = irregularPath(component.points.map(point => [
+                component.centroid[0] + (point[0] - component.centroid[0]) * globalSafety,
+                component.centroid[1] + (point[1] - component.centroid[1]) * globalSafety
+            ]));
         });
-        // Smaller observed economies and no-data features remain in geographic
-        // context, but are reduced locally when their anchor is crowded. They
-        // never determine the global scale of the largest economies.
+        // Smaller observed economies remain visible in context, but are reduced
+        // locally when their anchor is crowded. They never determine the global
+        // scale of the largest economies.
         components.filter(component => !component.globalParticipant).forEach(component => {
             let localSafety = 1;
             for (const other of components) {
@@ -275,24 +308,20 @@
                 if (Number.isFinite(allowable)) localSafety = Math.min(localSafety, allowable / component.scale);
             }
             component.scale *= Math.max(0, Math.min(1, localSafety));
+            component.pathD = irregularPath(component.points.map(point => [
+                component.centroid[0] + (point[0] - component.centroid[0]) * component.scale,
+                component.centroid[1] + (point[1] - component.centroid[1]) * component.scale
+            ]));
         });
         components.forEach(component => {
             component.finalScale = component.scale;
-            component.transform = `translate(${component.centroid[0]},${component.centroid[1]}) scale(${component.finalScale}) translate(${-component.centroid[0]},${-component.centroid[1]})`;
         });
         state.cartogramProperties = components.map(component => component.properties);
-        const svg = container.append("svg")
-            .attr("viewBox", `0 0 ${width} ${height}`)
-            .attr("width", width)
-            .attr("height", height)
-            .attr("role", "img")
-            .attr("aria-label", "Non-overlapping GDP area cartogram of 2025 nominal GDP");
         svg.selectAll("path.feature")
             .data(components)
             .join("path")
             .attr("class", "feature")
             .attr("d", component => component.pathD)
-            .attr("transform", component => component.transform)
             .attr("fill", component => component.properties.gdp == null ? noDataColor : state.colorScale(component.properties.gdp))
             .attr("data-cartogram", "true")
             .attr("data-iso3", component => component.iso3)

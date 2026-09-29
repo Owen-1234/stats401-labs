@@ -89,7 +89,7 @@
                 <div>
                     <p class="figure-label">3 &middot; 2025 GDP cartogram</p>
                     <h2 id="cartogram-title">Area makes differences in economic magnitude visible</h2>
-                    <p>Click a country to highlight the same economy in both views. This polygon cartogram assigns GDP-weighted area around a fixed geographic anchor, then applies a global circle-based safety factor and local crowded-context compression so country polygons remain disjoint.</p>
+                    <p>Click a country to highlight the same economy in both views. Every country remains visible in its geographic context. Observed economies use their own irregular boundaries, scaled by GDP around a fixed anchor, while missing-data countries remain as pale gray boundaries.</p>
                 </div>
                 <div class="area-key" aria-label="Cartogram encoding"><span class="area-dot area-dot-small"></span><span class="area-dot area-dot-large"></span><span>larger area = larger GDP</span></div>
             </div>
@@ -97,7 +97,7 @@
                 <div id="cartogram-map" class="map-container cartogram-container"><p class="chart-status">Loading cartogram&hellip;</p></div>
                 <div id="cartogram-tooltip" class="chart-tooltip map-tooltip" role="status" aria-live="polite"></div>
             </div>
-            <p class="figure-caption"><span>Figure 2.</span> Each compact polygon is centered on its geographic anchor and receives area in proportion to the supplied GDP value. A global safety factor based on pairwise bounding circles protects the larger observed economies; smaller or missing-data context features receive additional local compression so the displayed polygons remain disjoint.</p>
+            <p class="figure-caption"><span>Figure 2.</span> The gray layer preserves the boundaries of all mapped countries. Colored countries retain an irregular outline derived from their own projected geometry, with area scaled by the supplied GDP value. A global safety factor protects the larger observed economies, while smaller observed countries are locally compressed in crowded regions.</p>
         </section>
 
         <section class="analysis-section" aria-labelledby="analysis-title">
@@ -107,7 +107,7 @@
             </div>
             <div class="analysis-copy">
                 <p>In the choropleth, the United States and China are the most visually prominent because their large GDP values receive the darkest colors, while the underlying map preserves each country&rsquo;s location, shape, and relative geographic context. Germany, India, Japan, and the United Kingdom remain easy to locate even when their areas are geographically small. The logarithmic scale prevents the many lower-ranked economies from collapsing into one indistinguishable shade.</p>
-                <p>The cartogram makes the same ranking more forceful through area. The United States and China expand substantially, whereas many smaller economies contract, so economic magnitude becomes easier to compare but geographic recognition becomes harder. Each compact polygon keeps its geographic anchor while its GDP-weighted area changes, and the circle-based safety rule leaves visible gaps between countries instead of allowing boundary crossings. The cartogram distorts shape, distance, and land area; it therefore supports questions about relative economic size and rank rather than questions about spatial adjacency or physical extent. The choropleth is better for locating economic concentrations and regional patterns. The cartogram is better for judging how much global output is concentrated in a few economies. Moving from color to area changes perception because area occupies physical space and turns numerical inequality into a change in the map&rsquo;s geometry.</p>
+                <p>The cartogram makes the same ranking more forceful through area. The United States and China expand substantially, whereas many smaller economies contract, so economic magnitude becomes easier to compare but geographic recognition becomes harder. Each colored country keeps an irregular version of its own boundary and its geographic anchor while its GDP-weighted area changes. The gray context layer keeps every country visible, and the circle-based safety rule leaves gaps between the prominent observed economies. The cartogram distorts shape, distance, and land area; it therefore supports questions about relative economic size and rank rather than questions about spatial adjacency or physical extent. The choropleth is better for locating economic concentrations and regional patterns. The cartogram is better for judging how much global output is concentrated in a few economies. Moving from color to area changes perception because area occupies physical space and turns numerical inequality into a change in the map&rsquo;s geometry.</p>
             </div>
         </section>
     </main>
@@ -118,6 +118,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script src="lab9.js?v=cartogram-5"></script>
+    <script src="lab9.js?v=cartogram-7"></script>
 </body>
 </html>
