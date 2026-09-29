@@ -168,19 +168,18 @@
         const projection = d3.geoNaturalEarth1();
         projection.fitSize([width, height], geoData);
         const path = d3.geoPath(projection);
-        const observedValues = geoData.features
-            .map(feature => feature.properties.gdp)
-            .filter(Number.isFinite);
         const areaPerGDP = 0.32;
         const circleGap = 1.4;
-        const globalGDPThreshold = 4000;
         const components = [];
+        const countryNodes = new Map();
 
         const projectRing = ring => ring
             .map(point => projection(point))
             .filter(point => point && point.every(Number.isFinite));
         const sampleRing = ring => {
-            const maxPoints = 72;
+            // Keep the boundary detail so the rendered polygon area stays close
+            // to the GDP target, especially for small island economies.
+            const maxPoints = 5000;
             if (ring.length <= maxPoints) return ring;
             const step = Math.ceil(ring.length / maxPoints);
             return ring.filter((_, index) => index % step === 0);
@@ -188,6 +187,27 @@
         const irregularPath = points => points
             .map((point, index) => `${index === 0 ? "M" : "L"}${point[0]},${point[1]}`)
             .join("") + "Z";
+
+        // Some GeoJSON files split one country into several features (for
+        // example, Australia and its external territories). Allocate that
+        // country's GDP across all of its parts instead of counting it once per
+        // feature.
+        const countryAreaTotals = new Map();
+        geoData.features.forEach(feature => {
+            const properties = feature.properties || {};
+            if (!Number.isFinite(properties.gdp)) return;
+            const geometry = feature.geometry || {};
+            const polygons = geometry.type === "Polygon"
+                ? [geometry.coordinates]
+                : geometry.type === "MultiPolygon"
+                    ? geometry.coordinates
+                    : [];
+            const featureArea = d3.sum(polygons, coordinates => {
+                const ring = projectRing(sampleRing(coordinates[0] || []));
+                return Math.abs(d3.polygonArea(ring));
+            });
+            countryAreaTotals.set(properties.iso3, (countryAreaTotals.get(properties.iso3) || 0) + featureArea);
+        });
 
         const svg = container.append("svg")
             .attr("viewBox", `0 0 ${width} ${height}`)
@@ -197,7 +217,7 @@
             .attr("aria-label", "World GDP area cartogram with geographic context");
         const contextGroup = svg.append("g").attr("class", "cartogram-context");
         contextGroup.selectAll("path.context-country")
-            .data(geoData.features.filter(feature => feature.properties.iso3 !== "ATA"))
+            .data(geoData.features)
             .join("path")
             .attr("class", "context-country")
             .attr("d", feature => path(feature))
@@ -210,10 +230,9 @@
 
         // Each observed country keeps a sampled version of its own projected
         // boundary. The result is irregular and country-specific, rather than
-        // a repeated symbol, while its centroid remains geographically fixed.
+        // a repeated symbol, before the country-level centroid layout runs.
         geoData.features.forEach(feature => {
             const properties = feature.properties || {};
-            if (properties.iso3 === "ATA") return;
             if (!Number.isFinite(properties.gdp)) return;
             const geometry = feature.geometry || {};
             const polygons = geometry.type === "Polygon"
@@ -227,22 +246,29 @@
                     properties,
                     geometry: { type: "Polygon", coordinates }
                 };
+                const ring = projectRing(sampleRing(coordinates[0] || []));
                 return {
                     part,
-                    area: Math.abs(path.area(part)),
+                    // Use the same sampled outer ring for the area calculation and
+                    // for rendering so the final SVG area tracks GDP predictably.
+                    area: Math.abs(d3.polygonArea(ring)),
                     centroid: path.centroid(part),
-                    ring: projectRing(sampleRing(coordinates[0] || [])),
+                    ring,
                     radius: 0,
                     targetScale: 1
                 };
-            }).filter(part => Number.isFinite(part.area) && part.area > 0 && part.ring.length > 3);
+            }).filter(part => Number.isFinite(part.area)
+                && part.area > 0
+                && part.ring.length > 3
+                && part.centroid.every(Number.isFinite));
             const totalArea = d3.sum(projectedParts, part => part.area);
             if (!totalArea) return;
             projectedParts.forEach(part => {
-                const targetArea = properties.gdp * areaPerGDP * (part.area / totalArea);
+                const countryTotalArea = countryAreaTotals.get(properties.iso3) || totalArea;
+                const targetArea = properties.gdp * areaPerGDP * (part.area / countryTotalArea);
                 const originalPoints = part.ring;
-                const originalArea = Math.max(part.area, 1);
-                part.targetScale = Math.sqrt(Math.max(targetArea, 3) / originalArea);
+                const originalArea = Math.max(part.area, 0.0001);
+                part.targetScale = Math.sqrt(targetArea / originalArea);
                 const scaledPoints = originalPoints.map(point => [
                     part.centroid[0] + (point[0] - part.centroid[0]) * part.targetScale,
                     part.centroid[1] + (point[1] - part.centroid[1]) * part.targetScale
@@ -251,70 +277,76 @@
                     point[0] - part.centroid[0], point[1] - part.centroid[1]
                 )) || 0;
                 part.points = scaledPoints;
-                components.push({
+                const component = {
                     ...part,
                     properties,
-                    scale: 1,
-                    iso3: properties.iso3 || "",
-                    globalParticipant: Number.isFinite(properties.gdp) && properties.gdp >= globalGDPThreshold
-                });
+                    iso3: properties.iso3 || ""
+                };
+                components.push(component);
+
+                const node = countryNodes.get(component.iso3) || {
+                    iso3: component.iso3,
+                    properties,
+                    components: [],
+                    weightedX: 0,
+                    weightedY: 0,
+                    weight: 0,
+                    radius: 0
+                };
+                node.components.push(component);
+                node.weightedX += component.centroid[0] * part.area;
+                node.weightedY += component.centroid[1] * part.area;
+                node.weight += part.area;
+                node.radius = Math.max(node.radius, component.radius);
+                countryNodes.set(component.iso3, node);
             });
         });
 
-        // Disjoint bounding circles are a sufficient condition for disjoint
-        // polygons. One global factor preserves GDP ranking while guaranteeing
-        // the same separation rule for every pair of different countries.
-        let globalSafety = 1;
-        let limitingPair = "";
-        for (let i = 0; i < components.length; i += 1) {
-            for (let j = i + 1; j < components.length; j += 1) {
-                if (components[i].iso3 && components[i].iso3 === components[j].iso3) continue;
-                if (!components[i].globalParticipant || !components[j].globalParticipant) continue;
-                const distance = Math.hypot(
-                    components[i].centroid[0] - components[j].centroid[0],
-                    components[i].centroid[1] - components[j].centroid[1]
-                );
-                const requiredRadius = components[i].radius * components[i].scale
-                    + components[j].radius * components[j].scale
-                    + circleGap;
-                if (distance > 0 && requiredRadius > 0) {
-                    const pairSafety = 0.94 * distance / requiredRadius;
-                    if (pairSafety < globalSafety) {
-                        globalSafety = pairSafety;
-                        limitingPair = `${components[i].iso3}-${components[j].iso3}`;
-                    }
-                }
-            }
-        }
-        components.forEach(component => {
-            component.scale *= globalSafety;
-            component.pathD = irregularPath(component.points.map(point => [
-                component.centroid[0] + (point[0] - component.centroid[0]) * globalSafety,
-                component.centroid[1] + (point[1] - component.centroid[1]) * globalSafety
-            ]));
+        // Preserve each country's irregular GDP-scaled geometry. A country-level
+        // force layout moves complete shapes to make room for neighbors; translating
+        // a polygon preserves its area exactly, unlike local shrinking.
+        const nodes = [...countryNodes.values()].map(node => {
+            const anchorX = node.weightedX / node.weight;
+            const anchorY = node.weightedY / node.weight;
+            const areaRadius = Math.sqrt(node.properties.gdp * areaPerGDP / Math.PI);
+            return {
+                ...node,
+                anchorX,
+                anchorY,
+                x: anchorX,
+                y: anchorY,
+                radius: Math.min(120, Math.max(8, node.radius, areaRadius * 0.72))
+            };
         });
-        // Smaller observed economies remain visible in context, but are reduced
-        // locally when their anchor is crowded. They never determine the global
-        // scale of the largest economies.
-        components.filter(component => !component.globalParticipant).forEach(component => {
-            let localSafety = 1;
-            for (const other of components) {
-                if (other === component || (other.iso3 && other.iso3 === component.iso3)) continue;
-                const distance = Math.hypot(
-                    component.centroid[0] - other.centroid[0],
-                    component.centroid[1] - other.centroid[1]
-                );
-                const allowable = (0.94 * distance - other.radius * other.scale - circleGap) / component.radius;
-                if (Number.isFinite(allowable)) localSafety = Math.min(localSafety, allowable / component.scale);
-            }
-            component.scale *= Math.max(0, Math.min(1, localSafety));
-            component.pathD = irregularPath(component.points.map(point => [
-                component.centroid[0] + (point[0] - component.centroid[0]) * component.scale,
-                component.centroid[1] + (point[1] - component.centroid[1]) * component.scale
-            ]));
-        });
-        components.forEach(component => {
-            component.finalScale = component.scale;
+        const simulation = d3.forceSimulation(nodes)
+            .force("x", d3.forceX(node => node.anchorX).strength(0.16))
+            .force("y", d3.forceY(node => node.anchorY).strength(0.16))
+            .force("collide", d3.forceCollide(node => node.radius + circleGap).strength(1).iterations(3))
+            .stop();
+        for (let tick = 0; tick < 260; tick += 1) simulation.tick();
+
+        nodes.forEach(node => {
+            const margin = Math.min(40, node.radius);
+            node.x = Math.max(margin, Math.min(width - margin, node.x));
+            node.y = Math.max(margin, Math.min(height - margin, node.y));
+            let offsetX = node.x - node.anchorX;
+            let offsetY = node.y - node.anchorY;
+            const allPoints = node.components.flatMap(component => component.points);
+            const minX = d3.min(allPoints, point => point[0] + offsetX);
+            const maxX = d3.max(allPoints, point => point[0] + offsetX);
+            const minY = d3.min(allPoints, point => point[1] + offsetY);
+            const maxY = d3.max(allPoints, point => point[1] + offsetY);
+            if (minX < 2) offsetX += 2 - minX;
+            if (maxX > width - 2) offsetX -= maxX - (width - 2);
+            if (minY < 2) offsetY += 2 - minY;
+            if (maxY > height - 2) offsetY -= maxY - (height - 2);
+            node.components.forEach(component => {
+                component.finalScale = component.targetScale;
+                component.pathD = irregularPath(component.points.map(point => [
+                    point[0] + offsetX,
+                    point[1] + offsetY
+                ]));
+            });
         });
         state.cartogramProperties = components.map(component => component.properties);
         svg.selectAll("path.feature")
@@ -326,8 +358,8 @@
             .attr("data-cartogram", "true")
             .attr("data-iso3", component => component.iso3)
             .attr("data-cartogram-scale", component => component.finalScale)
-            .attr("data-cartogram-safety", globalSafety)
-            .attr("data-cartogram-limiting-pair", limitingPair)
+            .attr("data-cartogram-safety", "1")
+            .attr("data-cartogram-limiting-pair", "centroid-force-layout")
             .attr("tabindex", 0)
             .attr("role", "button")
             .attr("aria-label", component => `${component.properties.country || component.properties.name || "Unknown economy"}: ${component.properties.gdp == null ? "no supplied GDP observation" : `$${formatGDP(component.properties.gdp)} billion`}`);
