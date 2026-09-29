@@ -171,9 +171,24 @@
         const observedValues = geoData.features
             .map(feature => feature.properties.gdp)
             .filter(Number.isFinite);
-        const noDataValue = d3.min(observedValues) * 0.01;
-        const areaPerGDP = 0.02;
+        const noDataValue = d3.min(observedValues) * 0.006;
+        // The compact polygons make the GDP area signal readable while the
+        // choropleth above preserves the original country boundaries.
+        const areaPerGDP = 0.20;
+        const polygonSides = 8;
+        const circleGap = 0.8;
+        const globalGDPThreshold = 3000;
         const components = [];
+
+        const polygonAreaCoefficient = polygonSides * Math.sin((2 * Math.PI) / polygonSides) / 2;
+        const compactPath = (centroid, radius) => d3.range(polygonSides)
+            .map(index => {
+                const angle = -Math.PI / 8 + index * (2 * Math.PI / polygonSides);
+                const x = centroid[0] + radius * Math.cos(angle);
+                const y = centroid[1] + radius * Math.sin(angle);
+                return `${index === 0 ? "M" : "L"}${x},${y}`;
+            })
+            .join("") + "Z";
 
         // Each polygon component is scaled around its own geographic centroid.
         // This keeps country locations stable while preventing distant islands
@@ -197,53 +212,70 @@
                     part,
                     area: Math.abs(path.area(part)),
                     centroid: path.centroid(part),
-                    bounds: path.bounds(part)
+                    radius: 0
                 };
             }).filter(part => Number.isFinite(part.area) && part.area > 0);
             const totalArea = d3.sum(projectedParts, part => part.area);
             if (!totalArea) return;
             const weight = Number.isFinite(properties.gdp) ? properties.gdp : noDataValue;
-            const rawScale = Math.sqrt((weight * areaPerGDP) / totalArea);
-            const maxScale = Number.isFinite(properties.gdp) ? 0.8 : 0.04;
-            const scale = Math.min(rawScale, maxScale);
-            projectedParts.forEach(part => components.push({
-                ...part,
-                properties,
-                scale,
-                iso3: properties.iso3 || ""
-            }));
+            projectedParts.forEach(part => {
+                const targetArea = weight * areaPerGDP * (part.area / totalArea);
+                part.radius = Math.sqrt(targetArea / polygonAreaCoefficient);
+                part.pathD = compactPath(part.centroid, part.radius);
+                components.push({
+                    ...part,
+                    properties,
+                    scale: 1,
+                    iso3: properties.iso3 || "",
+                    globalParticipant: Number.isFinite(properties.gdp) && properties.gdp >= globalGDPThreshold
+                });
+            });
         });
 
-        // Resolve local collisions instead of shrinking every country because
-        // of one crowded region. The boxes are conservative, so polygons
-        // themselves remain disjoint after the loop.
-        const boxesOverlap = (a, b) => a[0][0] < b[1][0] && a[1][0] > b[0][0]
-            && a[0][1] < b[1][1] && a[1][1] > b[0][1];
-        const transformedBounds = component => {
-            const [[minX, minY], [maxX, maxY]] = component.bounds;
-            const [cx, cy] = component.centroid;
-            const s = component.scale;
-            return [
-                [cx + (minX - cx) * s, cy + (minY - cy) * s],
-                [cx + (maxX - cx) * s, cy + (maxY - cy) * s]
-            ];
-        };
-        for (let pass = 0; pass < 220; pass += 1) {
-            const boxes = components.map(transformedBounds);
-            let overlap = false;
-            for (let i = 0; i < boxes.length && !overlap; i += 1) {
-                for (let j = i + 1; j < boxes.length; j += 1) {
-                    if (components[i].iso3 && components[i].iso3 === components[j].iso3) continue;
-                    if (boxesOverlap(boxes[i], boxes[j])) {
-                        overlap = true;
-                        components[i].scale *= 0.94;
-                        components[j].scale *= 0.94;
-                        break;
+        // Disjoint bounding circles are a sufficient condition for disjoint
+        // polygons. One global factor preserves GDP ranking while guaranteeing
+        // the same separation rule for every pair of different countries.
+        let globalSafety = 1;
+        let limitingPair = "";
+        for (let i = 0; i < components.length; i += 1) {
+            for (let j = i + 1; j < components.length; j += 1) {
+                if (components[i].iso3 && components[i].iso3 === components[j].iso3) continue;
+                if (!components[i].globalParticipant || !components[j].globalParticipant) continue;
+                const distance = Math.hypot(
+                    components[i].centroid[0] - components[j].centroid[0],
+                    components[i].centroid[1] - components[j].centroid[1]
+                );
+                const requiredRadius = components[i].radius * components[i].scale
+                    + components[j].radius * components[j].scale
+                    + circleGap;
+                if (distance > 0 && requiredRadius > 0) {
+                    const pairSafety = 0.94 * distance / requiredRadius;
+                    if (pairSafety < globalSafety) {
+                        globalSafety = pairSafety;
+                        limitingPair = `${components[i].iso3}-${components[j].iso3}`;
                     }
                 }
             }
-            if (!overlap) break;
         }
+        components.forEach(component => {
+            component.scale *= globalSafety;
+        });
+        // Smaller observed economies and no-data features remain in geographic
+        // context, but are reduced locally when their anchor is crowded. They
+        // never determine the global scale of the largest economies.
+        components.filter(component => !component.globalParticipant).forEach(component => {
+            let localSafety = 1;
+            for (const other of components) {
+                if (other === component || (other.iso3 && other.iso3 === component.iso3)) continue;
+                const distance = Math.hypot(
+                    component.centroid[0] - other.centroid[0],
+                    component.centroid[1] - other.centroid[1]
+                );
+                const allowable = (0.94 * distance - other.radius * other.scale - circleGap) / component.radius;
+                if (Number.isFinite(allowable)) localSafety = Math.min(localSafety, allowable / component.scale);
+            }
+            component.scale *= Math.max(0, Math.min(1, localSafety));
+        });
         components.forEach(component => {
             component.finalScale = component.scale;
             component.transform = `translate(${component.centroid[0]},${component.centroid[1]}) scale(${component.finalScale}) translate(${-component.centroid[0]},${-component.centroid[1]})`;
@@ -259,12 +291,14 @@
             .data(components)
             .join("path")
             .attr("class", "feature")
-            .attr("d", component => path(component.part))
+            .attr("d", component => component.pathD)
             .attr("transform", component => component.transform)
             .attr("fill", component => component.properties.gdp == null ? noDataColor : state.colorScale(component.properties.gdp))
             .attr("data-cartogram", "true")
             .attr("data-iso3", component => component.iso3)
             .attr("data-cartogram-scale", component => component.finalScale)
+            .attr("data-cartogram-safety", globalSafety)
+            .attr("data-cartogram-limiting-pair", limitingPair)
             .attr("tabindex", 0)
             .attr("role", "button")
             .attr("aria-label", component => `${component.properties.country || component.properties.name || "Unknown economy"}: ${component.properties.gdp == null ? "no supplied GDP observation" : `$${formatGDP(component.properties.gdp)} billion`}`);
