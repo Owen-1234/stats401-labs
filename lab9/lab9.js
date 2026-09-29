@@ -71,8 +71,8 @@
             .classed("is-selected", d => selected != null && d.properties.iso3 === selected)
             .classed("is-dimmed", d => selected != null && d.properties.iso3 !== selected);
         d3.selectAll("#cartogram-map .feature")
-            .classed("is-selected", d => selected != null && d.properties?.iso3 === selected)
-            .classed("is-dimmed", d => selected != null && d.properties?.iso3 !== selected);
+            .classed("is-selected", d => selected != null && (d.feature?.properties || d.properties)?.iso3 === selected)
+            .classed("is-dimmed", d => selected != null && (d.feature?.properties || d.properties)?.iso3 !== selected);
 
         const status = d3.select("#selection-status");
         if (selected == null) {
@@ -137,13 +137,14 @@
     const attachCartogramInteractions = () => {
         const features = d3.selectAll("#cartogram-map .feature");
         const tooltip = d3.select("#cartogram-tooltip");
+        const propertiesOf = datum => datum.feature?.properties || datum.properties || {};
         features
             .attr("tabindex", 0)
             .attr("role", "button")
-            .attr("data-iso3", d => d.properties?.iso3 || "")
-            .attr("aria-label", d => `${d.properties?.country || d.properties?.name || "Unknown economy"}: ${d.properties?.gdp == null ? "no supplied GDP observation" : `$${formatGDP(d.properties.gdp)} billion`}`)
+            .attr("data-iso3", d => propertiesOf(d).iso3 || "")
+            .attr("aria-label", d => `${propertiesOf(d).country || propertiesOf(d).name || "Unknown economy"}: ${propertiesOf(d).gdp == null ? "no supplied GDP observation" : `$${formatGDP(propertiesOf(d).gdp)} billion`}`)
             .on("mouseenter.lab9 focus.lab9", function(event, d) {
-                tooltip.html(tooltipHtml(d.properties)).classed("visible", true);
+                tooltip.html(tooltipHtml(propertiesOf(d))).classed("visible", true);
                 positionTooltip(event, tooltip);
             })
             .on("mousemove.lab9", event => positionTooltip(event, tooltip))
@@ -152,7 +153,7 @@
                 if (event.type === "keydown" && event.key !== "Enter" && event.key !== " ") return;
                 event.preventDefault();
                 event.stopPropagation();
-                selectCountry(d.properties?.iso3);
+                selectCountry(propertiesOf(d).iso3);
             });
         applySelection();
     };
@@ -176,25 +177,59 @@
             // while making higher GDP values occupy more area.
             return Math.max(0.62, Math.min(2.6, Math.pow(feature.properties.gdp / referenceGDP, 0.38)));
         };
+        const placements = geoData.features.map(feature => {
+            const [cx, cy] = path.centroid(feature);
+            const scale = areaScale(feature);
+            const projectedArea = path.area(feature);
+            const radius = Number.isFinite(projectedArea)
+                ? Math.max(4, Math.sqrt(projectedArea / Math.PI) * scale * 0.58)
+                : 4;
+            return {
+                feature,
+                cx,
+                cy,
+                x: cx,
+                y: cy,
+                scale,
+                radius,
+                observed: Number.isFinite(feature.properties.gdp)
+            };
+        });
+        const observedPlacements = placements.filter(item => item.observed && Number.isFinite(item.cx) && Number.isFinite(item.cy));
+        const collisionForce = d3.forceSimulation(observedPlacements)
+            .randomSource(d3.randomLcg(0.4019))
+            .force("x", d3.forceX(item => item.cx).strength(0.16))
+            .force("y", d3.forceY(item => item.cy).strength(0.16))
+            .force("collision", d3.forceCollide(item => item.radius + 1.5).strength(0.9).iterations(3))
+            .stop();
+        for (let tick = 0; tick < 220; tick += 1) collisionForce.tick();
+
+        placements.forEach(item => {
+            if (!item.observed) return;
+            item.x = Math.max(24 + item.radius, Math.min(width - 24 - item.radius, item.x));
+            item.y = Math.max(24 + item.radius, Math.min(height - 24 - item.radius, item.y));
+        });
+
+        const ordered = placements
+            .sort((a, b) => Number(a.observed) - Number(b.observed));
         group.selectAll("path")
-            .data(geoData.features, d => d.properties.iso3 || d.properties.name)
+            .data(ordered, d => d.feature.properties.iso3 || d.feature.properties.name)
             .join("path")
             .attr("class", "feature")
-            .attr("d", path)
-            .attr("fill", d => d.properties.gdp == null ? noDataColor : state.colorScale(d.properties.gdp))
+            .attr("d", d => path(d.feature))
+            .attr("fill", d => d.feature.properties.gdp == null ? noDataColor : state.colorScale(d.feature.properties.gdp))
             .attr("transform", d => {
-                const [cx, cy] = path.centroid(d);
-                const scale = areaScale(d);
+                const { cx, cy, x, y, scale } = d;
                 return Number.isFinite(cx) && Number.isFinite(cy)
-                    ? `translate(${cx} ${cy}) scale(${scale}) translate(${-cx} ${-cy})`
+                    ? `translate(${x} ${y}) scale(${scale}) translate(${-cx} ${-cy})`
                     : null;
             });
         attachCartogramInteractions();
     };
 
     Promise.all([
-        d3.json("../data/lab9_world.geojson?v=rus-fix-1"),
-        d3.csv("../data/lab9_gdp_2025_top50.csv?v=rus-fix-1", row => ({
+        d3.json("../data/lab9_world.geojson?v=collision-fix-1"),
+        d3.csv("../data/lab9_gdp_2025_top50.csv?v=collision-fix-1", row => ({
             iso3: row.iso3.trim().toUpperCase(),
             country: row.country.trim(),
             gdp: Number(row.gdp_2025_billion_usd),
