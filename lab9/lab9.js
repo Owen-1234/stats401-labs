@@ -193,8 +193,8 @@
     };
 
     Promise.all([
-        d3.json("../data/lab9_world.geojson"),
-        d3.csv("../data/lab9_gdp_2025_top50.csv", row => ({
+        d3.json("../data/lab9_world.geojson?v=rus-fix-1"),
+        d3.csv("../data/lab9_gdp_2025_top50.csv?v=rus-fix-1", row => ({
             iso3: row.iso3.trim().toUpperCase(),
             country: row.country.trim(),
             gdp: Number(row.gdp_2025_billion_usd),
