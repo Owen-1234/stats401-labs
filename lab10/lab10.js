@@ -161,6 +161,19 @@
   sectionSelect.addEventListener("change", () => {
     if (ready) renderResultNavigator();
   });
+  const matrixContainer = document.getElementById("matrix-container");
+  function syncMatrixSelection(event) {
+    if (!event.target.matches("rect.matrix-cell")) return;
+    setTimeout(() => {
+      if (!ready) return;
+      renderResultNavigator();
+      status.textContent = "Matrix cell selected. Explore its passages in the detail panel.";
+    }, 0);
+  }
+  matrixContainer.addEventListener("click", syncMatrixSelection);
+  matrixContainer.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") syncMatrixSelection(event);
+  });
   resetButton.addEventListener("click", () => {
     const fromCommand = programmaticReset;
     setTimeout(() => {
