@@ -205,7 +205,7 @@
     renderResultNavigator();
     status.textContent = SpeechRecognition
       ? "Ready. Type a command or press Start voice control."
-      : "Ready for text commands. Speech recognition is unavailable in this browser.";
+      : "Speech recognition is unavailable in this browser. Open this page in a browser with speech recognition, or type a command.";
     observer.disconnect();
   }
   const observer = new MutationObserver(enableWhenReady);
@@ -271,7 +271,7 @@
   recognition.onerror = event => {
     recognitionError = true;
     status.textContent = event.error === "not-allowed" || event.error === "service-not-allowed"
-      ? "Microphone permission was denied. Type a command or use the controls below."
+      ? "Microphone access was blocked. Allow this site to use the microphone in browser settings, then try again. You can still type a command."
       : event.error === "no-speech"
       ? "No speech detected. Try again or type a command."
       : `Speech recognition failed (${event.error}). Type a command or try again.`;
