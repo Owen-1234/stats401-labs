@@ -1,0 +1,16 @@
+.lab8-heading .lab-deck a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.command-panel { margin: 22px 0 25px; padding: 20px 22px; border: 1px solid var(--line); border-left: 5px solid var(--gold); background: var(--surface); }
+.command-panel h3 { margin: 0 0 5px; font: 600 1.3rem/1.2 "Source Serif 4", Georgia, serif; }
+.command-examples { margin: 0 0 17px; color: var(--ink-soft); font-size: .82rem; line-height: 1.5; }
+.command-examples code { padding: 2px 4px; color: var(--ink); background: #e8e6de; font: 600 .78rem "IBM Plex Sans", Arial, sans-serif; white-space: nowrap; }
+.command-form label { display: block; margin-bottom: 5px; color: var(--ink-soft); font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.command-entry { display: flex; flex-wrap: wrap; gap: 8px; }
+.command-entry input { flex: 1 1 230px; min-width: 0; height: 40px; padding: 8px 10px; border: 1px solid var(--line-dark); color: var(--ink); background: white; font: 400 .82rem "IBM Plex Sans", Arial, sans-serif; }
+.command-entry button { min-height: 40px; padding: 8px 14px; border: 1px solid var(--ink); background: var(--ink); color: white; font: 600 .74rem "IBM Plex Sans", Arial, sans-serif; cursor: pointer; }
+.command-entry #voice-button { background: transparent; color: var(--ink); }
+.command-entry button:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.command-entry button:disabled { opacity: .45; cursor: not-allowed; }
+.command-entry input:focus-visible, .command-entry button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.interaction-status { min-height: 22px; margin: 14px 0 5px; color: var(--ink); font-size: .78rem; font-weight: 600; line-height: 1.5; }
+.permission-note { margin: 0; color: var(--ink-soft); font-size: .7rem; line-height: 1.5; }
+@media (max-width: 620px) { .command-panel { padding: 17px; } .command-entry input { flex-basis: 100%; } }

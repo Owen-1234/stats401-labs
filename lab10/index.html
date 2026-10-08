@@ -1,1 +1,72 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 10 | STATS 401</title><link rel="stylesheet" href="../lab1/css/style.css"></head><body><header class="site-header"><a class="course-mark" href="../index.html"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a><span class="term-label">Shilin Ou &middot; NetID: so192</span></header><nav class="lab-nav" aria-label="Lab navigation"><a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="../lab8/index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a aria-current="page" href="index.html">Lab 10</a></nav><main class="lab-shell"><section class="placeholder-card"><div class="lab-number">10</div><p class="section-kicker">Upcoming study</p><h1>Lab 10</h1><p>Lab 10 will be added here.</p><div class="page-actions"><a class="back-link" href="../index.html">&#8592; Back to home</a><a class="source-link" href="https://github.com/Owen-1234/stats401-labs/tree/main/lab10">View Lab 10 code on GitHub</a></div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Voice and text interaction with the DKU Bulletin semantic map.">
+  <base href="../lab8/">
+  <title>Lab 10: Ask the Bulletin | STATS 401</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../lab1/css/style.css">
+  <link rel="stylesheet" href="css/lab8.css">
+  <link rel="stylesheet" href="../lab10/lab10.css">
+</head>
+<body>
+  <a class="skip-link" href="../lab10/#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="course-mark" href="../index.html" aria-label="STATS 401 home"><span class="course-number">401</span><span class="course-name">Data Acquisition<br>&amp; Visualization</span></a>
+    <span class="term-label">Shilin Ou &middot; NetID: so192</span>
+  </header>
+  <nav class="lab-nav" aria-label="Lab navigation">
+    <a href="../lab1/index.html">Lab 1</a><a href="../lab2/index.html">Lab 2</a><a href="../lab3/index.html">Lab 3</a><a href="../lab4/index.html">Lab 4</a><a href="../lab5/index.html">Lab 5</a><a href="../lab6/index.html">Lab 6</a><a href="../lab7/index.html">Lab 7</a><a href="index.html">Lab 8</a><a href="../lab9/index.html">Lab 9</a><a href="../lab10/index.html" aria-current="page">Lab 10</a>
+  </nav>
+  <main id="main-content" class="lab-shell">
+    <section class="lab-heading lab8-heading">
+      <div class="lab-number" aria-hidden="true"><span>Novel interaction study</span>10</div>
+      <div class="lab-title-wrap">
+        <p class="section-kicker">Lab 10 &middot; Voice and text interaction</p>
+        <h1>Ask the Bulletin</h1>
+        <p class="lab-deck">Explore the DKU Undergraduate Bulletin by speaking or typing a short command. Both inputs search and filter the semantic map from <a href="index.html">Lab 8</a>.</p>
+        <div class="publication-line" aria-label="Publication details"><span>Shilin Ou</span><span>NetID: so192</span><span>STATS 401</span><span>Fall 2026</span><span>D3.js + Web Speech API</span></div>
+      </div>
+    </section>
+    <section class="chart-panel map-panel" aria-labelledby="map-title">
+      <div class="chart-header"><div><p class="figure-label">Figure 1 &middot; Semantic embedding map</p><h2 id="map-title">Find passages and explore modeled topics</h2><p>Each point is a passage from the 2021–22 DKU Undergraduate Bulletin. Color indicates its modeled topic. Select a point to read the source passage and its nearest neighbors.</p></div></div>
+      <div class="command-panel" aria-labelledby="command-title">
+        <h3 id="command-title">Voice or text command</h3>
+        <p class="command-examples">Try <code>Find credit</code>, <code>Show policy</code>, or <code>Reset view</code>. Say or type the same words.</p>
+        <form id="command-form" class="command-form">
+          <label for="command-input">Type a command</label>
+          <div class="command-entry"><input id="command-input" type="text" autocomplete="off" placeholder="Find credit" disabled><button id="run-command" type="submit" disabled>Run command</button><button id="voice-button" type="button" disabled>Start voice control</button></div>
+        </form>
+        <p id="interaction-status" class="interaction-status" role="status" aria-live="polite">Loading the visualization…</p>
+        <p class="permission-note">The microphone starts only when you press Start voice control and stops after one command. You can always use the text field or the controls below.</p>
+      </div>
+      <div class="control-row" aria-label="Conventional map controls">
+        <label class="control search-control">Search passage text <input id="search" type="search" placeholder="credit, graduation, registration…" autocomplete="off"></label>
+        <label class="control">Topic <select id="topic-filter"><option value="">All topics</option></select></label>
+        <label class="control section-control">Formal section <select id="section-filter"><option value="">All sections</option></select></label>
+        <button type="button" id="reset-map" class="quiet-button">Reset view</button>
+      </div>
+      <div id="topic-legend" class="topic-legend" aria-label="Semantic topic colors"></div>
+      <div class="map-layout">
+        <div class="map-wrap"><div id="semantic-map" aria-label="Interactive semantic map of Bulletin passages"></div><p id="map-status" class="map-status" aria-live="polite">Loading passages…</p></div>
+        <aside id="detail-panel" class="detail-panel" aria-labelledby="detail-title"><p class="section-kicker">Selected passage</p><h3 id="detail-title">Select a point</h3><p>Click a point or a matrix cell to inspect its source and related passages.</p></aside>
+      </div>
+      <p class="figure-caption">The axes have no independent substantive meaning. Nearest neighbors use cosine similarity between the original passage embeddings.</p>
+    </section>
+    <section class="chart-panel matrix-panel" aria-labelledby="matrix-title">
+      <div class="chart-header"><div><p class="figure-label">Figure 2 &middot; Topic × Bulletin section</p><h2 id="matrix-title">See where topics occur across sections</h2><p>Darker cells represent larger topic shares within a section. Click a cell to inspect its passages on the map.</p></div><label class="control matrix-control">Chapter <select id="matrix-chapter"><option value="">All chapters</option></select></label></div>
+      <div id="matrix-container" class="matrix-scroll" tabindex="0" aria-label="Scrollable topic by section matrix"></div><p id="matrix-status" class="matrix-status" aria-live="polite"></p>
+    </section>
+    <section class="analysis-section" aria-labelledby="reflection-title"><div><p class="section-kicker">Design reflection &middot; 100–200 words</p><h2 id="reflection-title">Why this interaction fits</h2></div><div class="analysis-copy"><p>I extended my Lab 8 semantic map of the DKU Undergraduate Bulletin. Voice commands now search passage text, filter modeled topics, and reset the view. A typed command field uses the same command rules, while the original search box, menus, and mouse controls remain available. This interaction supports readers who are scanning patterns in the map and want to change their question without leaving the visualization. For example, “Find credit” highlights matching passages, while “Show policy” isolates a topic. The interface displays the recognized words and the action taken, allowing readers to spot transcription errors. Microphone access begins only after the reader presses Start voice control, and listening ends after one command. Browser speech recognition can be unavailable or can mishear unfamiliar terms, particularly the Bulletin's specialized vocabulary. Short commands, visible feedback, and conventional controls keep the visualization usable when recognition is inaccurate or permission is denied.</p></div></section>
+  </main>
+  <footer><p>STATS 401 &middot; Lab 10</p><p class="footer-links"><a href="../index.html">Back to course portfolio</a></p></footer>
+  <div id="chart-tooltip" class="chart-tooltip" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="lab8.js"></script>
+  <script src="../lab10/lab10.js"></script>
+</body>
+</html>
