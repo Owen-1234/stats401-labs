@@ -36,14 +36,14 @@
       <div class="chart-header"><div><p class="figure-label">Figure 1 &middot; Semantic embedding map</p><h2 id="map-title">Find, filter, then read</h2><p>Each point is a passage from the 2021–22 DKU Undergraduate Bulletin. Color indicates its modeled topic. Select a point to read the source passage and its nearest neighbors.</p></div></div>
       <div class="command-panel" aria-labelledby="command-title">
         <h3 id="command-title">Voice or text command</h3>
-        <p class="command-examples">Say or type a short command. Select an example to try it.</p>
+        <p class="command-examples">Speak an English command or type one. Review the words below, then press Search / apply. Select an example to try it.</p>
         <div class="command-examples-list" aria-label="Example commands"><button type="button" data-command="Find credit" disabled>Find credit</button><button type="button" data-command="Show policy" disabled>Show policy</button><button type="button" data-command="Reset view" disabled>Reset view</button></div>
         <form id="command-form" class="command-form">
-          <label for="command-input">Type a command</label>
-          <div class="command-entry"><input id="command-input" type="text" autocomplete="off" placeholder="Find credit" disabled><button id="run-command" type="submit" disabled>Run command</button><button id="voice-button" type="button" aria-pressed="false" disabled>Start voice control</button></div>
+          <label for="command-input">Spoken or typed command</label>
+          <div class="command-entry"><input id="command-input" type="text" autocomplete="off" placeholder="Find credit" disabled><button id="run-command" type="submit" disabled>Search / apply</button><button id="voice-button" type="button" aria-pressed="false" disabled>Start voice control</button></div>
         </form>
         <p id="interaction-status" class="interaction-status" role="status" aria-live="polite">Loading the visualization…</p>
-        <p class="permission-note">The microphone starts only after you press Start voice control. It stops after one command, or when you press Stop listening. Text and standard controls remain available.</p>
+        <p class="permission-note">The microphone starts only after you press Start voice control. Spoken words appear in the command field as they are recognized. Listening ends after one command, or when you press Stop listening. Review or edit the text, then press Search / apply. Text and standard controls remain available.</p>
       </div>
       <div class="control-row" aria-label="Conventional map controls">
         <label class="control search-control">Search passage text <input id="search" type="search" placeholder="credit, graduation, registration…" autocomplete="off"></label>
@@ -62,12 +62,12 @@
       <div class="chart-header"><div><p class="figure-label">Figure 2 &middot; Topic × Bulletin section</p><h2 id="matrix-title">See where topics occur across sections</h2><p>Darker cells represent larger topic shares within a section. Click a cell to inspect its passages on the map.</p></div><label class="control matrix-control">Chapter <select id="matrix-chapter"><option value="">All chapters</option></select></label></div>
       <div id="matrix-container" class="matrix-scroll" tabindex="0" aria-label="Scrollable topic by section matrix"></div><p id="matrix-status" class="matrix-status" aria-live="polite"></p>
     </section>
-    <section class="analysis-section" aria-labelledby="reflection-title"><div><p class="section-kicker">Design reflection &middot; 100–200 words</p><h2 id="reflection-title">Why this interaction fits</h2></div><div class="analysis-copy"><p>I extended my Lab 8 semantic map of the DKU Undergraduate Bulletin. Voice commands now search passage text, filter modeled topics, and reset the view. A typed command field uses the same rules, while the original search box, menus, and mouse controls remain available. This interaction helps readers change their question while looking at the map. “Find credit” highlights matching passages and opens a short, page-ordered list so readers can move from a pattern to source text. “Show policy” isolates a modeled topic. The interface reports the recognized words and resulting action, which helps users notice transcription errors. Microphone access starts only after the reader presses Start voice control. Listening ends after one command and can be stopped sooner. Browser speech recognition can be unavailable or mishear specialized Bulletin terms. Short examples, text commands, and conventional controls preserve access when recognition fails. The result list is deliberately limited to the first five matching passages; the map still shows the full set of matches.</p></div></section>
+    <section class="analysis-section" aria-labelledby="reflection-title"><div><p class="section-kicker">Design reflection &middot; 100–200 words</p><h2 id="reflection-title">Why this interaction fits</h2></div><div class="analysis-copy"><p>I extended my Lab 8 semantic map of the DKU Undergraduate Bulletin. Speech recognition now places interim and final words in an editable command field. Readers review the text and press Search / apply before the map changes. The same field accepts typed commands, while the original search box, menus, and mouse controls remain available. This interaction helps readers change their question while looking at the map without requiring immediate recognition accuracy. “Find credit” highlights matching passages and opens a short, page-ordered list so readers can move from a pattern to source text. “Show policy” isolates a modeled topic. The interface reports the words heard and the action taken. Microphone access starts only after the reader presses Start voice control. Listening ends after one command and can be stopped sooner. Browser speech recognition can be unavailable or mishear specialized Bulletin terms. Reviewing the transcript and using conventional controls provide a fallback when recognition fails. The result list shows the first five matching passages; the map retains all matches.</p></div></section>
   </main>
   <footer><p>STATS 401 &middot; Lab 10</p><p class="footer-links"><a href="../index.html">Back to course portfolio</a></p></footer>
   <div id="chart-tooltip" class="chart-tooltip" role="status"></div>
   <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
   <script src="lab8.js"></script>
-  <script src="../lab10/lab10.js?v=4"></script>
+  <script src="../lab10/lab10.js?v=5"></script>
 </body>
 </html>

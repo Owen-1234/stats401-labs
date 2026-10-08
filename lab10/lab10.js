@@ -18,6 +18,7 @@
   let ready = false;
   let listening = false;
   let programmaticReset = false;
+  let voiceDraft = false;
 
   function normalize(value) {
     return value.toLowerCase().trim().replace(/[.,!?;:]+$/g, "").replace(/\s+/g, " ");
@@ -143,11 +144,19 @@
 
   form.addEventListener("submit", event => {
     event.preventDefault();
-    if (ready) handleCommand(input.value, "text");
+    if (!ready) return;
+    if (listening) {
+      status.textContent = "Finish listening before applying the command.";
+      return;
+    }
+    handleCommand(input.value, voiceDraft ? "voice" : "text");
+    voiceDraft = false;
   });
+  input.addEventListener("input", () => { voiceDraft = false; });
   document.querySelectorAll("[data-command]").forEach(button => {
     button.addEventListener("click", () => {
       if (!ready) return;
+      voiceDraft = false;
       input.value = button.dataset.command;
       handleCommand(button.dataset.command, "example");
     });
@@ -207,23 +216,38 @@
   const recognition = new SpeechRecognition();
   recognition.lang = "en-US";
   recognition.continuous = false;
-  recognition.interimResults = false;
+  recognition.interimResults = true;
+  let heardTranscript = "";
+  let recognitionError = false;
   function setListening(active) {
     listening = active;
     voiceButton.textContent = active ? "Stop listening" : "Start voice control";
     voiceButton.setAttribute("aria-pressed", String(active));
     voiceButton.disabled = !ready;
+    runButton.disabled = !ready || active;
+    input.readOnly = active;
+    document.querySelectorAll("[data-command]").forEach(button => { button.disabled = !ready || active; });
   }
   voiceButton.addEventListener("click", () => {
     if (!ready) return;
     if (listening) {
-      recognition.abort();
-      status.textContent = "Listening stopped. Type a command or use the controls below.";
+      try {
+        recognition.stop();
+        status.textContent = "Finishing transcription…";
+      } catch (error) {
+        setListening(false);
+        status.textContent = "Listening stopped. Review the command text or try again.";
+      }
       return;
     }
+    heardTranscript = "";
+    recognitionError = false;
+    voiceDraft = false;
     try {
       recognition.start();
+      input.value = "";
       setListening(true);
+      status.textContent = "Starting microphone… Speak an English command.";
     } catch (error) {
       setListening(false);
       status.textContent = "The microphone could not start. Type a command or use the controls below.";
@@ -231,19 +255,33 @@
   });
   recognition.onstart = () => {
     setListening(true);
-    status.textContent = "Listening for one command…";
+    status.textContent = "Listening… Speak an English command such as “Find credit”.";
   };
   recognition.onresult = event => {
-    handleCommand(event.results[0][0].transcript, "voice");
+    const results = Array.from(event.results);
+    const transcript = results.map(result => result[0]?.transcript || "").join(" ").replace(/\s+/g, " ").trim();
+    if (!transcript) return;
+    heardTranscript = transcript;
+    voiceDraft = true;
+    input.value = transcript;
+    status.textContent = results.every(result => result.isFinal)
+      ? `Heard: “${transcript}”. Review or edit it, then press Search / apply.`
+      : `Hearing: “${transcript}”… Waiting for the final transcript.`;
   };
   recognition.onerror = event => {
-    status.textContent = event.error === "aborted"
-      ? "Listening stopped. Type a command or use the controls below."
-      : event.error === "not-allowed" || event.error === "service-not-allowed"
+    recognitionError = true;
+    status.textContent = event.error === "not-allowed" || event.error === "service-not-allowed"
       ? "Microphone permission was denied. Type a command or use the controls below."
+      : event.error === "no-speech"
+      ? "No speech detected. Try again or type a command."
       : `Speech recognition failed (${event.error}). Type a command or try again.`;
   };
   recognition.onend = () => {
     setListening(false);
+    if (!recognitionError) {
+      status.textContent = heardTranscript
+        ? `Heard: “${heardTranscript}”. Review or edit it, then press Search / apply.`
+        : "No speech detected. Try again or type a command.";
+    }
   };
 })();
